@@ -1,36 +1,21 @@
-from datetime import datetime
-
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 
-from app.agent.controller import medical_agent
 from app.database import get_db
-from app.models import Appointment, User
+from app.models import Appointment, AppointmentHistory, User
 from app.schemas import (
+    AppointmentBookRequest,
+    AppointmentCancelRequest,
+    AppointmentHistoryResponse,
     AppointmentOut,
-    AppointmentRescheduleRequest,
-    AppointmentScheduleRequest,
-    AppointmentScheduleResponse,
-    AppointmentSlot,
+    AppointmentRecommendRequest,
+    AppointmentRecommendationResponse,
+    AppointmentRescheduleBody,
 )
 from app.security import get_current_user
-from app.skills.appointment_booking import finalize_booking
+from app.services.appointment_service import book_appointment, cancel_appointment, recommend_slots
 
-router = APIRouter(prefix="/api/appointments", tags=["Dynamic Appointment Scheduling"])
-
-
-def serialize_slot(slot: dict | None) -> AppointmentSlot | None:
-    if slot is None:
-        return None
-    start = slot["start"]
-    doctor = slot["doctor"]
-    return AppointmentSlot(
-        date=start.strftime("%Y-%m-%d"),
-        time=start.strftime("%I:%M %p"),
-        doctor_id=doctor.id,
-        doctor_name=doctor.name,
-        specialization=doctor.specialization,
-    )
+router = APIRouter(prefix="/api/appointments", tags=["Schedule Appointment"])
 
 
 def serialize_appointment(item: Appointment) -> AppointmentOut:
@@ -47,108 +32,8 @@ def serialize_appointment(item: Appointment) -> AppointmentOut:
     )
 
 
-def run_schedule(
-    payload: AppointmentScheduleRequest,
-    current_user: User,
-    db: Session,
-    reschedule_appointment_id: int | None = None,
-) -> AppointmentScheduleResponse:
-    if payload.patient_id is not None and payload.patient_id != current_user.id:
-        raise HTTPException(status_code=403, detail="Patient ID does not match the authenticated user.")
-
-    now = (payload.current_datetime or datetime.now()).replace(second=0, microsecond=0)
-    constraints = payload.constraints.model_dump()
-    result = medical_agent.run_appointment_scheduler(
-        db=db,
-        user=current_user,
-        preferred_time_ranges=payload.preferred_time_ranges,
-        urgency_level=payload.urgency_level,
-        specialization=payload.doctor_specialization_required,
-        current_datetime=now,
-        constraints=constraints,
-        duration_minutes=payload.appointment_duration_minutes,
-    )
-
-    recommended = result["recommended"]
-    alternatives = [serialize_slot(slot) for slot in result["alternatives"]]
-
-    if recommended is None:
-        return AppointmentScheduleResponse(
-            recommended_slot=None,
-            alternative_slots=[],
-            reasoning=result["reasoning"],
-            urgency_handling=result["urgency_handling"],
-            status="conflict",
-            preference_profile=result["preference_profile"],
-        )
-
-    appointment_id = None
-    status = "suggestion"
-    if payload.confirm_booking:
-        appointment = finalize_booking(
-            db,
-            current_user.id,
-            recommended,
-            payload.urgency_level,
-            constraints,
-            result["reasoning"],
-            reschedule_appointment_id=reschedule_appointment_id,
-        )
-        appointment_id = appointment.id
-        status = "confirmed"
-
-    return AppointmentScheduleResponse(
-        recommended_slot=serialize_slot(recommended),
-        alternative_slots=alternatives,
-        reasoning=result["reasoning"],
-        urgency_handling=result["urgency_handling"],
-        status=status,
-        appointment_id=appointment_id,
-        preference_profile=result["preference_profile"],
-    )
-
-
-@router.post("/schedule", response_model=AppointmentScheduleResponse)
-def schedule_appointment(
-    payload: AppointmentScheduleRequest,
-    current_user: User = Depends(get_current_user),
-    db: Session = Depends(get_db),
-):
-    return run_schedule(payload, current_user, db)
-
-
-@router.post("/reschedule", response_model=AppointmentScheduleResponse)
-def reschedule_appointment(
-    payload: AppointmentRescheduleRequest,
-    current_user: User = Depends(get_current_user),
-    db: Session = Depends(get_db),
-):
-    existing = db.query(Appointment).filter(Appointment.id == payload.appointment_id, Appointment.user_id == current_user.id).first()
-    if existing is None:
-        raise HTTPException(status_code=404, detail="Appointment not found.")
-    return run_schedule(payload, current_user, db, reschedule_appointment_id=payload.appointment_id)
-
-
-@router.post("/{appointment_id}/cancel", response_model=AppointmentOut)
-def cancel_appointment(
-    appointment_id: int,
-    current_user: User = Depends(get_current_user),
-    db: Session = Depends(get_db),
-):
-    appointment = db.query(Appointment).filter(Appointment.id == appointment_id, Appointment.user_id == current_user.id).first()
-    if appointment is None:
-        raise HTTPException(status_code=404, detail="Appointment not found.")
-    appointment.status = "cancelled"
-    db.commit()
-    db.refresh(appointment)
-    return serialize_appointment(appointment)
-
-
 @router.get("", response_model=list[AppointmentOut])
-def list_appointments(
-    current_user: User = Depends(get_current_user),
-    db: Session = Depends(get_db),
-):
+def list_appointments(current_user: User = Depends(get_current_user), db: Session = Depends(get_db)):
     items = (
         db.query(Appointment)
         .filter(Appointment.user_id == current_user.id)
@@ -156,3 +41,103 @@ def list_appointments(
         .all()
     )
     return [serialize_appointment(item) for item in items]
+
+
+@router.post("/recommend", response_model=AppointmentRecommendationResponse)
+def recommend_appointments(
+    payload: AppointmentRecommendRequest,
+    current_user: User = Depends(get_current_user),
+    db: Session = Depends(get_db),
+):
+    result = recommend_slots(db, current_user, payload)
+    if payload.confirm_booking_after_validation and result["recommended_slots"]:
+        selected = result["recommended_slots"][0]
+        appointment = book_appointment(
+            db,
+            current_user,
+            AppointmentBookRequest(
+                doctor_id=selected["doctor_id"],
+                starts_at=selected["starts_at"],
+                duration_minutes=payload.duration_minutes,
+                urgency_level=payload.urgency_level,
+                specialization=payload.specialization,
+                reasoning=result["reasoning"],
+            ),
+        )
+        result["appointment_id"] = appointment.id
+        result["status"] = "confirmed"
+    return result
+
+
+@router.post("/book", response_model=AppointmentOut)
+def book(
+    payload: AppointmentBookRequest,
+    current_user: User = Depends(get_current_user),
+    db: Session = Depends(get_db),
+):
+    return serialize_appointment(book_appointment(db, current_user, payload))
+
+
+@router.put("/{appointment_id}/cancel", response_model=AppointmentOut)
+@router.post("/{appointment_id}/cancel", response_model=AppointmentOut)
+def cancel(
+    appointment_id: int,
+    payload: AppointmentCancelRequest | None = None,
+    current_user: User = Depends(get_current_user),
+    db: Session = Depends(get_db),
+):
+    return serialize_appointment(cancel_appointment(db, current_user, appointment_id, payload.reason if payload else ""))
+
+
+@router.put("/{appointment_id}/reschedule", response_model=AppointmentRecommendationResponse)
+def reschedule(
+    appointment_id: int,
+    payload: AppointmentRescheduleBody,
+    current_user: User = Depends(get_current_user),
+    db: Session = Depends(get_db),
+):
+    existing = db.query(Appointment).filter(Appointment.id == appointment_id, Appointment.user_id == current_user.id).first()
+    if existing is None:
+        raise HTTPException(status_code=404, detail="Appointment not found.")
+
+    if payload.selected_doctor_id and payload.selected_starts_at:
+        appointment = book_appointment(
+            db,
+            current_user,
+            AppointmentBookRequest(
+                doctor_id=payload.selected_doctor_id,
+                starts_at=payload.selected_starts_at,
+                duration_minutes=payload.duration_minutes,
+                urgency_level=payload.urgency_level,
+                specialization=payload.specialization,
+                reasoning="Rescheduled by patient after agent validation.",
+            ),
+            reschedule_id=appointment_id,
+        )
+        return {
+            "recommended_slots": [],
+            "reasoning": "Appointment rescheduled and history preserved.",
+            "status": "confirmed",
+            "appointment_id": appointment.id,
+        }
+
+    return recommend_slots(db, current_user, payload)
+
+
+@router.get("/history", response_model=list[AppointmentHistoryResponse])
+def history(current_user: User = Depends(get_current_user), db: Session = Depends(get_db)):
+    return (
+        db.query(AppointmentHistory)
+        .filter(AppointmentHistory.user_id == current_user.id)
+        .order_by(AppointmentHistory.created_at.desc())
+        .all()
+    )
+
+
+@router.post("/schedule", response_model=AppointmentRecommendationResponse)
+def compatibility_schedule(
+    payload: AppointmentRecommendRequest,
+    current_user: User = Depends(get_current_user),
+    db: Session = Depends(get_db),
+):
+    return recommend_appointments(payload, current_user, db)

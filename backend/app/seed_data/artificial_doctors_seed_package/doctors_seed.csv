@@ -1,0 +1,541 @@
+id,full_name,gender,department,clinic,qualification,experience_years,languages,consultation_fee,rating,online_consultation,max_daily_appointments,preferred_patient_age_group,is_active
+8ff8f511-1234-4205-bcfe-751a82e9f7bc,Dr. Aadhya Sharma,female,General Medicine,MediGuide Health Center,"MBBS, MD General Medicine",18,English|Telugu,400,4.6,False,20,child,True
+86fa1837-c96e-4014-8716-4f4aca97bf32,Dr. Yash Gupta,male,General Medicine,MediGuide Health Center,"MBBS, DNB Family Medicine",5,English|Marathi,600,4.5,True,18,all,True
+48229459-d298-43ae-8d2b-1bf05bdb5905,Dr. Karan Patel,male,General Medicine,CarePoint Hospital,"MBBS, DNB Family Medicine",13,English|Bengali|Kannada|Tamil,500,4.6,False,12,adult,True
+5bff7e36-7a21-4df5-bc66-292f2ea20976,Dr. Pranav Fernandes,male,General Medicine,Harmony Medical Center,"MBBS, MD General Medicine",14,English|Urdu,700,4.2,True,20,senior,True
+6562cede-4b6a-44bc-ac25-f1b9ec74fc46,Dr. Neha Bose,female,General Medicine,Sunrise Medical Hub,"MBBS, DNB Family Medicine",25,English|Hindi|Bengali,400,4.7,True,12,senior,True
+6879749a-faa3-4678-ae22-307609c4f859,Dr. Ritvik Gupta,male,General Medicine,CarePoint Hospital,"MBBS, MD General Medicine",13,English|Kannada,600,4.1,False,12,all,True
+ff9870e7-9a7f-4dc7-a175-7ae3dc21f050,Dr. Sai Singh,male,General Medicine,MediGuide Health Center,"MBBS, MD General Medicine",19,English|Hindi|Malayalam,500,4.0,False,12,adult,True
+875bbc9e-7fb3-4eac-8fc1-907a312d7643,Dr. Siddharth Chatterjee,male,General Medicine,CityWell Multispeciality,"MBBS, DNB Family Medicine",23,English|Kannada,700,4.4,True,12,all,True
+465c8909-df81-4dbe-b37a-879efe80b4c0,Dr. Krishna Bose,male,General Medicine,CityWell Multispeciality,"MBBS, MD General Medicine",19,English|Urdu,400,4.6,False,12,all,True
+2bfe8a83-9246-48f4-a0e0-c6146631da44,Dr. Karan Patel,male,General Medicine,CarePoint Hospital,"MBBS, MD General Medicine",25,English|Marathi|Bengali,700,4.2,True,12,all,True
+5a34e201-2888-4477-9c09-d7d61e5d43b1,Dr. Ritvik Iyer,male,General Medicine,PrimeHealth Clinic,"MBBS, MD General Medicine",23,English|Bengali|Tamil|Kannada,600,4.2,True,16,child,True
+9e12840f-820b-427f-8cd6-0f162133df96,Dr. Meera Menon,female,General Medicine,CarePoint Hospital,"MBBS, DNB Family Medicine",18,English|Malayalam|Urdu|Bengali,400,4.8,True,14,senior,True
+adce35ba-588e-4bdd-b7ae-280ef9298959,Dr. Kiara Reddy,female,General Medicine,MediGuide Health Center,"MBBS, DNB Family Medicine",3,English|Marathi|Urdu|Tamil,400,4.7,False,16,adult,True
+acb188ab-c644-4427-8cd6-fb2952af61df,Dr. Aadhya Rao,female,General Medicine,CityWell Multispeciality,"MBBS, MD General Medicine",13,English|Telugu|Bengali|Hindi,700,4.8,True,14,adult,True
+b91485d6-bf3e-4a15-8350-f318df7f9f09,Dr. Rahul Rao,male,General Medicine,Nova Family Clinic,"MBBS, DNB Family Medicine",2,English|Telugu,500,4.3,True,16,senior,True
+77fee66c-42e0-4868-a8a7-9eab783c9f18,Dr. Isha Khan,female,General Medicine,Nova Family Clinic,"MBBS, DNB Family Medicine",2,English|Marathi,500,4.4,False,16,senior,True
+e32dfe8b-9008-4675-a081-187ed6b8d478,Dr. Ishaan Das,male,General Medicine,CityWell Multispeciality,"MBBS, MD General Medicine",16,English|Bengali|Telugu,700,4.5,False,14,all,True
+4c61bfe1-811b-4750-a4c0-967eac34c36b,Dr. Neha Banerjee,female,General Medicine,MediGuide Health Center,"MBBS, DNB Family Medicine",20,English|Marathi|Bengali,500,4.4,True,14,all,True
+1650d933-157a-4fa0-93eb-a6a95fbc8add,Dr. Zoya Joshi,female,General Medicine,Sunrise Medical Hub,"MBBS, DNB Family Medicine",21,English|Bengali|Marathi|Telugu,700,4.8,False,18,child,True
+94a8899c-3852-47d7-b6ca-2dfdc3a1d48e,Dr. Avni Iyer,female,General Medicine,GreenLife Hospital,"MBBS, MD General Medicine",14,English|Telugu,500,4.1,True,16,child,True
+8fe91f29-c301-4007-bf1f-969e128f8786,Dr. Siddharth Singh,male,General Medicine,Nova Family Clinic,"MBBS, DNB Family Medicine",14,English|Urdu|Hindi,600,4.7,True,14,all,True
+8ca624f0-05c4-4ff3-8841-2755153b0153,Dr. Rahul Gupta,male,General Medicine,Harmony Medical Center,"MBBS, MD General Medicine",15,English|Malayalam|Marathi,600,4.4,False,20,all,True
+5f8121a2-9c5e-47d4-90b6-05cd05d20be7,Dr. Rahul Fernandes,male,General Medicine,Nova Family Clinic,"MBBS, MD General Medicine",21,English|Tamil|Malayalam,400,4.9,True,20,all,True
+199e113c-69f8-44ed-8b08-823cbe323007,Dr. Zoya Rao,female,General Medicine,MediGuide Health Center,"MBBS, DNB Family Medicine",17,English|Bengali|Hindi|Telugu,400,4.9,False,18,adult,True
+1a70ce87-5c90-42cb-b470-308ee7534b62,Dr. Anika Banerjee,female,General Medicine,CarePoint Hospital,"MBBS, MD General Medicine",17,English|Marathi|Tamil|Hindi,600,4.4,True,16,senior,True
+bb56a1e7-cf50-4049-ace0-2ee01e65562b,Dr. Ananya Iyer,female,General Medicine,Nova Family Clinic,"MBBS, DNB Family Medicine",24,English|Marathi,500,4.6,True,18,senior,True
+5cdc3b23-6e4d-4b0f-a7cf-3aa062975668,Dr. Rudra Kulkarni,male,General Medicine,GreenLife Hospital,"MBBS, DNB Family Medicine",25,English|Telugu,700,4.7,False,20,senior,True
+af1989a0-4e63-4dd1-af0c-6595a7c8f224,Dr. Vivaan Kulkarni,male,General Medicine,Nova Family Clinic,"MBBS, DNB Family Medicine",5,English|Tamil|Bengali|Telugu,400,4.4,True,16,adult,True
+81d27c7c-0812-4d0c-a6b6-5528eed905ed,Dr. Pranav Das,male,General Medicine,MediGuide Health Center,"MBBS, MD General Medicine",19,English|Kannada,700,4.7,True,18,child,True
+bc910b2b-ee67-4be3-ac0a-8d9bd37d7f1f,Dr. Aniket Iyer,male,General Medicine,GreenLife Hospital,"MBBS, DNB Family Medicine",16,English|Marathi,700,4.0,True,16,child,True
+20f9be4d-0d6e-4cd7-a985-d43dddf854d0,Dr. Aditya Reddy,male,Cardiology,GreenLife Hospital,"MBBS, DNB Cardiology",5,English|Malayalam|Telugu,1400,4.6,True,20,child,True
+62e0df8f-b76c-48e8-b124-53ce61e37e0b,Dr. Siddharth Joshi,male,Cardiology,CarePoint Hospital,"MBBS, MD, DM Cardiology",15,English|Tamil|Malayalam,1400,4.4,True,16,senior,True
+99363962-4071-4efa-9730-4741711421dc,Dr. Dev Kulkarni,male,Cardiology,CarePoint Hospital,"MBBS, DNB Cardiology",18,English|Hindi|Kannada,1300,4.6,True,14,senior,True
+1dd57efe-bfcb-4e1d-898d-74eed9f91d80,Dr. Ira Agarwal,female,Cardiology,GreenLife Hospital,"MBBS, DNB Cardiology",24,English|Malayalam|Urdu,1300,4.8,True,14,child,True
+06c3a345-2a66-4116-b2ee-f3ad55b97039,Dr. Avni Mehta,female,Cardiology,Harmony Medical Center,"MBBS, MD, DM Cardiology",12,English|Marathi|Telugu,1200,4.5,True,18,all,True
+b6cd1201-94bc-4515-92bf-4fd0677194ce,Dr. Ananya Mishra,female,Cardiology,GreenLife Hospital,"MBBS, DNB Cardiology",17,English|Tamil|Hindi,1300,4.6,True,12,senior,True
+f6dc353b-6537-49a1-baca-a23b5834cd3c,Dr. Manav Das,male,Cardiology,Central Care Clinic,"MBBS, DNB Cardiology",3,English|Bengali,1300,4.3,True,14,child,True
+1f1da1a5-27db-4f28-875c-05ce0e8735c6,Dr. Meera Thomas,female,Cardiology,Sunrise Medical Hub,"MBBS, DNB Cardiology",16,English|Kannada,1300,4.6,True,16,child,True
+b7d16a90-3c31-4f88-895f-f2baa4023241,Dr. Pranav Thomas,male,Cardiology,Central Care Clinic,"MBBS, MD, DM Cardiology",9,English|Urdu|Marathi|Tamil,1300,4.6,False,16,adult,True
+9873a30b-2758-44aa-90b8-ee55153d3195,Dr. Saanvi Patel,female,Cardiology,CarePoint Hospital,"MBBS, MD, DM Cardiology",5,English|Bengali|Marathi,1400,4.1,True,18,senior,True
+67ce72c3-f7fc-42fa-b483-8b1261b9cf0d,Dr. Dev Singh,male,Cardiology,CarePoint Hospital,"MBBS, MD, DM Cardiology",21,English|Bengali,1200,4.6,True,16,child,True
+1dd3b12a-a09d-4c8d-a840-89655cb82a45,Dr. Nisha Rao,female,Cardiology,Sunrise Medical Hub,"MBBS, DNB Cardiology",22,English|Tamil|Telugu,1100,4.6,True,12,senior,True
+ecb1044d-83e5-4f17-8304-95443636ed92,Dr. Aarohi Nair,female,Cardiology,CarePoint Hospital,"MBBS, MD, DM Cardiology",22,English|Telugu,1100,4.7,True,14,adult,True
+f4632445-f4ee-4c44-a822-6b08b5567107,Dr. Aniket Patel,male,Cardiology,GreenLife Hospital,"MBBS, DNB Cardiology",6,English|Hindi,1100,4.7,True,20,senior,True
+a37bb050-78d6-4f83-93d7-2e3003c3eca9,Dr. Tanvi Shetty,female,Cardiology,MediGuide Health Center,"MBBS, DNB Cardiology",3,English|Telugu|Malayalam,1300,4.6,True,12,child,True
+1d5e7463-e448-4b41-a7ef-b2507a4f962c,Dr. Pooja Pillai,female,Cardiology,Sunrise Medical Hub,"MBBS, MD, DM Cardiology",21,English|Urdu|Malayalam,1400,4.7,True,20,adult,True
+d597db31-01e8-400e-91c9-515cd21acc0d,Dr. Myra Thomas,female,Cardiology,CarePoint Hospital,"MBBS, DNB Cardiology",4,English|Kannada,1100,4.1,False,16,adult,True
+bd735643-a6b9-417c-abd9-33a4338b6eea,Dr. Anika Nair,female,Cardiology,Harmony Medical Center,"MBBS, DNB Cardiology",20,English|Bengali|Hindi|Tamil,1200,4.8,False,20,all,True
+256c5aff-3e57-4ba3-984b-4b4c9a713dbe,Dr. Rudra Joshi,male,Cardiology,CityWell Multispeciality,"MBBS, DNB Cardiology",12,English|Marathi|Telugu,1200,4.3,True,20,all,True
+512754d8-64db-47fe-ab95-7b6f3be1cc28,Dr. Kiara Khan,female,Cardiology,Sunrise Medical Hub,"MBBS, DNB Cardiology",15,English|Bengali,1100,4.6,False,18,senior,True
+b1be69e5-9e2a-4c0e-a428-8e5eed2d8a1f,Dr. Riya Nair,female,Cardiology,Central Care Clinic,"MBBS, MD, DM Cardiology",6,English|Marathi|Kannada,1400,4.5,False,16,all,True
+87e9997b-e426-42e8-9b2b-65731bffcce3,Dr. Ananya Gupta,female,Cardiology,GreenLife Hospital,"MBBS, DNB Cardiology",13,English|Urdu|Marathi|Bengali,1100,4.8,True,18,child,True
+ec70cf9a-8a95-4664-b368-03a5423e1fc6,Dr. Arjun Patel,male,Cardiology,CityWell Multispeciality,"MBBS, MD, DM Cardiology",22,English|Tamil,1100,4.9,False,18,child,True
+d458f332-91d5-49e5-9712-41cd4e0b046c,Dr. Nisha Bose,female,Cardiology,Central Care Clinic,"MBBS, MD, DM Cardiology",11,English|Bengali,1100,4.6,False,18,child,True
+cca067fb-b0ec-4908-a647-3c3f98548348,Dr. Manav Bose,male,Cardiology,CarePoint Hospital,"MBBS, DNB Cardiology",11,English|Tamil|Urdu|Marathi,1400,4.7,False,20,all,True
+dc7acb4d-cab1-4658-b92e-8486f99bf996,Dr. Ritvik Fernandes,male,Cardiology,MediGuide Health Center,"MBBS, MD, DM Cardiology",12,English|Marathi|Bengali,1200,4.6,True,20,senior,True
+3edfd92b-4980-4b2c-af26-b35e8332ee83,Dr. Aditya Das,male,Cardiology,MediGuide Health Center,"MBBS, DNB Cardiology",21,English|Hindi|Bengali|Tamil,1200,4.1,True,20,adult,True
+6d4bd316-a7e6-493c-b24d-1166341e76f7,Dr. Lavanya Das,female,Cardiology,PrimeHealth Clinic,"MBBS, DNB Cardiology",21,English|Marathi|Kannada|Urdu,1200,4.0,True,16,all,True
+e51fb9f3-afb6-4e80-b495-33854df9eb3a,Dr. Karan Joshi,male,Cardiology,Harmony Medical Center,"MBBS, MD, DM Cardiology",4,English|Marathi,1300,4.0,True,16,adult,True
+bbc50eb5-0a26-4a8d-a1d5-37eec1a3f2f0,Dr. Aarohi Kapoor,female,Cardiology,Sunrise Medical Hub,"MBBS, MD, DM Cardiology",9,English|Marathi|Hindi|Tamil,1300,4.0,True,20,child,True
+3dbda18f-1f4b-41bf-9d60-67a64c50752a,Dr. Pranav Chatterjee,male,Dermatology,GreenLife Hospital,"MBBS, DDVL",4,English|Kannada|Malayalam|Tamil,700,4.8,True,18,senior,True
+42cd7490-1c1a-48a9-a2cd-224dcc99f924,Dr. Yash Thomas,male,Dermatology,CarePoint Hospital,"MBBS, DDVL",6,English|Urdu|Bengali|Kannada,700,4.0,True,12,adult,True
+7d8bb77e-3ee4-4fc6-be85-2fc989d011b6,Dr. Ayaan Gupta,male,Dermatology,Nova Family Clinic,"MBBS, DDVL",15,English|Bengali,1000,4.8,True,16,adult,True
+3d7f0533-54fa-4708-b807-c7d4d9a0f7a8,Dr. Aditya Gupta,male,Dermatology,Nova Family Clinic,"MBBS, MD Dermatology",24,English|Urdu|Malayalam,1000,4.6,True,18,all,True
+f1ab26d1-29d7-4efc-9d14-c97df9710102,Dr. Yash Agarwal,male,Dermatology,Harmony Medical Center,"MBBS, DDVL",3,English|Marathi|Malayalam,800,4.9,True,18,all,True
+40e7fe7e-b818-41cc-b9ba-5fa847dbc2ff,Dr. Aarohi Pillai,female,Dermatology,Nova Family Clinic,"MBBS, DDVL",6,English|Urdu|Kannada|Hindi,700,4.2,False,18,all,True
+8caab517-1c93-462f-a619-c0bea2d310ce,Dr. Rohan Kulkarni,male,Dermatology,BlueCross Wellness,"MBBS, MD Dermatology",19,English|Urdu|Marathi,800,4.1,True,18,child,True
+e03aeb29-fe67-47c3-a031-5b7b4725e7e8,Dr. Vihaan Joshi,male,Dermatology,GreenLife Hospital,"MBBS, DDVL",12,English|Tamil|Kannada,800,4.9,False,16,all,True
+fa957991-f42e-4440-bc67-af78c415eb60,Dr. Vivaan Agarwal,male,Dermatology,BlueCross Wellness,"MBBS, MD Dermatology",20,English|Telugu|Marathi,1000,4.4,False,20,senior,True
+1723e129-c8ff-4f09-a387-b63d5fee7d83,Dr. Neha Kapoor,female,Dermatology,Harmony Medical Center,"MBBS, DDVL",14,English|Bengali|Urdu|Tamil,800,4.5,True,16,adult,True
+799ab361-31b5-4614-ae0e-e4fb7dc697e4,Dr. Isha Mishra,female,Dermatology,Harmony Medical Center,"MBBS, DDVL",17,English|Tamil,1000,4.8,True,12,all,True
+672b2a2a-88d9-46ee-9926-4290fe3f049a,Dr. Nikhil Kapoor,male,Dermatology,Nova Family Clinic,"MBBS, DDVL",13,English|Bengali|Marathi|Telugu,700,4.0,False,14,senior,True
+52584988-a8b8-48a5-a3ad-aaeb3e5e1347,Dr. Tanvi Reddy,female,Dermatology,Central Care Clinic,"MBBS, DDVL",24,English|Tamil,900,4.5,True,20,adult,True
+a5b993d1-fe87-4014-b66c-c25830111bea,Dr. Nikhil Shetty,male,Dermatology,Nova Family Clinic,"MBBS, MD Dermatology",10,English|Hindi|Malayalam|Telugu,800,4.5,True,20,child,True
+35934fcb-3f64-43d3-987d-ced76f06ce3b,Dr. Nikhil Fernandes,male,Dermatology,CityWell Multispeciality,"MBBS, MD Dermatology",25,English|Urdu|Marathi,700,4.5,False,16,child,True
+c3339bc1-dfb8-4c1a-8306-8c76ea1dc533,Dr. Manav Fernandes,male,Dermatology,CarePoint Hospital,"MBBS, DDVL",19,English|Urdu|Tamil,900,4.1,False,20,child,True
+3b177693-838b-48ca-87f6-e93597f09751,Dr. Avni Fernandes,female,Dermatology,Nova Family Clinic,"MBBS, MD Dermatology",21,English|Kannada,800,4.0,False,14,adult,True
+bea107e0-7c40-41ea-b408-43894542575f,Dr. Priya Agarwal,female,Dermatology,CityWell Multispeciality,"MBBS, MD Dermatology",22,English|Bengali|Tamil,700,4.6,True,20,all,True
+85ab46ff-1cc6-46bf-ae87-72319c7c9ae5,Dr. Isha Pillai,female,Dermatology,MediGuide Health Center,"MBBS, MD Dermatology",22,English|Malayalam|Telugu,1000,4.8,True,16,adult,True
+80678fb1-687c-4238-8cf6-966d4e00922b,Dr. Ritvik Agarwal,male,Dermatology,PrimeHealth Clinic,"MBBS, MD Dermatology",14,English|Bengali|Hindi,700,4.9,True,16,adult,True
+9b4e25fb-8803-4fd2-a634-7501110754e2,Dr. Maya Singh,female,Dermatology,Central Care Clinic,"MBBS, DDVL",7,English|Kannada|Telugu|Tamil,1000,4.6,False,16,senior,True
+e06a0abe-155b-4c01-bcdf-c2874314d047,Dr. Vivaan Kulkarni,male,Dermatology,Sunrise Medical Hub,"MBBS, DDVL",7,English|Tamil,900,4.1,True,20,child,True
+6970582c-f13e-4b51-814d-642b6d7a9036,Dr. Trisha Sharma,female,Dermatology,PrimeHealth Clinic,"MBBS, MD Dermatology",8,English|Hindi|Bengali,700,4.4,False,12,all,True
+1d63a36e-14e6-4379-b105-a773a5a08f96,Dr. Pooja Verma,female,Dermatology,MediGuide Health Center,"MBBS, DDVL",5,English|Tamil|Bengali|Urdu,800,4.5,False,14,all,True
+eb937ff8-ae1f-4481-9987-a91c80d8a0b6,Dr. Aarohi Mishra,female,Dermatology,MediGuide Health Center,"MBBS, MD Dermatology",21,English|Marathi,700,4.2,True,20,all,True
+d28172bd-c8e5-4d4f-91d5-c5dabcbf6be7,Dr. Rudra Shetty,male,Dermatology,Harmony Medical Center,"MBBS, DDVL",6,English|Bengali|Kannada|Tamil,800,4.3,True,20,adult,True
+f05e4e2b-af82-431a-a730-b04ebce4b003,Dr. Ishaan Fernandes,male,Dermatology,GreenLife Hospital,"MBBS, MD Dermatology",15,English|Hindi|Malayalam,1000,4.3,True,14,senior,True
+7e458c13-9eb8-494b-88c9-3e0964106629,Dr. Ananya Khan,female,Dermatology,CityWell Multispeciality,"MBBS, DDVL",9,English|Kannada|Bengali|Telugu,800,4.8,False,16,senior,True
+a9a59fde-ad0e-4470-ab5a-67d5e64bd69e,Dr. Riya Chatterjee,female,Dermatology,Central Care Clinic,"MBBS, DDVL",2,English|Telugu|Bengali|Kannada,900,4.3,True,16,adult,True
+eb2e38d3-866a-402c-a6d1-b09b8d693d6c,Dr. Rudra Kulkarni,male,Dermatology,CarePoint Hospital,"MBBS, MD Dermatology",18,English|Hindi,700,4.9,False,12,all,True
+7936616d-d827-4436-939a-cd5f76f3e283,Dr. Aarav Kulkarni,male,Neurology,Sunrise Medical Hub,"MBBS, DNB Neurology",18,English|Hindi|Urdu,1300,4.0,False,18,adult,True
+75cf4429-2824-4b1c-b7d0-293c55b34847,Dr. Rohan Verma,male,Neurology,CarePoint Hospital,"MBBS, MD, DM Neurology",11,English|Telugu|Bengali|Kannada,1100,4.1,True,18,child,True
+3911f33b-9c5b-4ad9-a688-349a309f324e,Dr. Mohammed Fernandes,male,Neurology,BlueCross Wellness,"MBBS, MD, DM Neurology",4,English|Malayalam|Hindi,1300,4.2,True,12,adult,True
+410498ea-7e51-4b43-9dcc-b4210dba6f80,Dr. Aditya Gupta,male,Neurology,BlueCross Wellness,"MBBS, DNB Neurology",2,English|Marathi|Urdu|Tamil,1300,4.4,True,20,child,True
+ce671c64-77e0-4f06-8b51-4bcd4b1cfd82,Dr. Riya Rao,female,Neurology,MediGuide Health Center,"MBBS, DNB Neurology",11,English|Hindi,1400,4.7,True,14,all,True
+383e3e60-9c4e-402c-89e5-338c31afbce2,Dr. Ananya Das,female,Neurology,PrimeHealth Clinic,"MBBS, MD, DM Neurology",19,English|Kannada|Bengali,1200,4.6,True,14,senior,True
+8aa51238-19c8-43a9-9500-02682f690fdf,Dr. Anika Mishra,female,Neurology,CarePoint Hospital,"MBBS, MD, DM Neurology",6,English|Telugu|Urdu|Hindi,1300,4.9,True,20,child,True
+550a6948-4fea-4703-997f-1b91110635a9,Dr. Meera Mishra,female,Neurology,CarePoint Hospital,"MBBS, DNB Neurology",10,English|Telugu|Tamil|Urdu,1400,4.1,False,14,adult,True
+256ae6cb-5ec1-414e-b75d-774f30ccce6b,Dr. Pooja Iyer,female,Neurology,CarePoint Hospital,"MBBS, MD, DM Neurology",19,English|Urdu|Malayalam|Telugu,1400,4.7,True,20,all,True
+cf0e4dd4-e57b-4f7a-9e28-27831b55dca8,Dr. Krishna Singh,male,Neurology,Sunrise Medical Hub,"MBBS, MD, DM Neurology",14,English|Telugu|Urdu|Tamil,1400,4.3,True,18,all,True
+0e9ab91e-8b7b-4762-a5af-ecd63c34b4cb,Dr. Ira Bose,female,Neurology,CarePoint Hospital,"MBBS, MD, DM Neurology",3,English|Kannada|Tamil,1100,4.8,False,12,adult,True
+5cb0d652-0f69-4d07-97ad-30139cb93c51,Dr. Rahul Shetty,male,Neurology,PrimeHealth Clinic,"MBBS, DNB Neurology",8,English|Hindi|Bengali,1200,4.7,True,20,all,True
+0302c902-ce62-4dc0-afda-d7ca706c8bae,Dr. Dev Fernandes,male,Neurology,Nova Family Clinic,"MBBS, MD, DM Neurology",12,English|Kannada|Bengali|Urdu,1100,4.3,True,16,adult,True
+08f83730-b27c-4d10-9235-223bfec6ad00,Dr. Neha Reddy,female,Neurology,Harmony Medical Center,"MBBS, DNB Neurology",6,English|Urdu,1200,4.9,False,18,child,True
+e116a3ca-4383-4198-a10e-431dffa69e19,Dr. Avni Joshi,female,Neurology,MediGuide Health Center,"MBBS, DNB Neurology",13,English|Kannada|Tamil|Malayalam,1100,4.5,True,12,adult,True
+db36db5e-afaf-43b2-914d-1b3ad542a96c,Dr. Mohammed Khan,male,Neurology,Central Care Clinic,"MBBS, DNB Neurology",21,English|Bengali|Malayalam|Tamil,1200,4.9,True,16,senior,True
+9e887298-df01-4210-a230-cae8d7fdefd4,Dr. Sara Chatterjee,female,Neurology,PrimeHealth Clinic,"MBBS, DNB Neurology",4,English|Kannada|Bengali,1400,4.6,True,18,child,True
+4ca17bcc-68a0-4197-aff5-87fee0d96176,Dr. Riya Das,female,Neurology,Harmony Medical Center,"MBBS, MD, DM Neurology",12,English|Tamil|Malayalam|Telugu,1100,4.1,True,12,all,True
+cff616ed-5514-44ab-8a2a-dad9647a5509,Dr. Ayaan Rao,male,Neurology,Nova Family Clinic,"MBBS, MD, DM Neurology",23,English|Bengali,1200,4.4,True,14,child,True
+d6fdf14d-0ce7-4e7f-a23a-289469fab902,Dr. Diya Singh,female,Neurology,PrimeHealth Clinic,"MBBS, DNB Neurology",5,English|Kannada,1300,4.8,True,18,adult,True
+db575617-b8b6-46dc-9281-c9ae8d7ee8af,Dr. Yash Nair,male,Neurology,BlueCross Wellness,"MBBS, MD, DM Neurology",12,English|Marathi|Tamil|Telugu,1200,4.2,True,14,senior,True
+6ab84d5e-5a65-47a8-b79f-6d5d089c8252,Dr. Rohan Gupta,male,Neurology,GreenLife Hospital,"MBBS, DNB Neurology",19,English|Marathi|Tamil,1200,4.9,True,12,all,True
+b199ec4d-2a44-4e4d-8b6e-06606e4dda1d,Dr. Ayaan Kulkarni,male,Neurology,Sunrise Medical Hub,"MBBS, MD, DM Neurology",11,English|Tamil|Urdu|Hindi,1100,4.9,True,20,senior,True
+b74a2dc4-8193-4afa-bc62-4ca1d6e13882,Dr. Ishaan Thomas,male,Neurology,GreenLife Hospital,"MBBS, MD, DM Neurology",24,English|Hindi,1200,4.1,True,20,senior,True
+95a3d643-e848-461f-b56f-fd8f965e6581,Dr. Maya Shetty,female,Neurology,MediGuide Health Center,"MBBS, DNB Neurology",13,English|Urdu|Malayalam,1100,4.8,True,16,adult,True
+506bedd4-a3e3-434f-a2e6-0590e0253b3e,Dr. Reyansh Reddy,male,Neurology,Sunrise Medical Hub,"MBBS, DNB Neurology",9,English|Marathi|Kannada|Tamil,1400,4.2,True,20,senior,True
+25249f0f-8540-442a-87e9-c021a1e99f0d,Dr. Riya Iyer,female,Neurology,Sunrise Medical Hub,"MBBS, DNB Neurology",8,English|Hindi|Tamil,1300,4.7,True,18,senior,True
+74a6086e-09a9-488e-af47-f71e4d882078,Dr. Abhay Singh,male,Neurology,PrimeHealth Clinic,"MBBS, MD, DM Neurology",24,English|Hindi|Kannada,1300,4.0,True,20,child,True
+32b509b6-84f0-4a12-b849-578114fd0fe4,Dr. Maya Mishra,female,Neurology,Harmony Medical Center,"MBBS, MD, DM Neurology",9,English|Urdu|Tamil,1100,4.1,False,12,adult,True
+30963a95-f326-47a4-8e82-4fa5a391de23,Dr. Nisha Patel,female,Neurology,MediGuide Health Center,"MBBS, MD, DM Neurology",23,English|Tamil,1300,4.2,True,14,all,True
+b4ab1d5c-a04a-4b66-9cb1-cf24de6a33ca,Dr. Vihaan Sharma,male,Orthopedics,Central Care Clinic,"MBBS, DNB Orthopedics",8,English|Tamil,1100,4.6,False,12,senior,True
+7a895fe3-60b6-4ff4-a23e-5aa152df7ad8,Dr. Aadhya Menon,female,Orthopedics,BlueCross Wellness,"MBBS, DNB Orthopedics",2,English|Marathi|Telugu,1100,4.2,True,14,senior,True
+8d5c0579-a048-41f7-a1bf-99c8fc51af6c,Dr. Myra Chatterjee,female,Orthopedics,CityWell Multispeciality,"MBBS, DNB Orthopedics",2,English|Telugu|Bengali|Malayalam,1100,4.4,True,16,senior,True
+f6918dd1-23c7-4f0d-b958-206480296bc4,Dr. Sai Thomas,male,Orthopedics,CityWell Multispeciality,"MBBS, DNB Orthopedics",9,English|Hindi|Marathi,1100,4.8,True,14,adult,True
+a4cbdd5d-2a75-437e-9e02-004434121fa3,Dr. Aarav Joshi,male,Orthopedics,CarePoint Hospital,"MBBS, MS Orthopedics",21,English|Bengali,900,4.3,True,16,all,True
+8a6df478-f201-4ec1-92b4-adbe4776ef26,Dr. Meera Gupta,female,Orthopedics,GreenLife Hospital,"MBBS, DNB Orthopedics",22,English|Marathi,1100,4.2,False,20,senior,True
+934b5505-018d-4ab1-81b1-c9d3aca316fd,Dr. Lavanya Shetty,female,Orthopedics,Central Care Clinic,"MBBS, MS Orthopedics",21,English|Bengali,900,4.8,True,16,all,True
+b15a4e5a-b566-40b0-af0e-973ec079f1f6,Dr. Manav Iyer,male,Orthopedics,Harmony Medical Center,"MBBS, DNB Orthopedics",2,English|Kannada|Bengali,800,4.4,True,14,child,True
+ef700b73-252a-419b-9634-a24fe5e585b7,Dr. Kiara Nair,female,Orthopedics,MediGuide Health Center,"MBBS, MS Orthopedics",7,English|Tamil|Telugu,800,4.3,False,18,all,True
+204e6934-b66a-4117-bbaf-04e251b16c52,Dr. Anika Nair,female,Orthopedics,Central Care Clinic,"MBBS, MS Orthopedics",3,English|Urdu|Kannada,1000,4.4,True,20,child,True
+e24cda50-4ae4-4fc7-bc0e-faa8cb69883f,Dr. Priya Mehta,female,Orthopedics,Nova Family Clinic,"MBBS, DNB Orthopedics",7,English|Marathi,1000,4.3,True,12,senior,True
+62cff06b-5fed-41b4-aadb-8467400bc346,Dr. Tanvi Chatterjee,female,Orthopedics,Sunrise Medical Hub,"MBBS, MS Orthopedics",17,English|Urdu|Malayalam|Kannada,1000,4.4,False,12,adult,True
+a484436f-29c9-4816-9af8-5f0cc933d204,Dr. Aarohi Agarwal,female,Orthopedics,GreenLife Hospital,"MBBS, DNB Orthopedics",4,English|Malayalam|Tamil|Bengali,800,4.5,False,16,senior,True
+6e4a5d34-95c4-4463-a79d-911c5847a0c7,Dr. Isha Pillai,female,Orthopedics,CarePoint Hospital,"MBBS, MS Orthopedics",10,English|Tamil,1100,4.6,False,18,all,True
+a713c1bb-0e9e-4b08-8c44-176461a94595,Dr. Maya Thomas,female,Orthopedics,MediGuide Health Center,"MBBS, DNB Orthopedics",11,English|Tamil,1100,4.2,True,20,all,True
+523eee3a-c336-4a62-badf-0c8c43eb68e4,Dr. Myra Banerjee,female,Orthopedics,Sunrise Medical Hub,"MBBS, MS Orthopedics",8,English|Hindi|Kannada|Marathi,800,4.0,True,16,adult,True
+76aaa69a-2085-439a-a5a2-5e07273848e4,Dr. Sneha Menon,female,Orthopedics,Nova Family Clinic,"MBBS, MS Orthopedics",14,English|Kannada|Tamil|Hindi,800,4.8,True,14,adult,True
+8102a812-cc50-44b4-aa64-033e191757fb,Dr. Sneha Bose,female,Orthopedics,Nova Family Clinic,"MBBS, MS Orthopedics",11,English|Urdu,1100,4.0,False,16,senior,True
+dd702f87-999a-4d44-9076-b7365e4f7fbd,Dr. Vivaan Pillai,male,Orthopedics,PrimeHealth Clinic,"MBBS, DNB Orthopedics",25,English|Bengali|Urdu|Kannada,800,4.9,True,18,child,True
+542c8bff-e5ad-4cd8-9ded-bc6f3d647e0a,Dr. Myra Mishra,female,Orthopedics,Nova Family Clinic,"MBBS, MS Orthopedics",22,English|Tamil|Bengali|Urdu,800,4.3,False,16,child,True
+ea1c2d0b-11bc-4a50-8345-2d8f1b31fe66,Dr. Kavya Reddy,female,Orthopedics,GreenLife Hospital,"MBBS, DNB Orthopedics",12,English|Telugu,1100,4.1,False,14,all,True
+827f5247-6fb4-40f2-a9b6-82fe6deb134d,Dr. Arjun Pillai,male,Orthopedics,PrimeHealth Clinic,"MBBS, MS Orthopedics",17,English|Marathi|Telugu|Urdu,1100,4.0,True,16,all,True
+3580d52f-381f-444e-8460-5c3a57d84376,Dr. Saanvi Iyer,female,Orthopedics,Central Care Clinic,"MBBS, DNB Orthopedics",25,English|Malayalam|Telugu,1000,4.8,True,16,child,True
+1034c76d-6d15-4c5f-b71e-394138c90eaf,Dr. Karan Agarwal,male,Orthopedics,Nova Family Clinic,"MBBS, MS Orthopedics",23,English|Hindi|Malayalam|Urdu,800,4.0,True,18,child,True
+b6b5ee40-1e7d-4ab3-adfd-ffc1ef1a3060,Dr. Ira Joshi,female,Orthopedics,BlueCross Wellness,"MBBS, DNB Orthopedics",5,English|Malayalam,800,4.2,True,16,adult,True
+c356456f-cb23-46b1-8c23-cb7d3f5a8d43,Dr. Vihaan Shetty,male,Orthopedics,CarePoint Hospital,"MBBS, MS Orthopedics",18,English|Kannada,800,4.8,False,14,child,True
+b96e4f53-1629-4bf7-86e7-9d7081764261,Dr. Aarav Kapoor,male,Orthopedics,GreenLife Hospital,"MBBS, MS Orthopedics",21,English|Bengali|Telugu,1000,4.3,True,14,all,True
+45b36c1d-98fb-4193-963f-919074789245,Dr. Isha Mehta,female,Orthopedics,BlueCross Wellness,"MBBS, MS Orthopedics",14,English|Urdu|Kannada|Malayalam,1000,4.8,False,14,child,True
+13c7686a-8b02-44e5-8bf0-c447c8528e68,Dr. Siddharth Rao,male,Orthopedics,PrimeHealth Clinic,"MBBS, DNB Orthopedics",2,English|Hindi,900,4.8,True,12,child,True
+2a0e29cd-5d6a-4d50-ae94-46c395bf6806,Dr. Siddharth Bose,male,Orthopedics,Harmony Medical Center,"MBBS, MS Orthopedics",25,English|Urdu,800,4.4,True,20,all,True
+2619957a-18df-4900-8b72-a7e6388ace97,Dr. Riya Kulkarni,female,Pediatrics,BlueCross Wellness,"MBBS, MD Pediatrics",13,English|Urdu|Bengali|Marathi,850,4.1,False,14,child,True
+396fb9cc-bdb7-46f3-a3fe-496510d270ae,Dr. Ira Patel,female,Pediatrics,BlueCross Wellness,"MBBS, MD Pediatrics",5,English|Telugu,850,4.4,True,16,child,True
+b2d10ea7-2f16-4545-ba6b-ef88254fb3fc,Dr. Isha Mehta,female,Pediatrics,Sunrise Medical Hub,"MBBS, MD Pediatrics",25,English|Tamil,650,4.3,False,20,child,True
+d97cbbab-755f-4ed4-8ef7-714d8aa8f386,Dr. Neha Fernandes,female,Pediatrics,Sunrise Medical Hub,"MBBS, MD Pediatrics",25,English|Bengali|Urdu,650,4.2,False,16,child,True
+addf99d3-d8e8-4703-808f-057c7b38f8af,Dr. Vivaan Thomas,male,Pediatrics,Central Care Clinic,"MBBS, DCH",7,English|Malayalam,750,4.1,True,16,child,True
+7c67ac29-db3d-449e-8542-d85e920b7bfb,Dr. Karan Verma,male,Pediatrics,PrimeHealth Clinic,"MBBS, MD Pediatrics",2,English|Bengali|Malayalam|Hindi,750,4.6,True,14,child,True
+9b43067d-5fdd-4c5e-99bf-736d6d895e71,Dr. Avni Patel,female,Pediatrics,GreenLife Hospital,"MBBS, DCH",2,English|Malayalam,750,4.6,True,12,child,True
+98117c92-bcb4-4aca-a98e-0afe87fe2bc7,Dr. Abhay Iyer,male,Pediatrics,Sunrise Medical Hub,"MBBS, MD Pediatrics",19,English|Marathi,850,4.3,True,16,child,True
+863b5623-123b-4041-bf66-e6e61c6c28a0,Dr. Pooja Nair,female,Pediatrics,PrimeHealth Clinic,"MBBS, DCH",18,English|Malayalam|Hindi,750,4.4,True,14,child,True
+3e57cc18-7570-4dca-a708-36f77816e52a,Dr. Rudra Thomas,male,Pediatrics,GreenLife Hospital,"MBBS, MD Pediatrics",24,English|Urdu,750,4.1,True,14,child,True
+665a1161-ba9c-4de2-82dc-0909859385ba,Dr. Aniket Sharma,male,Pediatrics,BlueCross Wellness,"MBBS, DCH",24,English|Hindi,550,4.8,True,16,child,True
+635b6371-2369-484a-99d2-b322c5734c5f,Dr. Zoya Mishra,female,Pediatrics,Harmony Medical Center,"MBBS, MD Pediatrics",5,English|Tamil,550,4.5,True,20,child,True
+d6645ad5-76ab-4a8d-8d06-1d477c1b4fcc,Dr. Yash Kulkarni,male,Pediatrics,CarePoint Hospital,"MBBS, MD Pediatrics",4,English|Kannada|Tamil|Bengali,750,4.2,False,18,child,True
+48abce46-17f6-4596-b3c9-78c06821c521,Dr. Pranav Shetty,male,Pediatrics,Harmony Medical Center,"MBBS, MD Pediatrics",2,English|Marathi|Kannada,750,4.7,False,18,child,True
+7fd4f8ba-5290-4768-8f3f-421ded36440e,Dr. Myra Kulkarni,female,Pediatrics,CityWell Multispeciality,"MBBS, MD Pediatrics",4,English|Kannada|Bengali,550,4.7,False,18,child,True
+4443bd81-6131-427c-96b8-6ed930290987,Dr. Dev Singh,male,Pediatrics,BlueCross Wellness,"MBBS, MD Pediatrics",6,English|Tamil|Marathi|Malayalam,850,4.2,False,14,child,True
+b993ff05-c816-43f6-b2c2-3dbb8cbebe26,Dr. Nisha Reddy,female,Pediatrics,Central Care Clinic,"MBBS, DCH",18,English|Bengali|Hindi|Urdu,750,4.5,False,14,child,True
+ba6dedc1-5926-47ca-a780-13e1c9044826,Dr. Neha Sharma,female,Pediatrics,Sunrise Medical Hub,"MBBS, MD Pediatrics",7,English|Urdu,650,4.5,True,14,child,True
+4160fcf3-55e1-418c-879a-fbe7ed4f1b80,Dr. Priya Khan,female,Pediatrics,BlueCross Wellness,"MBBS, MD Pediatrics",2,English|Marathi,650,4.1,False,14,child,True
+cad644df-0682-4493-a6a9-a7cbb0438d7b,Dr. Rudra Mishra,male,Pediatrics,Nova Family Clinic,"MBBS, DCH",16,English|Telugu,850,4.2,True,20,child,True
+a5c24e0f-2dc4-4597-b85c-5091217a7ae0,Dr. Myra Nair,female,Pediatrics,Central Care Clinic,"MBBS, MD Pediatrics",6,English|Marathi,550,4.4,False,20,child,True
+0e14b64a-ef66-4337-a2a9-99b992a29538,Dr. Aadhya Fernandes,female,Pediatrics,Sunrise Medical Hub,"MBBS, DCH",17,English|Telugu|Marathi,850,4.5,False,20,child,True
+0bc5b187-c7f6-464d-aee2-8edda5e6a1ab,Dr. Aarav Fernandes,male,Pediatrics,Central Care Clinic,"MBBS, DCH",14,English|Kannada|Malayalam|Hindi,650,4.4,True,14,child,True
+7ac1e19f-17b2-4859-8f43-ed24c2f7c796,Dr. Avni Kulkarni,female,Pediatrics,CarePoint Hospital,"MBBS, MD Pediatrics",13,English|Malayalam|Urdu,850,4.8,False,12,child,True
+96faa09b-25c7-4df0-b3f7-b766508337a1,Dr. Aditya Patel,male,Pediatrics,CityWell Multispeciality,"MBBS, DCH",3,English|Kannada|Malayalam,850,4.6,False,16,child,True
+64064499-f431-4cf8-8900-f21b5a25b47e,Dr. Ayaan Sharma,male,Pediatrics,GreenLife Hospital,"MBBS, DCH",14,English|Malayalam,750,4.4,True,20,child,True
+a9df30e6-9641-481b-9555-464c26a51bc4,Dr. Pooja Shetty,female,Pediatrics,Central Care Clinic,"MBBS, MD Pediatrics",18,English|Tamil|Telugu,550,4.5,True,12,child,True
+8f3e6536-9768-48d3-83f5-d56c87f05cab,Dr. Karan Agarwal,male,Pediatrics,CityWell Multispeciality,"MBBS, MD Pediatrics",15,English|Telugu|Marathi|Tamil,750,4.6,True,14,child,True
+28c75bac-1bf6-4a7d-863c-2c557e8a173d,Dr. Trisha Khan,female,Pediatrics,CityWell Multispeciality,"MBBS, MD Pediatrics",8,English|Telugu|Marathi|Tamil,650,4.8,False,16,child,True
+eab9e0c9-2a37-47c5-a2ff-18f99868a694,Dr. Isha Patel,female,Pediatrics,CarePoint Hospital,"MBBS, MD Pediatrics",14,English|Malayalam,650,4.0,True,18,child,True
+ad26520d-4879-4bb1-83e2-fce2ab1ab603,Dr. Neha Patel,female,Gynecology,GreenLife Hospital,"MBBS, DGO",17,English|Malayalam|Kannada|Tamil,900,4.2,True,14,adult,True
+a5cf6ee1-6187-4e8a-8fb2-7472666ff9bc,Dr. Pooja Khan,female,Gynecology,GreenLife Hospital,"MBBS, DGO",7,English|Tamil|Telugu|Hindi,1000,4.1,False,20,adult,True
+6e4f42ae-4d21-4ce7-b029-5cc450d49596,Dr. Kiara Rao,female,Gynecology,Harmony Medical Center,"MBBS, DGO",15,English|Malayalam|Tamil|Hindi,700,4.8,False,14,adult,True
+3f934030-c138-4b60-8ff4-05e3fa3eb12f,Dr. Sara Pillai,female,Gynecology,BlueCross Wellness,"MBBS, MS Obstetrics & Gynecology",7,English|Kannada|Hindi,900,4.3,False,16,adult,True
+e5789d89-1855-49f4-b79a-720af76f4063,Dr. Reyansh Verma,male,Gynecology,MediGuide Health Center,"MBBS, MS Obstetrics & Gynecology",17,English|Kannada,700,4.7,False,12,adult,True
+fed70894-61f9-4c06-9051-31a204debec9,Dr. Sara Kapoor,female,Gynecology,GreenLife Hospital,"MBBS, DGO",23,English|Tamil|Hindi|Marathi,900,4.8,True,20,adult,True
+c2cc5286-9c01-4218-ab80-cbbffa0cfe6f,Dr. Meera Rao,female,Gynecology,PrimeHealth Clinic,"MBBS, MS Obstetrics & Gynecology",2,English|Tamil|Urdu,700,4.3,True,20,adult,True
+a688a51c-2929-4c98-ba64-acdc71d1cc12,Dr. Aarohi Chatterjee,female,Gynecology,Sunrise Medical Hub,"MBBS, DGO",7,English|Marathi|Kannada,1000,4.2,True,18,adult,True
+1d3b8898-6768-469a-933a-0e210b65f124,Dr. Aarohi Gupta,female,Gynecology,Central Care Clinic,"MBBS, MS Obstetrics & Gynecology",19,English|Hindi,700,4.9,True,16,adult,True
+628201a6-f721-42ac-b9e8-b9d16860ebc9,Dr. Kavya Das,female,Gynecology,CarePoint Hospital,"MBBS, MS Obstetrics & Gynecology",3,English|Urdu|Bengali,900,4.8,True,12,adult,True
+61c88fe7-4b04-487c-8c0f-2c6c487b0447,Dr. Rudra Reddy,male,Gynecology,CityWell Multispeciality,"MBBS, DGO",23,English|Kannada|Malayalam,800,4.4,True,16,adult,True
+87c59819-44f0-4f13-b9f8-dcf813081adf,Dr. Vihaan Singh,male,Gynecology,PrimeHealth Clinic,"MBBS, DGO",10,English|Hindi|Kannada,700,4.7,True,12,adult,True
+bb8ccbb4-9ceb-4325-bd15-1dcf76a09793,Dr. Siddharth Singh,male,Gynecology,Harmony Medical Center,"MBBS, MS Obstetrics & Gynecology",25,English|Bengali|Marathi|Telugu,800,4.6,True,14,adult,True
+64669a13-321d-44ef-94dd-78e033d281fc,Dr. Aditya Joshi,male,Gynecology,GreenLife Hospital,"MBBS, DGO",10,English|Malayalam|Marathi,900,4.0,False,20,adult,True
+82915481-f52f-4363-8e35-c5cdbff07578,Dr. Riya Chatterjee,female,Gynecology,Harmony Medical Center,"MBBS, MS Obstetrics & Gynecology",18,English|Kannada,700,4.8,True,14,adult,True
+e9e92645-60ae-4986-9f69-db48ff9eab34,Dr. Rohan Singh,male,Gynecology,BlueCross Wellness,"MBBS, MS Obstetrics & Gynecology",22,English|Kannada|Hindi|Urdu,1000,4.4,False,12,adult,True
+52ebd04d-2955-4343-8aad-a18f33412b1e,Dr. Rudra Singh,male,Gynecology,Sunrise Medical Hub,"MBBS, MS Obstetrics & Gynecology",18,English|Telugu|Kannada,800,4.5,False,18,adult,True
+16747a0f-1f8b-44b6-ac1b-4f9c5522bcaa,Dr. Sneha Chatterjee,female,Gynecology,PrimeHealth Clinic,"MBBS, DGO",20,English|Bengali|Malayalam|Kannada,800,4.7,False,16,adult,True
+47d6b985-7c62-4d6f-9312-0bb5e7a4400a,Dr. Kabir Sharma,male,Gynecology,Nova Family Clinic,"MBBS, MS Obstetrics & Gynecology",16,English|Tamil|Hindi|Marathi,900,4.1,True,20,adult,True
+f092e531-64f9-418a-a790-de365ae5919c,Dr. Siddharth Fernandes,male,Gynecology,BlueCross Wellness,"MBBS, MS Obstetrics & Gynecology",3,English|Malayalam,1000,4.7,True,16,adult,True
+a1524fcc-5793-4a9e-93ae-50f3a983a1db,Dr. Arjun Reddy,male,Gynecology,PrimeHealth Clinic,"MBBS, DGO",15,English|Kannada|Urdu,900,4.1,True,12,adult,True
+5f8beb47-a57c-40dd-996e-b5e2b535b9c6,Dr. Sara Shetty,female,Gynecology,CityWell Multispeciality,"MBBS, DGO",10,English|Telugu|Kannada|Hindi,1000,4.6,False,12,adult,True
+08306434-0469-403b-9e89-fd848bbacd6a,Dr. Saanvi Rao,female,Gynecology,BlueCross Wellness,"MBBS, MS Obstetrics & Gynecology",3,English|Tamil|Telugu,800,4.6,True,12,adult,True
+45936a81-fa95-4d4c-ad85-3915b85a073f,Dr. Priya Sharma,female,Gynecology,Harmony Medical Center,"MBBS, DGO",8,English|Telugu,900,4.6,True,12,adult,True
+d61570c6-3827-4ac1-9eab-163df7260d30,Dr. Karan Thomas,male,Gynecology,Nova Family Clinic,"MBBS, DGO",2,English|Bengali|Marathi|Hindi,900,4.2,True,20,adult,True
+2c2cbca2-fc4b-4419-8981-095247812e5c,Dr. Aarav Rao,male,Gynecology,Harmony Medical Center,"MBBS, MS Obstetrics & Gynecology",18,English|Malayalam|Kannada,900,4.6,True,12,adult,True
+9aac967b-5ec2-48b3-9828-a045dfa242f7,Dr. Avni Kapoor,female,Gynecology,CityWell Multispeciality,"MBBS, MS Obstetrics & Gynecology",23,English|Tamil|Malayalam|Marathi,800,4.3,False,20,adult,True
+1fe4c88b-c88c-4ec6-a800-687dd30fd97a,Dr. Yash Gupta,male,Gynecology,PrimeHealth Clinic,"MBBS, MS Obstetrics & Gynecology",25,English|Malayalam|Telugu,900,4.7,True,14,adult,True
+7929c519-9393-422f-9b05-a3272794e4ac,Dr. Myra Joshi,female,Gynecology,BlueCross Wellness,"MBBS, DGO",14,English|Bengali|Kannada,1000,4.1,True,14,adult,True
+3e723ec8-3da5-409b-afab-4ec2f8424dea,Dr. Neha Mehta,female,Gynecology,Harmony Medical Center,"MBBS, DGO",14,English|Telugu|Urdu,700,4.6,True,20,adult,True
+018b4c0a-cb7a-4d2b-8a06-f65bfcd8de8c,Dr. Pooja Das,female,ENT,Nova Family Clinic,"MBBS, MS ENT",11,English|Tamil|Telugu,600,4.4,False,18,all,True
+ce56c321-0b74-44c8-be5c-7384e2585649,Dr. Riya Fernandes,female,ENT,GreenLife Hospital,"MBBS, DLO",24,English|Kannada|Hindi|Marathi,900,4.1,False,18,adult,True
+8859ceca-60a3-4621-ba6a-021b2bda58e0,Dr. Trisha Banerjee,female,ENT,CarePoint Hospital,"MBBS, MS ENT",6,English|Tamil|Hindi,700,4.6,True,12,child,True
+7109af40-18b6-4580-b9c7-33206c7e4e5d,Dr. Sai Kulkarni,male,ENT,Nova Family Clinic,"MBBS, DLO",6,English|Telugu|Hindi|Kannada,600,4.0,True,20,senior,True
+f79293bc-a196-4b7d-b33f-5b6cd05c10db,Dr. Riya Rao,female,ENT,PrimeHealth Clinic,"MBBS, DLO",19,English|Marathi,600,4.4,True,16,senior,True
+de9af9b5-9006-4b37-98de-0b1610148393,Dr. Tanvi Mishra,female,ENT,CarePoint Hospital,"MBBS, MS ENT",9,English|Tamil|Malayalam,800,4.0,True,18,all,True
+a0156f3f-ae41-4fc8-a5ae-83a310e7526c,Dr. Lavanya Sharma,female,ENT,MediGuide Health Center,"MBBS, MS ENT",25,English|Bengali|Tamil|Telugu,600,4.2,True,18,child,True
+7e976f93-b5d2-4323-bcad-c1b68bc6e515,Dr. Isha Mishra,female,ENT,Harmony Medical Center,"MBBS, DLO",23,English|Hindi|Kannada|Malayalam,800,4.1,True,16,all,True
+771c64c1-e8ff-4718-8c4c-946d69120d2f,Dr. Siddharth Singh,male,ENT,Harmony Medical Center,"MBBS, MS ENT",18,English|Malayalam|Kannada,800,4.1,True,14,all,True
+5a011d66-4dc1-426b-835f-1fadb6686127,Dr. Mohammed Mishra,male,ENT,Central Care Clinic,"MBBS, MS ENT",18,English|Marathi|Bengali,600,4.3,True,20,all,True
+7d2f942f-714f-4d87-9dee-0929150920ee,Dr. Avni Gupta,female,ENT,CarePoint Hospital,"MBBS, MS ENT",7,English|Kannada|Tamil|Urdu,800,4.0,False,20,all,True
+1a7e5fc6-5c42-4c66-b245-1e92745caca8,Dr. Neha Gupta,female,ENT,Sunrise Medical Hub,"MBBS, MS ENT",2,English|Hindi|Kannada,900,4.1,True,12,child,True
+b17eb930-bda4-4ac4-b752-c324bbea3c96,Dr. Ira Bose,female,ENT,Nova Family Clinic,"MBBS, DLO",9,English|Urdu|Telugu|Kannada,700,4.8,True,14,senior,True
+488b9eaf-f0d8-4193-bf03-95cd81e3aa2e,Dr. Abhay Nair,male,ENT,PrimeHealth Clinic,"MBBS, DLO",22,English|Kannada|Tamil|Malayalam,600,4.5,True,20,child,True
+e25fd3fd-7204-4488-819f-2bd61fd3d057,Dr. Isha Gupta,female,ENT,Sunrise Medical Hub,"MBBS, DLO",23,English|Telugu|Kannada|Bengali,600,4.1,False,18,senior,True
+aef60519-856e-4bf5-9ca0-6998a59b3090,Dr. Dev Kapoor,male,ENT,CarePoint Hospital,"MBBS, MS ENT",20,English|Malayalam|Telugu|Urdu,900,4.2,True,16,senior,True
+d7136f2b-36b4-45df-afc7-ccfde8c0ddec,Dr. Ira Das,female,ENT,Central Care Clinic,"MBBS, DLO",24,English|Marathi,900,4.6,True,18,child,True
+8c2dee31-cf26-4e05-8ba5-553b0f5d30db,Dr. Rudra Mehta,male,ENT,PrimeHealth Clinic,"MBBS, DLO",6,English|Kannada,900,4.8,False,20,child,True
+f5d9c69f-3fd1-4310-9f9f-7c121445ace6,Dr. Aadhya Reddy,female,ENT,BlueCross Wellness,"MBBS, MS ENT",20,English|Bengali|Hindi,900,4.1,False,20,senior,True
+24e9576f-6873-4650-b4c7-897774f27eda,Dr. Isha Mishra,female,ENT,Harmony Medical Center,"MBBS, MS ENT",11,English|Bengali|Marathi,800,4.0,False,16,senior,True
+ce5745b9-e528-4e2f-adda-92aca88bb57c,Dr. Abhay Iyer,male,ENT,Nova Family Clinic,"MBBS, DLO",10,English|Tamil|Malayalam,800,4.0,True,20,adult,True
+90444dc6-9df7-4a76-9cfc-e1a7d0e8d1c7,Dr. Lavanya Verma,female,ENT,CityWell Multispeciality,"MBBS, DLO",7,English|Urdu|Bengali|Marathi,700,4.0,True,12,all,True
+5bd2117a-6063-4b17-a8a7-316b37e9da84,Dr. Myra Joshi,female,ENT,PrimeHealth Clinic,"MBBS, DLO",16,English|Malayalam,900,4.9,False,12,all,True
+41be580f-f4e7-41a5-8d8f-f585ab554df1,Dr. Kabir Kulkarni,male,ENT,Central Care Clinic,"MBBS, MS ENT",2,English|Hindi|Marathi|Urdu,900,4.5,False,18,senior,True
+1312b57a-18fb-431e-8903-58b48ae48da8,Dr. Manav Nair,male,ENT,MediGuide Health Center,"MBBS, MS ENT",22,English|Tamil|Telugu|Bengali,700,4.6,True,16,child,True
+4d278d98-2c87-4efc-ba35-b0ed16088ef0,Dr. Saanvi Bose,female,ENT,MediGuide Health Center,"MBBS, DLO",14,English|Telugu|Malayalam,700,4.1,False,18,adult,True
+d8e336ed-93e0-4e53-a555-875055668e08,Dr. Dev Verma,male,ENT,Nova Family Clinic,"MBBS, DLO",14,English|Bengali,600,4.4,True,12,adult,True
+77c4d602-3996-4dea-9337-81177c72ba8f,Dr. Avni Gupta,female,ENT,MediGuide Health Center,"MBBS, MS ENT",8,English|Malayalam|Bengali,700,4.9,False,14,senior,True
+68976b0b-d720-4ec2-9d1d-fe705227fd65,Dr. Priya Kulkarni,female,ENT,CarePoint Hospital,"MBBS, DLO",12,English|Hindi,600,4.7,True,18,all,True
+4da5a48a-7093-46fe-ad47-b5696dc685cf,Dr. Siddharth Pillai,male,ENT,Central Care Clinic,"MBBS, MS ENT",2,English|Tamil,700,4.8,True,18,adult,True
+622d99d0-ba3b-463d-b113-03d5c8b4a93a,Dr. Pranav Menon,male,Ophthalmology,Harmony Medical Center,"MBBS, DO",10,English|Kannada,700,4.2,True,20,adult,True
+25667575-e26a-41cc-b968-70ce6ff5ed9b,Dr. Aditya Fernandes,male,Ophthalmology,BlueCross Wellness,"MBBS, MS Ophthalmology",17,English|Marathi|Bengali,700,4.1,True,20,child,True
+2b925007-3446-4c0d-a58b-5696d9fd6f55,Dr. Vihaan Joshi,male,Ophthalmology,MediGuide Health Center,"MBBS, DO",18,English|Bengali|Marathi|Malayalam,700,4.7,False,14,senior,True
+9095a407-6364-42fd-9f9f-50bb1232ee35,Dr. Meera Khan,female,Ophthalmology,PrimeHealth Clinic,"MBBS, MS Ophthalmology",16,English|Bengali|Malayalam,600,4.7,False,14,adult,True
+13f13f44-7327-4ef7-a75e-b038f56684b8,Dr. Anika Banerjee,female,Ophthalmology,MediGuide Health Center,"MBBS, MS Ophthalmology",9,English|Telugu|Hindi,900,4.3,True,12,child,True
+16c7879b-7323-4ed8-a724-e386b35eb602,Dr. Myra Reddy,female,Ophthalmology,BlueCross Wellness,"MBBS, DO",6,English|Malayalam,600,4.4,True,16,adult,True
+6441409e-4d5a-44ec-8172-b4b23ced5066,Dr. Rudra Chatterjee,male,Ophthalmology,CityWell Multispeciality,"MBBS, MS Ophthalmology",15,English|Bengali,700,4.8,True,18,all,True
+1e8c2c1b-5095-478d-98b8-2134a3f3bb4b,Dr. Aditya Kulkarni,male,Ophthalmology,Central Care Clinic,"MBBS, MS Ophthalmology",13,English|Marathi|Kannada|Urdu,800,4.6,True,12,child,True
+2187951b-b08a-480c-847e-e90c655b81bb,Dr. Tanvi Reddy,female,Ophthalmology,Nova Family Clinic,"MBBS, MS Ophthalmology",21,English|Malayalam|Bengali,700,4.6,True,12,senior,True
+df77b2f9-8b5b-4c53-a5e9-1d8be53bdd92,Dr. Arjun Gupta,male,Ophthalmology,CityWell Multispeciality,"MBBS, MS Ophthalmology",25,English|Kannada|Bengali|Telugu,700,4.3,True,20,child,True
+36bb262a-788c-416d-9fb3-7c134db23690,Dr. Rahul Iyer,male,Ophthalmology,MediGuide Health Center,"MBBS, MS Ophthalmology",4,English|Tamil|Urdu,600,4.2,False,14,child,True
+9dba52ee-eab2-4c9d-82d4-eba217d8adfb,Dr. Trisha Agarwal,female,Ophthalmology,Central Care Clinic,"MBBS, DO",2,English|Telugu|Hindi,700,4.4,True,16,child,True
+655d685e-d671-4cc5-b7b5-382e4cd71faa,Dr. Meera Bose,female,Ophthalmology,GreenLife Hospital,"MBBS, MS Ophthalmology",11,English|Tamil|Bengali|Malayalam,700,4.8,False,14,adult,True
+86be394e-1887-4689-9c59-b1115af2071a,Dr. Dev Gupta,male,Ophthalmology,Harmony Medical Center,"MBBS, DO",16,English|Bengali,700,4.1,True,18,child,True
+829968c3-e587-4945-93d4-52be8229ea0d,Dr. Riya Fernandes,female,Ophthalmology,MediGuide Health Center,"MBBS, DO",23,English|Urdu|Hindi|Kannada,600,4.0,False,14,child,True
+be4351ff-63e5-42aa-9ad0-0d4a24f93306,Dr. Aarohi Mehta,female,Ophthalmology,Harmony Medical Center,"MBBS, DO",14,English|Hindi|Bengali|Tamil,700,4.3,True,12,senior,True
+2ae9cb47-0440-4b7b-940b-a8619ee02eb9,Dr. Myra Shetty,female,Ophthalmology,BlueCross Wellness,"MBBS, DO",8,English|Tamil,800,4.9,False,16,all,True
+7085ec66-fe81-49b7-befd-bd0ffbf13e68,Dr. Isha Das,female,Ophthalmology,CarePoint Hospital,"MBBS, DO",2,English|Urdu|Kannada|Hindi,700,4.3,False,18,all,True
+4af47545-2993-49be-a39b-9823f73c045e,Dr. Maya Nair,female,Ophthalmology,Harmony Medical Center,"MBBS, MS Ophthalmology",7,English|Hindi|Marathi|Tamil,600,4.3,False,14,senior,True
+54be37cc-b689-4870-9b56-8e46e8882049,Dr. Yash Agarwal,male,Ophthalmology,GreenLife Hospital,"MBBS, DO",19,English|Tamil,800,4.7,False,16,senior,True
+e9a7efff-715d-4f0a-a809-e8098fbe4667,Dr. Arjun Joshi,male,Ophthalmology,CityWell Multispeciality,"MBBS, MS Ophthalmology",15,English|Kannada,900,4.1,True,12,child,True
+1a83e79d-7087-435f-8fa2-87c525676e55,Dr. Ishaan Kapoor,male,Ophthalmology,CityWell Multispeciality,"MBBS, MS Ophthalmology",15,English|Kannada,600,4.0,True,18,all,True
+1a4879d5-2068-44fa-b33b-dfcf27d0767a,Dr. Yash Nair,male,Ophthalmology,MediGuide Health Center,"MBBS, MS Ophthalmology",7,English|Telugu|Malayalam|Kannada,800,4.1,False,16,senior,True
+c15480ea-3d9c-4368-93ec-33f16b2c3ba8,Dr. Mohammed Joshi,male,Ophthalmology,CarePoint Hospital,"MBBS, MS Ophthalmology",23,English|Tamil|Telugu,600,4.8,True,18,adult,True
+c549040e-d1fa-4b45-bc78-dcdd3cf744dd,Dr. Karan Das,male,Ophthalmology,CarePoint Hospital,"MBBS, DO",9,English|Malayalam|Bengali|Telugu,900,4.9,True,14,all,True
+f9890f41-4ddd-410c-b174-d63f1d726ab4,Dr. Maya Shetty,female,Ophthalmology,MediGuide Health Center,"MBBS, MS Ophthalmology",8,English|Tamil|Hindi|Urdu,800,4.5,True,12,adult,True
+36e15033-1e11-4723-a385-1362f32ff04a,Dr. Ira Nair,female,Ophthalmology,Nova Family Clinic,"MBBS, MS Ophthalmology",22,English|Urdu|Kannada,700,4.1,True,12,child,True
+3cf92e55-7a32-46ef-b01f-f7f8f3ed794c,Dr. Avni Gupta,female,Ophthalmology,Sunrise Medical Hub,"MBBS, DO",15,English|Hindi|Marathi|Urdu,600,4.4,True,18,child,True
+3b562609-cd6c-4d16-9165-6e0c1c947ec8,Dr. Lavanya Nair,female,Ophthalmology,BlueCross Wellness,"MBBS, DO",23,English|Urdu|Bengali|Malayalam,900,4.5,True,20,all,True
+9eee8008-c8b9-4a0b-b966-c02915ce5857,Dr. Trisha Shetty,female,Ophthalmology,Central Care Clinic,"MBBS, DO",15,English|Bengali|Telugu|Hindi,800,4.4,True,14,adult,True
+78871b45-d319-4ee9-8e61-010bf9bb4ecd,Dr. Aadhya Bose,female,Psychiatry,PrimeHealth Clinic,"MBBS, MD Psychiatry",24,English|Marathi|Tamil|Hindi,1200,4.9,True,20,child,True
+c9021b65-7749-4ff5-b696-2f2e9b91ea53,Dr. Siddharth Agarwal,male,Psychiatry,MediGuide Health Center,"MBBS, DPM",3,English|Telugu|Tamil|Marathi,1100,4.7,False,12,all,True
+d58b938b-a2df-49d7-b607-3558ca5e1273,Dr. Kiara Pillai,female,Psychiatry,Sunrise Medical Hub,"MBBS, DPM",22,English|Tamil|Hindi,1000,4.2,False,18,senior,True
+cd756485-5c35-486c-bc64-d61fcc59e0ef,Dr. Ayaan Khan,male,Psychiatry,PrimeHealth Clinic,"MBBS, MD Psychiatry",7,English|Malayalam|Bengali,1100,4.4,True,14,adult,True
+4ed223a2-19be-48ef-97c3-b657fa2fcd25,Dr. Myra Sharma,female,Psychiatry,Nova Family Clinic,"MBBS, MD Psychiatry",3,English|Tamil|Bengali,1200,4.0,True,16,senior,True
+d285761e-23b6-46f3-bbb5-51b57fe9cc87,Dr. Diya Singh,female,Psychiatry,BlueCross Wellness,"MBBS, MD Psychiatry",12,English|Bengali,1200,4.8,True,14,all,True
+596a67c7-06c9-495a-acf1-dc3950f02a3e,Dr. Avni Chatterjee,female,Psychiatry,CarePoint Hospital,"MBBS, DPM",13,English|Telugu|Tamil|Kannada,1200,4.7,True,20,all,True
+d5226efe-8f00-46c6-a9b9-a7a770512911,Dr. Yash Singh,male,Psychiatry,Nova Family Clinic,"MBBS, DPM",16,English|Tamil,1100,4.7,True,12,child,True
+c6e074cb-e492-4cd9-a45b-c0a57b3b349a,Dr. Maya Sharma,female,Psychiatry,Central Care Clinic,"MBBS, MD Psychiatry",22,English|Tamil|Bengali|Telugu,1000,4.4,False,16,senior,True
+a365b617-a1b1-4055-99b6-3274bedd977a,Dr. Nikhil Rao,male,Psychiatry,GreenLife Hospital,"MBBS, MD Psychiatry",20,English|Marathi|Urdu,1000,4.9,False,20,adult,True
+bc094e7c-c312-4c70-97c7-234be2b5eb41,Dr. Rohan Menon,male,Psychiatry,BlueCross Wellness,"MBBS, DPM",24,English|Hindi,1200,4.7,True,12,adult,True
+2ad10919-26fc-4e3e-ac6d-c47b652281a1,Dr. Aarav Das,male,Psychiatry,Nova Family Clinic,"MBBS, DPM",9,English|Urdu,1100,4.1,True,14,senior,True
+86a2b58f-71b8-44ec-98cb-01a781515c44,Dr. Krishna Joshi,male,Psychiatry,BlueCross Wellness,"MBBS, MD Psychiatry",23,English|Malayalam|Telugu,1100,4.9,False,12,adult,True
+e08730b6-aec0-4b0b-827d-95033c0129b3,Dr. Aadhya Kapoor,female,Psychiatry,CarePoint Hospital,"MBBS, DPM",11,English|Bengali|Telugu,1100,4.5,True,14,senior,True
+56d890ca-26ee-4560-a9ac-7315ea3b7a01,Dr. Siddharth Reddy,male,Psychiatry,CarePoint Hospital,"MBBS, MD Psychiatry",17,English|Urdu|Telugu,900,4.1,True,14,senior,True
+aad6bf74-9fa1-4640-801b-46c4768d5436,Dr. Zoya Nair,female,Psychiatry,Harmony Medical Center,"MBBS, DPM",23,English|Malayalam,900,4.3,True,16,adult,True
+781b8d02-764d-4e29-9c9e-1652644b5a83,Dr. Trisha Mishra,female,Psychiatry,BlueCross Wellness,"MBBS, DPM",3,English|Telugu,1100,4.7,False,12,child,True
+22089fc6-4eb1-453f-89d9-9988ef128b6e,Dr. Lavanya Verma,female,Psychiatry,Nova Family Clinic,"MBBS, DPM",17,English|Tamil|Hindi|Urdu,1200,4.8,False,14,senior,True
+eb7988cb-81ed-47bb-80b1-1cbc788724fa,Dr. Vivaan Joshi,male,Psychiatry,Harmony Medical Center,"MBBS, DPM",23,English|Telugu|Bengali,1000,4.5,False,20,all,True
+5a97e826-dc11-4b85-ae5c-bac964fe0f96,Dr. Vivaan Joshi,male,Psychiatry,MediGuide Health Center,"MBBS, DPM",16,English|Marathi|Telugu|Hindi,1100,4.2,True,20,all,True
+ec32bf10-37dd-45f7-bae0-1bc097a4a5bc,Dr. Isha Mishra,female,Psychiatry,CarePoint Hospital,"MBBS, MD Psychiatry",12,English|Urdu|Malayalam|Tamil,1000,4.2,False,20,senior,True
+5e7d0f9d-f649-4b67-a2b6-00fa08ef578d,Dr. Diya Kapoor,female,Psychiatry,GreenLife Hospital,"MBBS, MD Psychiatry",5,English|Telugu,900,4.8,True,18,adult,True
+03972807-fd77-4040-bd5b-a151d942c96d,Dr. Ananya Bose,female,Psychiatry,BlueCross Wellness,"MBBS, MD Psychiatry",11,English|Telugu,1200,4.3,True,18,child,True
+01a621a6-c355-46c0-9ce0-947a5d889269,Dr. Avni Iyer,female,Psychiatry,Nova Family Clinic,"MBBS, DPM",17,English|Marathi|Telugu|Hindi,1100,4.6,True,14,senior,True
+37a5ac46-0f20-45f3-b69e-5ae0f77613e2,Dr. Ishaan Fernandes,male,Psychiatry,MediGuide Health Center,"MBBS, DPM",8,English|Urdu|Kannada|Marathi,1000,4.1,True,18,senior,True
+efb94271-1a73-44a1-98fe-9a3beb383778,Dr. Aditya Gupta,male,Psychiatry,PrimeHealth Clinic,"MBBS, DPM",5,English|Telugu,1000,4.2,True,16,all,True
+2f0e948a-1a21-4813-b3f9-1bcf90365742,Dr. Saanvi Mishra,female,Psychiatry,Nova Family Clinic,"MBBS, MD Psychiatry",17,English|Urdu|Marathi|Malayalam,900,4.6,True,14,all,True
+012cc0e0-de2c-4859-aa8b-8c48b101b561,Dr. Sneha Fernandes,female,Psychiatry,PrimeHealth Clinic,"MBBS, MD Psychiatry",18,English|Telugu|Kannada,1200,4.1,True,18,child,True
+6e690391-7c78-4e3c-9453-d31cbbb9ce90,Dr. Aadhya Verma,female,Psychiatry,Central Care Clinic,"MBBS, DPM",22,English|Tamil|Malayalam|Hindi,1100,4.4,False,20,senior,True
+894d0cfd-feaf-4e68-bf23-c7ffd99f6fcd,Dr. Aniket Gupta,male,Psychiatry,PrimeHealth Clinic,"MBBS, MD Psychiatry",11,English|Tamil|Malayalam|Marathi,1000,4.5,True,20,senior,True
+c888b6aa-51de-4bd1-83b3-70f817c304dd,Dr. Rahul Das,male,Dentistry,BlueCross Wellness,BDS,9,English|Hindi|Telugu|Tamil,600,4.3,False,20,adult,True
+aad917ce-0f59-4772-9a47-2eedc5961eec,Dr. Myra Mehta,female,Dentistry,CityWell Multispeciality,BDS,23,English|Kannada|Tamil,800,4.8,False,18,child,True
+e014f184-6753-4d47-b47c-7591393593ac,Dr. Aadhya Mishra,female,Dentistry,GreenLife Hospital,"BDS, MDS",15,English|Bengali|Hindi|Malayalam,500,4.3,True,12,adult,True
+78ff88bc-5c37-400a-9631-adf3d2d0d46b,Dr. Aadhya Das,female,Dentistry,Nova Family Clinic,"BDS, MDS",25,English|Tamil,800,4.1,True,12,all,True
+4ed9e240-523d-480f-93fd-33491dc9ea77,Dr. Myra Mishra,female,Dentistry,Harmony Medical Center,BDS,14,English|Marathi,600,4.3,True,18,senior,True
+55132495-1344-4fdd-a021-2aa54912e991,Dr. Aarohi Singh,female,Dentistry,BlueCross Wellness,BDS,19,English|Kannada|Marathi,700,4.5,True,12,senior,True
+c66453d4-738c-43ab-a1b3-8e6aba626602,Dr. Reyansh Patel,male,Dentistry,MediGuide Health Center,"BDS, MDS",15,English|Malayalam,600,4.6,True,14,all,True
+5ad88f2f-ca3f-41f4-94fb-db7435059dc2,Dr. Tanvi Banerjee,female,Dentistry,Sunrise Medical Hub,BDS,3,English|Kannada|Tamil,700,4.5,True,18,all,True
+cb62e523-0231-41aa-92d5-1e163322611d,Dr. Rohan Kulkarni,male,Dentistry,GreenLife Hospital,"BDS, MDS",19,English|Marathi,800,4.0,True,20,senior,True
+1c81be77-ed87-4d4b-bd09-e0ba64d16561,Dr. Maya Nair,female,Dentistry,GreenLife Hospital,BDS,21,English|Malayalam|Telugu|Kannada,700,4.6,False,18,senior,True
+0b7a27cd-78cd-45a0-9543-5c098b9d1390,Dr. Ananya Sharma,female,Dentistry,GreenLife Hospital,"BDS, MDS",14,English|Urdu|Marathi,500,4.5,False,18,all,True
+25809202-d951-4f5b-8941-6e45e49d4f68,Dr. Rudra Sharma,male,Dentistry,Nova Family Clinic,"BDS, MDS",21,English|Bengali|Kannada|Hindi,700,4.2,True,16,all,True
+aed8e315-cd15-400b-8026-8cd924404e52,Dr. Pranav Kapoor,male,Dentistry,MediGuide Health Center,BDS,20,English|Malayalam,600,4.2,False,12,senior,True
+40bbec6e-4caf-4f20-8707-a5fa4b37959d,Dr. Krishna Chatterjee,male,Dentistry,Sunrise Medical Hub,BDS,14,English|Bengali|Hindi,600,4.1,False,12,adult,True
+5a6d6971-dc8e-43db-a4e1-761887c9066a,Dr. Vihaan Mehta,male,Dentistry,CityWell Multispeciality,"BDS, MDS",12,English|Hindi|Marathi,600,4.7,False,18,all,True
+5e332d6f-2376-42a6-9e86-fbc9890dcae9,Dr. Vihaan Thomas,male,Dentistry,Central Care Clinic,BDS,14,English|Hindi|Tamil|Telugu,500,4.2,False,20,all,True
+99ed95f2-bd55-4c27-8e7f-795f8d377035,Dr. Ritvik Fernandes,male,Dentistry,MediGuide Health Center,BDS,22,English|Telugu|Malayalam|Kannada,700,4.4,False,20,child,True
+6be7b478-7bac-4e9d-b587-ed20b7ceb300,Dr. Arjun Mehta,male,Dentistry,Nova Family Clinic,"BDS, MDS",2,English|Bengali|Tamil|Marathi,600,4.2,False,12,child,True
+ca4ae04b-3dbb-4619-bbb0-e2f22fe74563,Dr. Saanvi Nair,female,Dentistry,CarePoint Hospital,"BDS, MDS",9,English|Urdu,500,4.6,True,20,adult,True
+45f2d867-2b61-4709-a991-6594edab9779,Dr. Rohan Sharma,male,Dentistry,Sunrise Medical Hub,"BDS, MDS",11,English|Tamil,800,4.6,True,12,all,True
+b072c4fb-26eb-484a-a982-b3d30c9ebbcf,Dr. Aarav Menon,male,Dentistry,Nova Family Clinic,BDS,23,English|Hindi,600,4.6,True,16,adult,True
+9291a955-483d-4c90-9d1c-26d149cb961c,Dr. Maya Rao,female,Dentistry,Harmony Medical Center,BDS,3,English|Marathi|Bengali|Kannada,600,4.7,True,14,all,True
+51db5498-df33-432c-8498-ef4227106bea,Dr. Maya Mehta,female,Dentistry,CarePoint Hospital,"BDS, MDS",20,English|Marathi|Bengali,500,4.2,True,18,adult,True
+6b8539f0-76a3-429c-9228-26e39356c2cc,Dr. Anika Shetty,female,Dentistry,Central Care Clinic,BDS,16,English|Bengali|Telugu,800,4.4,True,16,senior,True
+90757de7-506c-4c26-ac68-6d6a06e795f1,Dr. Vihaan Iyer,male,Dentistry,Harmony Medical Center,BDS,12,English|Telugu,600,4.2,False,16,adult,True
+2db796cb-3189-4c7e-bf30-e8876216b4b1,Dr. Siddharth Singh,male,Dentistry,Sunrise Medical Hub,BDS,12,English|Urdu|Bengali|Telugu,500,4.8,True,18,adult,True
+07787547-4bb7-427b-bb26-3c5ae64a19d7,Dr. Kavya Thomas,female,Dentistry,PrimeHealth Clinic,"BDS, MDS",2,English|Malayalam|Tamil|Urdu,500,4.1,True,20,child,True
+1c752e0e-3b5e-44f7-b521-1efd0363c0c7,Dr. Vihaan Thomas,male,Dentistry,Sunrise Medical Hub,"BDS, MDS",24,English|Hindi,800,4.2,True,18,senior,True
+b72588d5-f105-4cf7-b38f-8146e2a9238b,Dr. Pooja Menon,female,Dentistry,MediGuide Health Center,BDS,17,English|Marathi,500,4.9,True,14,adult,True
+1ee450dc-974b-43cb-8147-8c0ae9220a00,Dr. Karan Pillai,male,Dentistry,CityWell Multispeciality,"BDS, MDS",16,English|Bengali|Malayalam|Telugu,800,4.7,True,18,senior,True
+4a07def9-24a8-435d-be56-2afa87a0c865,Dr. Reyansh Patel,male,Gastroenterology,Sunrise Medical Hub,"MBBS, DNB Gastroenterology",25,English|Kannada|Bengali,1100,4.4,False,12,senior,True
+158da258-ba83-4d53-a508-c3a5cf2013cc,Dr. Ananya Iyer,female,Gastroenterology,CarePoint Hospital,"MBBS, DNB Gastroenterology",14,English|Bengali|Urdu,1100,4.0,True,12,adult,True
+58af3d54-7b7d-4208-8e9e-778f2a75c6c5,Dr. Aarav Pillai,male,Gastroenterology,MediGuide Health Center,"MBBS, MD, DM Gastroenterology",5,English|Malayalam,1300,4.1,True,16,adult,True
+9a4be3ee-4eae-458a-a7ea-ccab7ec131f5,Dr. Ritvik Sharma,male,Gastroenterology,Central Care Clinic,"MBBS, MD, DM Gastroenterology",13,English|Telugu|Kannada,1100,4.1,True,12,all,True
+17f89e58-8905-4dfb-89a3-e9e14129fa85,Dr. Aniket Verma,male,Gastroenterology,PrimeHealth Clinic,"MBBS, DNB Gastroenterology",8,English|Telugu,1000,4.3,True,18,senior,True
+c6667eaf-c6b0-4fdd-afdd-69b2a0b19102,Dr. Nikhil Das,male,Gastroenterology,BlueCross Wellness,"MBBS, DNB Gastroenterology",19,English|Kannada|Bengali,1100,4.9,False,16,child,True
+415d2fa9-3303-48bf-99bd-a1452006e137,Dr. Ishaan Singh,male,Gastroenterology,PrimeHealth Clinic,"MBBS, DNB Gastroenterology",3,English|Kannada,1100,4.4,True,14,child,True
+dce035e1-ded9-42dd-a3a9-16239e797896,Dr. Sara Das,female,Gastroenterology,Central Care Clinic,"MBBS, MD, DM Gastroenterology",12,English|Bengali,1100,4.5,False,14,adult,True
+d862e5a7-5563-4edc-bb05-32fca4f99d76,Dr. Pranav Kulkarni,male,Gastroenterology,CityWell Multispeciality,"MBBS, DNB Gastroenterology",15,English|Kannada,1300,4.1,True,14,child,True
+8b809761-d3d5-477a-aa67-ffb194e5aeb5,Dr. Pooja Verma,female,Gastroenterology,GreenLife Hospital,"MBBS, MD, DM Gastroenterology",18,English|Urdu|Telugu,1300,4.7,True,12,child,True
+742be0b9-6744-4565-bb22-11fa79afdea3,Dr. Diya Gupta,female,Gastroenterology,GreenLife Hospital,"MBBS, MD, DM Gastroenterology",8,English|Urdu|Kannada|Marathi,1000,4.8,False,16,child,True
+bb24a09c-e771-4d36-8714-a60dce35e906,Dr. Yash Chatterjee,male,Gastroenterology,Nova Family Clinic,"MBBS, MD, DM Gastroenterology",17,English|Bengali|Malayalam|Urdu,1200,4.6,True,14,adult,True
+ddbff8ff-e9a5-4b2d-9464-7176d6b761af,Dr. Yash Iyer,male,Gastroenterology,PrimeHealth Clinic,"MBBS, MD, DM Gastroenterology",8,English|Kannada|Malayalam,1300,4.7,True,16,child,True
+ec028d8b-0dd3-4809-af25-3631358040c8,Dr. Yash Fernandes,male,Gastroenterology,PrimeHealth Clinic,"MBBS, MD, DM Gastroenterology",25,English|Marathi|Bengali|Tamil,1300,4.2,True,14,adult,True
+d2e9173e-26f5-46b8-8ef2-705c66cd1f52,Dr. Sara Pillai,female,Gastroenterology,MediGuide Health Center,"MBBS, MD, DM Gastroenterology",4,English|Tamil|Hindi|Urdu,1300,4.2,True,12,adult,True
+b876d634-33d9-4044-9d88-994033817fef,Dr. Priya Banerjee,female,Gastroenterology,Harmony Medical Center,"MBBS, DNB Gastroenterology",23,English|Marathi|Tamil|Urdu,1200,4.7,True,18,child,True
+a9b0bc2c-b243-4e79-b9f3-a1833c668ad4,Dr. Zoya Khan,female,Gastroenterology,Central Care Clinic,"MBBS, DNB Gastroenterology",13,English|Bengali|Hindi|Urdu,1000,4.6,True,20,child,True
+eb0853e3-fee4-42cb-9f5b-96cdec800e9c,Dr. Siddharth Iyer,male,Gastroenterology,Nova Family Clinic,"MBBS, MD, DM Gastroenterology",5,English|Urdu|Kannada|Telugu,1300,4.2,True,12,all,True
+1e04341a-359f-40b0-acb1-24245ebe2912,Dr. Manav Gupta,male,Gastroenterology,CityWell Multispeciality,"MBBS, DNB Gastroenterology",14,English|Kannada|Bengali|Tamil,1300,4.7,True,16,all,True
+3f47f048-ace2-4586-8dfa-840379a54696,Dr. Pranav Kulkarni,male,Gastroenterology,CityWell Multispeciality,"MBBS, MD, DM Gastroenterology",13,English|Marathi|Tamil,1100,4.1,True,20,child,True
+72545357-aa76-447c-b1a7-38635ee565d3,Dr. Maya Shetty,female,Gastroenterology,CarePoint Hospital,"MBBS, MD, DM Gastroenterology",24,English|Telugu|Urdu|Tamil,1300,4.9,True,14,adult,True
+56444e2c-0fd6-4994-9895-379a4073800e,Dr. Abhay Mishra,male,Gastroenterology,Nova Family Clinic,"MBBS, MD, DM Gastroenterology",19,English|Telugu|Bengali,1300,4.1,False,12,senior,True
+d1dcfdb5-bd97-436b-8915-0027de7e433e,Dr. Dev Kapoor,male,Gastroenterology,PrimeHealth Clinic,"MBBS, DNB Gastroenterology",5,English|Tamil|Hindi,1200,4.2,True,12,senior,True
+35c2a389-33d6-44cc-92f7-ef9d807fcb0c,Dr. Sara Agarwal,female,Gastroenterology,CarePoint Hospital,"MBBS, MD, DM Gastroenterology",5,English|Hindi|Urdu,1000,4.4,False,20,adult,True
+7b683c85-0a54-4b75-9eb2-508c716a7cda,Dr. Isha Kapoor,female,Gastroenterology,MediGuide Health Center,"MBBS, DNB Gastroenterology",19,English|Kannada|Bengali,1100,4.7,True,18,child,True
+08689b68-1964-4a03-82ee-6ada0dfa2fb4,Dr. Ira Reddy,female,Gastroenterology,GreenLife Hospital,"MBBS, MD, DM Gastroenterology",4,English|Telugu|Bengali|Kannada,1200,4.1,True,20,senior,True
+55a27d14-f137-4bad-8af7-fd998c629f29,Dr. Tanvi Rao,female,Gastroenterology,BlueCross Wellness,"MBBS, MD, DM Gastroenterology",23,English|Telugu|Bengali|Hindi,1000,4.0,True,16,adult,True
+0fc47c97-f2af-4342-8838-68fe51002ed6,Dr. Pooja Agarwal,female,Gastroenterology,GreenLife Hospital,"MBBS, MD, DM Gastroenterology",10,English|Urdu|Hindi,1300,4.5,True,16,adult,True
+32b36eed-b0a2-443f-9c89-bf394fddebfe,Dr. Kabir Agarwal,male,Gastroenterology,MediGuide Health Center,"MBBS, MD, DM Gastroenterology",10,English|Bengali|Marathi,1100,4.2,True,18,adult,True
+7ca399df-0c33-41a9-8e13-519dfaf01467,Dr. Kabir Banerjee,male,Gastroenterology,PrimeHealth Clinic,"MBBS, DNB Gastroenterology",25,English|Bengali,1300,4.5,True,12,adult,True
+27a4c395-cdaf-41ee-bffc-987c2bb7d612,Dr. Kavya Joshi,female,Pulmonology,CityWell Multispeciality,"MBBS, MD Pulmonology",15,English|Kannada|Tamil,1000,4.6,True,14,all,True
+22c1e460-9643-40be-bab8-d5f71bbfc0c7,Dr. Tanvi Thomas,female,Pulmonology,Sunrise Medical Hub,"MBBS, MD Pulmonology",21,English|Kannada|Telugu|Hindi,900,4.6,False,20,senior,True
+8c05bd4e-e89a-4cf1-bceb-5824e7be05c8,Dr. Abhay Rao,male,Pulmonology,Central Care Clinic,"MBBS, MD Pulmonology",7,English|Urdu|Telugu,1000,4.3,False,14,all,True
+3250faa1-7c33-4e4f-9bb2-71c6f2d469ba,Dr. Rohan Sharma,male,Pulmonology,BlueCross Wellness,"MBBS, MD Pulmonology",13,English|Bengali|Tamil,800,4.3,False,14,child,True
+62b15667-3e92-48fe-8fa3-40f08797774a,Dr. Anika Mehta,female,Pulmonology,PrimeHealth Clinic,"MBBS, DTCD",15,English|Malayalam|Tamil,900,4.1,True,18,adult,True
+a0e488f0-c330-45ce-bb4b-0488f178d39a,Dr. Karan Chatterjee,male,Pulmonology,Harmony Medical Center,"MBBS, DTCD",23,English|Tamil,900,4.9,True,12,child,True
+db07acae-83ae-429d-93af-15303c10d2ec,Dr. Tanvi Sharma,female,Pulmonology,CityWell Multispeciality,"MBBS, DTCD",15,English|Bengali,800,4.4,True,18,all,True
+5cfc5a9d-f835-4d3d-a460-ad79ba729f74,Dr. Maya Nair,female,Pulmonology,Sunrise Medical Hub,"MBBS, MD Pulmonology",22,English|Tamil|Kannada|Malayalam,900,4.1,True,12,senior,True
+6b2596c3-c958-41bd-ae9e-1265eae08ae7,Dr. Sai Gupta,male,Pulmonology,PrimeHealth Clinic,"MBBS, DTCD",15,English|Hindi|Malayalam,800,4.1,True,16,senior,True
+f8b1569a-7395-4b1b-89d5-8439f001cd8d,Dr. Krishna Mehta,male,Pulmonology,Harmony Medical Center,"MBBS, MD Pulmonology",5,English|Malayalam|Hindi,800,4.3,False,16,senior,True
+d564ae41-af85-4af6-b535-47f12740ce23,Dr. Mohammed Fernandes,male,Pulmonology,CarePoint Hospital,"MBBS, DTCD",19,English|Kannada,1000,4.7,True,20,adult,True
+b14ababa-5a79-4173-a4d8-6892a8626765,Dr. Siddharth Chatterjee,male,Pulmonology,Sunrise Medical Hub,"MBBS, DTCD",10,English|Hindi|Kannada|Malayalam,900,4.0,False,12,adult,True
+8a1e141d-d7f8-42d6-9e29-35e685b720fd,Dr. Tanvi Fernandes,female,Pulmonology,Sunrise Medical Hub,"MBBS, DTCD",9,English|Malayalam|Marathi,1000,4.5,True,14,all,True
+f88fb6bd-972f-41c8-b873-f3ef3d759936,Dr. Diya Fernandes,female,Pulmonology,Sunrise Medical Hub,"MBBS, DTCD",21,English|Tamil|Telugu,1000,4.9,False,12,senior,True
+46c1aadd-82ed-42f3-a05d-44ec40006e5e,Dr. Anika Gupta,female,Pulmonology,Nova Family Clinic,"MBBS, MD Pulmonology",6,English|Marathi,1100,4.7,True,16,adult,True
+ab58ca6d-b57e-4807-80a5-f2697215ec46,Dr. Reyansh Verma,male,Pulmonology,BlueCross Wellness,"MBBS, DTCD",6,English|Kannada,800,4.2,False,18,all,True
+a2df6159-2731-4e5c-8c54-c7f40bb83d32,Dr. Ayaan Pillai,male,Pulmonology,Central Care Clinic,"MBBS, MD Pulmonology",19,English|Kannada,1000,4.2,True,20,child,True
+a22b52fd-c112-4149-b152-2736fbf22466,Dr. Vihaan Kulkarni,male,Pulmonology,Nova Family Clinic,"MBBS, MD Pulmonology",6,English|Marathi,800,4.0,True,18,adult,True
+ed2b8f21-262f-4098-8a3d-9002896d49ae,Dr. Diya Pillai,female,Pulmonology,Harmony Medical Center,"MBBS, MD Pulmonology",4,English|Bengali,800,4.2,False,16,adult,True
+52a1d5c7-f372-47d7-b5b8-3d0511c25aee,Dr. Myra Verma,female,Pulmonology,CarePoint Hospital,"MBBS, DTCD",5,English|Urdu|Marathi|Hindi,1100,4.1,True,14,adult,True
+72854a7a-99d7-43ef-8757-580b534a46d2,Dr. Avni Kulkarni,female,Pulmonology,CityWell Multispeciality,"MBBS, MD Pulmonology",24,English|Kannada|Malayalam,1100,4.6,True,16,all,True
+f1fdc881-3b4d-46ea-9cc5-151fdc2b9124,Dr. Nisha Kapoor,female,Pulmonology,Sunrise Medical Hub,"MBBS, MD Pulmonology",9,English|Telugu|Kannada,800,4.1,False,14,child,True
+5a76e322-3d53-4a0d-960b-9aed92b39778,Dr. Pranav Chatterjee,male,Pulmonology,GreenLife Hospital,"MBBS, DTCD",25,English|Urdu,900,4.4,False,16,child,True
+da4caa44-ffb2-4b3e-83d4-e350ec1879a9,Dr. Nikhil Menon,male,Pulmonology,Nova Family Clinic,"MBBS, DTCD",6,English|Marathi,900,4.6,True,18,adult,True
+508c1549-44e0-44af-ab94-b80732531c8f,Dr. Vihaan Iyer,male,Pulmonology,Harmony Medical Center,"MBBS, MD Pulmonology",11,English|Bengali|Hindi|Kannada,900,4.1,False,12,senior,True
+a49daef2-273a-45ea-9340-0f95813b51f0,Dr. Kabir Iyer,male,Pulmonology,Nova Family Clinic,"MBBS, MD Pulmonology",11,English|Bengali,1100,4.3,True,16,adult,True
+797347d7-9bba-41f9-bb1b-966482ddbaaf,Dr. Manav Singh,male,Pulmonology,CityWell Multispeciality,"MBBS, DTCD",7,English|Tamil|Marathi|Bengali,1000,4.7,True,16,senior,True
+f06bacd1-a93a-4713-bde1-ccc66bcf7760,Dr. Riya Menon,female,Pulmonology,Nova Family Clinic,"MBBS, DTCD",10,English|Kannada,1000,4.1,True,18,senior,True
+20130243-2217-47de-911c-857034e4537d,Dr. Tanvi Pillai,female,Pulmonology,Harmony Medical Center,"MBBS, DTCD",15,English|Kannada|Bengali,1100,4.8,False,12,all,True
+094db111-5898-45fd-a410-51937e2544a7,Dr. Nisha Agarwal,female,Pulmonology,Sunrise Medical Hub,"MBBS, DTCD",7,English|Kannada|Hindi,800,4.7,True,18,senior,True
+8d589c9d-9776-4782-a3ff-b581510bfe07,Dr. Siddharth Kapoor,male,Endocrinology,CityWell Multispeciality,"MBBS, DNB Endocrinology",14,English|Hindi|Malayalam,900,4.7,True,14,all,True
+5e0e6436-504f-4c4f-92d6-5321484a9cf4,Dr. Diya Das,female,Endocrinology,CarePoint Hospital,"MBBS, MD, DM Endocrinology",10,English|Telugu|Bengali,1000,4.1,True,16,senior,True
+ab6adc18-7bf1-4e84-9135-4e48c637b343,Dr. Aniket Pillai,male,Endocrinology,CityWell Multispeciality,"MBBS, MD, DM Endocrinology",12,English|Tamil,1100,4.1,True,14,child,True
+1561ba28-6edd-461d-9cc5-c0ac943da1ed,Dr. Maya Kulkarni,female,Endocrinology,GreenLife Hospital,"MBBS, MD, DM Endocrinology",8,English|Marathi|Kannada|Tamil,1000,4.3,True,12,senior,True
+a6efdcb9-0c7b-4364-8cd8-9fae955edc60,Dr. Rahul Chatterjee,male,Endocrinology,Harmony Medical Center,"MBBS, DNB Endocrinology",19,English|Tamil,1200,4.3,False,18,senior,True
+38ea7800-829e-48a2-94d3-c67960e4f5bf,Dr. Yash Bose,male,Endocrinology,Sunrise Medical Hub,"MBBS, DNB Endocrinology",17,English|Kannada|Urdu,900,4.9,True,18,child,True
+6b5c78b7-15d6-48cd-acdc-17c8dcde3948,Dr. Aadhya Sharma,female,Endocrinology,Central Care Clinic,"MBBS, DNB Endocrinology",18,English|Bengali,1100,4.2,False,18,adult,True
+a5818672-2e15-4673-8b1a-ddb8766bf1b3,Dr. Ayaan Shetty,male,Endocrinology,PrimeHealth Clinic,"MBBS, MD, DM Endocrinology",7,English|Malayalam|Marathi|Urdu,1100,4.1,True,18,all,True
+92edfc24-547e-435a-a948-ea391a7a5d22,Dr. Rudra Banerjee,male,Endocrinology,PrimeHealth Clinic,"MBBS, MD, DM Endocrinology",4,English|Hindi|Tamil,1000,4.6,False,12,all,True
+2a4c6994-655e-4510-aa3d-eca07fbf6b37,Dr. Ira Mehta,female,Endocrinology,Central Care Clinic,"MBBS, MD, DM Endocrinology",22,English|Kannada|Telugu,900,4.6,True,16,child,True
+a1e3c6f4-c102-4269-a3e4-e3bd128a5882,Dr. Reyansh Joshi,male,Endocrinology,Nova Family Clinic,"MBBS, MD, DM Endocrinology",21,English|Telugu,900,4.5,True,14,senior,True
+60ae7894-2e5c-463d-9009-abe5ab1d863a,Dr. Aarohi Iyer,female,Endocrinology,Harmony Medical Center,"MBBS, DNB Endocrinology",17,English|Malayalam|Telugu|Bengali,1200,4.8,True,14,adult,True
+4e67ef2f-6c69-4016-86bd-bdebdb604579,Dr. Aarohi Shetty,female,Endocrinology,Harmony Medical Center,"MBBS, DNB Endocrinology",7,English|Kannada|Telugu,900,4.5,True,20,senior,True
+fe2d2b56-b34a-4265-b326-d4cef4005d1c,Dr. Yash Gupta,male,Endocrinology,MediGuide Health Center,"MBBS, DNB Endocrinology",24,English|Bengali,900,4.2,False,16,adult,True
+d7992aa0-656d-4148-8b4f-949e70b2af02,Dr. Siddharth Mehta,male,Endocrinology,Central Care Clinic,"MBBS, MD, DM Endocrinology",5,English|Marathi|Hindi,1200,4.5,False,18,adult,True
+0bea83f7-8f55-4617-a6bc-1103ca347ec7,Dr. Nikhil Mishra,male,Endocrinology,Nova Family Clinic,"MBBS, MD, DM Endocrinology",13,English|Bengali|Marathi,1200,4.5,True,18,all,True
+4aa25998-9c5e-421c-a33a-ba384757d2bb,Dr. Kabir Fernandes,male,Endocrinology,PrimeHealth Clinic,"MBBS, DNB Endocrinology",4,English|Tamil,1000,4.7,False,12,all,True
+0108fb73-427f-43e8-bef6-cecbfa4ab346,Dr. Arjun Gupta,male,Endocrinology,GreenLife Hospital,"MBBS, MD, DM Endocrinology",23,English|Marathi|Bengali|Telugu,900,4.5,False,18,senior,True
+f5398e68-41dd-4caf-a388-88d187671832,Dr. Aadhya Khan,female,Endocrinology,Central Care Clinic,"MBBS, MD, DM Endocrinology",8,English|Telugu|Urdu|Marathi,1200,4.3,False,20,senior,True
+d3e56afa-e0b0-495b-b02c-dda527d9a2da,Dr. Aditya Patel,male,Endocrinology,PrimeHealth Clinic,"MBBS, MD, DM Endocrinology",20,English|Malayalam,900,4.4,True,12,adult,True
+e458ac6a-f2a2-414f-b5b1-bc38295e59a4,Dr. Rohan Chatterjee,male,Endocrinology,CityWell Multispeciality,"MBBS, DNB Endocrinology",18,English|Marathi,1200,4.0,True,16,all,True
+86b5997a-ed36-4745-94ff-31a6e3b58d00,Dr. Tanvi Chatterjee,female,Endocrinology,MediGuide Health Center,"MBBS, MD, DM Endocrinology",5,English|Hindi|Bengali|Kannada,1000,4.0,True,20,senior,True
+c423f5a2-ed64-4b41-a7a0-d4dab507a39b,Dr. Rudra Fernandes,male,Endocrinology,Nova Family Clinic,"MBBS, DNB Endocrinology",8,English|Telugu|Kannada,1100,4.6,True,12,all,True
+398ef7d3-04c1-4ed3-a1ff-1d89057a4f01,Dr. Kabir Bose,male,Endocrinology,GreenLife Hospital,"MBBS, MD, DM Endocrinology",15,English|Urdu,1100,4.2,True,12,adult,True
+aca8ae16-a718-4969-8f0e-88cc0b396bd7,Dr. Vihaan Das,male,Endocrinology,Harmony Medical Center,"MBBS, DNB Endocrinology",13,English|Urdu|Bengali,1100,4.2,True,12,senior,True
+ad540add-b15e-4097-af55-48fef25e8f30,Dr. Sai Shetty,male,Endocrinology,PrimeHealth Clinic,"MBBS, DNB Endocrinology",4,English|Telugu|Bengali,1000,4.6,True,20,child,True
+1879f54a-296a-4253-820d-bbd45d1e2fde,Dr. Ira Sharma,female,Endocrinology,CarePoint Hospital,"MBBS, MD, DM Endocrinology",6,English|Tamil|Telugu|Bengali,1100,4.3,True,12,senior,True
+f833e65d-7427-4f11-9344-fc346848034a,Dr. Sneha Thomas,female,Endocrinology,Central Care Clinic,"MBBS, DNB Endocrinology",6,English|Malayalam,1100,4.7,False,20,adult,True
+07fabbe7-5c31-460a-8391-6de0343061a3,Dr. Sneha Singh,female,Endocrinology,PrimeHealth Clinic,"MBBS, DNB Endocrinology",10,English|Marathi|Hindi,1100,4.2,True,16,adult,True
+7e96d30f-37c3-4b80-9414-f911ab23be0b,Dr. Maya Gupta,female,Endocrinology,Sunrise Medical Hub,"MBBS, DNB Endocrinology",15,English|Bengali|Telugu|Tamil,1200,4.9,True,12,all,True
+de1e405f-5d5d-478a-9817-4afdf0acb2b4,Dr. Lavanya Joshi,female,Nephrology,CarePoint Hospital,"MBBS, MD, DM Nephrology",3,English|Kannada,1200,4.3,True,16,child,True
+1cba24a4-ba15-4410-afaf-1097c0ad2d64,Dr. Vihaan Iyer,male,Nephrology,Central Care Clinic,"MBBS, MD, DM Nephrology",18,English|Kannada,1000,4.2,True,12,child,True
+48f27a45-4aa5-438a-a614-b8135d121784,Dr. Reyansh Kapoor,male,Nephrology,CityWell Multispeciality,"MBBS, DNB Nephrology",17,English|Telugu,1300,4.3,True,20,child,True
+4036aa7d-1faf-48a0-9e36-f967a05b09f2,Dr. Pranav Verma,male,Nephrology,Central Care Clinic,"MBBS, MD, DM Nephrology",22,English|Malayalam|Hindi|Bengali,1300,4.8,True,14,child,True
+cf625773-b9bf-4a8b-b691-66ff1f23be44,Dr. Lavanya Thomas,female,Nephrology,Nova Family Clinic,"MBBS, DNB Nephrology",22,English|Kannada|Marathi,1300,4.9,False,14,senior,True
+733a4ad4-9370-4574-acba-3c55e25837ed,Dr. Dev Nair,male,Nephrology,CarePoint Hospital,"MBBS, MD, DM Nephrology",25,English|Urdu|Tamil|Kannada,1100,4.8,True,18,child,True
+8178be8c-590b-4c58-a2eb-a9af6d3c721d,Dr. Kabir Nair,male,Nephrology,CarePoint Hospital,"MBBS, MD, DM Nephrology",20,English|Tamil|Bengali,1100,4.2,True,16,adult,True
+7780330f-328a-4edd-830f-6d71fb5ba0ab,Dr. Aarav Rao,male,Nephrology,PrimeHealth Clinic,"MBBS, MD, DM Nephrology",23,English|Kannada|Tamil|Urdu,1300,4.7,False,18,senior,True
+d2bc0fff-bc6e-4036-936b-07f5278d5dc1,Dr. Siddharth Singh,male,Nephrology,Central Care Clinic,"MBBS, DNB Nephrology",11,English|Bengali|Hindi|Kannada,1200,4.6,True,14,senior,True
+0d05b1f5-1adb-446e-b936-e86f3c4b71ce,Dr. Vivaan Gupta,male,Nephrology,PrimeHealth Clinic,"MBBS, MD, DM Nephrology",3,English|Telugu|Tamil,1100,4.5,False,16,all,True
+670fa737-fca2-4599-8cf6-488bfb7880de,Dr. Trisha Reddy,female,Nephrology,MediGuide Health Center,"MBBS, DNB Nephrology",18,English|Urdu,1100,4.4,True,14,all,True
+1a242ca6-896f-46a0-8729-f9040cf5a6ab,Dr. Maya Chatterjee,female,Nephrology,Sunrise Medical Hub,"MBBS, DNB Nephrology",16,English|Kannada,1000,4.3,True,18,all,True
+75e8a1f3-0388-4039-8a18-ec211312cef5,Dr. Vivaan Kapoor,male,Nephrology,CarePoint Hospital,"MBBS, DNB Nephrology",3,English|Malayalam,1200,4.5,True,16,adult,True
+c1ccd828-7b49-481b-9bdb-bff5e58ea019,Dr. Abhay Patel,male,Nephrology,Harmony Medical Center,"MBBS, DNB Nephrology",15,English|Kannada|Hindi|Tamil,1300,4.1,True,20,adult,True
+ba90d376-1916-44c5-9141-04ae85386f17,Dr. Aadhya Patel,female,Nephrology,Nova Family Clinic,"MBBS, DNB Nephrology",3,English|Marathi|Tamil|Hindi,1200,4.4,True,18,child,True
+3b0d6ea1-0971-4432-a9e3-aa42e31df872,Dr. Ritvik Banerjee,male,Nephrology,Harmony Medical Center,"MBBS, DNB Nephrology",2,English|Telugu|Marathi,1200,4.8,False,12,all,True
+c40bcf14-121b-4597-abf1-ec76ea948bed,Dr. Riya Shetty,female,Nephrology,PrimeHealth Clinic,"MBBS, DNB Nephrology",13,English|Malayalam,1200,4.7,False,12,all,True
+b3c71c60-9d52-4127-af55-6d6deeeaf4c1,Dr. Sara Kulkarni,female,Nephrology,CityWell Multispeciality,"MBBS, DNB Nephrology",4,English|Hindi|Malayalam,1200,4.9,True,14,senior,True
+d500e51f-0343-476d-acac-7b6650250158,Dr. Aadhya Kulkarni,female,Nephrology,CityWell Multispeciality,"MBBS, DNB Nephrology",10,English|Malayalam,1000,4.5,True,20,adult,True
+ae88f3d9-4170-4c59-8482-b79ae40e9189,Dr. Myra Sharma,female,Nephrology,Harmony Medical Center,"MBBS, DNB Nephrology",22,English|Bengali|Tamil|Telugu,1200,4.8,True,20,all,True
+6df5ef80-7469-4782-80d6-d8a667147113,Dr. Karan Shetty,male,Nephrology,Central Care Clinic,"MBBS, MD, DM Nephrology",4,English|Tamil|Telugu|Bengali,1000,4.5,False,20,child,True
+fdb69f41-5f65-4481-9c49-b3d89dcea020,Dr. Riya Mishra,female,Nephrology,MediGuide Health Center,"MBBS, MD, DM Nephrology",15,English|Telugu|Urdu|Bengali,1200,4.3,False,12,senior,True
+b48c6e28-41ed-4d49-9044-48d949515edc,Dr. Nikhil Chatterjee,male,Nephrology,Sunrise Medical Hub,"MBBS, MD, DM Nephrology",22,English|Urdu,1100,4.8,True,14,all,True
+e82dab24-099c-4970-9f55-ad10efcf2d6d,Dr. Kavya Rao,female,Nephrology,GreenLife Hospital,"MBBS, DNB Nephrology",11,English|Telugu|Bengali,1000,4.8,True,20,all,True
+9f0b845b-ac8b-4f4a-bd04-725ff71c9eac,Dr. Pooja Gupta,female,Nephrology,CarePoint Hospital,"MBBS, DNB Nephrology",5,English|Malayalam,1100,4.4,True,20,child,True
+28ce068c-0c7e-4320-9b25-019bb3908715,Dr. Saanvi Nair,female,Nephrology,Nova Family Clinic,"MBBS, DNB Nephrology",9,English|Urdu|Telugu,1100,4.8,True,20,all,True
+43f5fb5d-7df8-47b9-b5d4-9c0c7c4456de,Dr. Siddharth Sharma,male,Nephrology,Harmony Medical Center,"MBBS, DNB Nephrology",20,English|Malayalam,1300,4.5,True,16,all,True
+ce46a282-5bdf-4e82-ba9e-9ad5e82a21d9,Dr. Abhay Gupta,male,Nephrology,Nova Family Clinic,"MBBS, MD, DM Nephrology",24,English|Kannada|Bengali,1200,4.4,False,20,senior,True
+11f68593-7bce-47d9-a30f-4b8a6a0580de,Dr. Myra Mehta,female,Nephrology,GreenLife Hospital,"MBBS, MD, DM Nephrology",8,English|Urdu|Tamil|Kannada,1000,4.0,True,18,adult,True
+e92c57cf-318a-494b-bee2-09d4c7789bb0,Dr. Neha Rao,female,Nephrology,Sunrise Medical Hub,"MBBS, DNB Nephrology",9,English|Malayalam|Hindi,1000,4.4,True,16,adult,True
+33b04606-f5e8-4648-a8a9-4ede376140fe,Dr. Tanvi Khan,female,Urology,PrimeHealth Clinic,"MBBS, DNB Urology",10,English|Bengali,1100,4.4,True,18,child,True
+f9728da3-0394-4daf-b1cd-edfd4637e39b,Dr. Yash Agarwal,male,Urology,MediGuide Health Center,"MBBS, MS, MCh Urology",19,English|Bengali|Kannada|Malayalam,900,4.7,True,16,senior,True
+baeb33a5-c458-41d5-8db8-6cbb808ba1ef,Dr. Vivaan Sharma,male,Urology,Sunrise Medical Hub,"MBBS, MS, MCh Urology",17,English|Marathi,900,4.3,True,14,adult,True
+a457518c-c0de-4cfa-af2f-670aba6b418d,Dr. Ananya Sharma,female,Urology,Sunrise Medical Hub,"MBBS, MS, MCh Urology",20,English|Tamil|Hindi|Bengali,1200,4.7,True,16,child,True
+63d523f3-2500-428e-bc2c-57cc02336df7,Dr. Priya Das,female,Urology,Sunrise Medical Hub,"MBBS, DNB Urology",17,English|Telugu|Urdu|Hindi,1200,4.7,False,12,child,True
+afda3c1f-9a07-45ab-a1ee-0d0c9c234601,Dr. Myra Agarwal,female,Urology,MediGuide Health Center,"MBBS, MS, MCh Urology",8,English|Tamil,1200,4.1,True,20,child,True
+2fb0b6b1-8d3b-4498-8997-ecd675be8681,Dr. Yash Kulkarni,male,Urology,CarePoint Hospital,"MBBS, DNB Urology",9,English|Urdu|Tamil|Bengali,1100,4.6,False,20,all,True
+d8f163a9-05d0-43af-82fa-e0f2930550da,Dr. Ira Reddy,female,Urology,PrimeHealth Clinic,"MBBS, MS, MCh Urology",18,English|Tamil|Bengali,1200,4.7,False,18,child,True
+9aa2395e-66c6-45b1-bdd4-dd6546f573f2,Dr. Tanvi Thomas,female,Urology,CityWell Multispeciality,"MBBS, DNB Urology",10,English|Bengali|Malayalam|Marathi,1200,4.2,True,14,adult,True
+2dd565c1-94ef-4a9a-a467-4c051ae333b2,Dr. Ira Reddy,female,Urology,BlueCross Wellness,"MBBS, DNB Urology",13,English|Tamil|Hindi,1000,4.6,True,16,senior,True
+c3a0fe9c-994d-4064-875b-9e79ba73eadd,Dr. Krishna Shetty,male,Urology,MediGuide Health Center,"MBBS, DNB Urology",12,English|Marathi,1100,4.2,True,14,adult,True
+daa241a7-8a8e-484f-9c52-258225fb4d3f,Dr. Abhay Bose,male,Urology,PrimeHealth Clinic,"MBBS, MS, MCh Urology",18,English|Urdu|Tamil|Marathi,900,4.5,True,18,child,True
+2e441718-b072-437e-8588-05ae6ba1453d,Dr. Zoya Nair,female,Urology,Sunrise Medical Hub,"MBBS, DNB Urology",2,English|Bengali|Kannada,1100,4.7,True,18,adult,True
+0658185c-8dee-4d52-842e-4f553504da1f,Dr. Tanvi Sharma,female,Urology,BlueCross Wellness,"MBBS, DNB Urology",10,English|Hindi|Bengali,1200,4.0,False,16,senior,True
+b4304739-2422-4e18-9eef-c3be66f75462,Dr. Aditya Chatterjee,male,Urology,MediGuide Health Center,"MBBS, DNB Urology",22,English|Urdu,900,4.1,False,16,adult,True
+f06ca14a-ed32-4506-b7ef-6c445a1fd077,Dr. Reyansh Bose,male,Urology,Central Care Clinic,"MBBS, MS, MCh Urology",18,English|Telugu|Bengali,1200,4.6,True,16,senior,True
+39e88cd9-563a-4687-be47-3d93b8c8f340,Dr. Mohammed Agarwal,male,Urology,Harmony Medical Center,"MBBS, MS, MCh Urology",9,English|Kannada|Bengali,1100,4.7,False,14,senior,True
+59730289-7802-407f-a694-b48f4b2507d3,Dr. Aarohi Menon,female,Urology,Nova Family Clinic,"MBBS, DNB Urology",4,English|Urdu|Tamil,1200,4.5,True,20,child,True
+89c1f2be-a186-46f0-b565-7c54198265df,Dr. Aarohi Bose,female,Urology,Nova Family Clinic,"MBBS, DNB Urology",18,English|Kannada,1000,4.1,False,16,senior,True
+3f80198d-9834-4b47-be01-17f0d2ffe3ab,Dr. Saanvi Bose,female,Urology,Sunrise Medical Hub,"MBBS, DNB Urology",16,English|Hindi,1200,4.7,True,14,senior,True
+cce7fde0-d0a5-4414-8b92-a33b477608eb,Dr. Ishaan Pillai,male,Urology,Sunrise Medical Hub,"MBBS, MS, MCh Urology",6,English|Tamil,1100,4.9,True,14,senior,True
+43452669-7fde-4b30-b7ff-943f368930f9,Dr. Nikhil Iyer,male,Urology,CityWell Multispeciality,"MBBS, MS, MCh Urology",2,English|Bengali,1200,4.3,True,20,child,True
+c2208ad9-62ac-4bba-8b78-ab093fdd0cc8,Dr. Rohan Mehta,male,Urology,BlueCross Wellness,"MBBS, MS, MCh Urology",21,English|Telugu,1000,4.3,True,20,all,True
+85da78ea-8ed5-49bd-adb3-df536d5c840c,Dr. Nikhil Kapoor,male,Urology,Nova Family Clinic,"MBBS, DNB Urology",17,English|Marathi|Bengali,900,4.9,True,14,adult,True
+4522415c-b4ff-445c-9503-08c75f43732b,Dr. Zoya Bose,female,Urology,Central Care Clinic,"MBBS, DNB Urology",3,English|Marathi|Telugu,1100,4.2,False,12,child,True
+689b5241-420e-413c-8598-a131393ac88b,Dr. Kavya Reddy,female,Urology,CarePoint Hospital,"MBBS, DNB Urology",17,English|Hindi|Urdu,1200,4.0,False,16,senior,True
+ba2af817-aa81-49d8-9a95-c05cf8c16a1a,Dr. Sara Reddy,female,Urology,BlueCross Wellness,"MBBS, DNB Urology",25,English|Bengali,900,4.2,True,20,all,True
+c6f78df9-4508-4c59-bc84-f1a3c334ebdf,Dr. Aditya Gupta,male,Urology,Harmony Medical Center,"MBBS, DNB Urology",21,English|Tamil,900,4.5,False,12,senior,True
+6ffe0445-9ca1-4c17-8897-f0a2551e88b5,Dr. Isha Mehta,female,Urology,CityWell Multispeciality,"MBBS, DNB Urology",24,English|Malayalam|Bengali,1000,4.5,True,20,child,True
+bc56a3f4-5816-4877-8470-397cadc00a95,Dr. Kiara Bose,female,Urology,BlueCross Wellness,"MBBS, DNB Urology",9,English|Bengali|Hindi|Kannada,900,4.2,False,16,child,True
+735f249d-607f-4154-bc99-94cbef92a90e,Dr. Aniket Fernandes,male,Oncology,GreenLife Hospital,"MBBS, DNB Medical Oncology",3,English|Marathi|Tamil|Telugu,1200,4.5,True,12,adult,True
+43182af2-3cd5-4ea4-b4c3-d0b8241f2491,Dr. Anika Verma,female,Oncology,Sunrise Medical Hub,"MBBS, MD, DM Oncology",21,English|Marathi,1200,4.4,True,12,senior,True
+6b1c5851-64a0-4a08-a838-dd4dc1b9cc6a,Dr. Dev Thomas,male,Oncology,Harmony Medical Center,"MBBS, DNB Medical Oncology",17,English|Marathi|Kannada|Telugu,1500,4.7,True,14,adult,True
+891abe9e-a1d8-4c71-be1a-5070e10ad9d9,Dr. Arjun Pillai,male,Oncology,BlueCross Wellness,"MBBS, MD, DM Oncology",25,English|Kannada|Malayalam|Marathi,1500,4.3,True,14,child,True
+fbe9b37b-4e7a-4e64-9d48-e6b7df90770e,Dr. Diya Sharma,female,Oncology,CityWell Multispeciality,"MBBS, MD, DM Oncology",23,English|Urdu|Telugu|Kannada,1500,4.7,True,20,all,True
+075ecded-2fa9-4311-ba25-842674cb9e99,Dr. Priya Mishra,female,Oncology,Central Care Clinic,"MBBS, DNB Medical Oncology",25,English|Marathi|Urdu,1200,4.4,False,18,child,True
+9e9b46e9-1775-446c-9827-5f199bbc067c,Dr. Siddharth Khan,male,Oncology,Nova Family Clinic,"MBBS, DNB Medical Oncology",22,English|Bengali,1200,4.8,True,14,senior,True
+f7a40e5f-6026-4f8d-9cd6-26caccd64dfe,Dr. Isha Rao,female,Oncology,Nova Family Clinic,"MBBS, DNB Medical Oncology",22,English|Tamil|Malayalam,1400,4.6,False,16,adult,True
+cc8cc886-d3b5-41eb-ad67-ee12a667ad93,Dr. Priya Pillai,female,Oncology,GreenLife Hospital,"MBBS, DNB Medical Oncology",18,English|Tamil|Malayalam,1400,4.3,True,14,child,True
+a5540eb3-31db-40c4-9461-d482361ae994,Dr. Krishna Pillai,male,Oncology,MediGuide Health Center,"MBBS, MD, DM Oncology",16,English|Telugu|Tamil|Urdu,1200,4.7,True,12,child,True
+53387535-895a-457b-b86f-81f78c43c221,Dr. Ritvik Patel,male,Oncology,Sunrise Medical Hub,"MBBS, MD, DM Oncology",8,English|Kannada|Bengali,1200,4.5,True,14,adult,True
+f1a99e21-41f8-4cc7-9dea-7c03d5b26a5a,Dr. Ira Bose,female,Oncology,MediGuide Health Center,"MBBS, DNB Medical Oncology",19,English|Telugu|Hindi,1300,4.3,True,20,child,True
+da55020b-9b93-4ef7-91ca-694daef9a892,Dr. Kabir Joshi,male,Oncology,CarePoint Hospital,"MBBS, DNB Medical Oncology",10,English|Malayalam|Bengali|Tamil,1300,4.2,False,20,senior,True
+80d69651-435f-4e5c-8717-3d65fd8997d4,Dr. Sara Thomas,female,Oncology,Sunrise Medical Hub,"MBBS, MD, DM Oncology",5,English|Telugu,1300,4.3,True,16,child,True
+25e42198-3fa5-4c4d-ae12-5675ef6e916a,Dr. Ritvik Thomas,male,Oncology,GreenLife Hospital,"MBBS, DNB Medical Oncology",21,English|Urdu|Bengali,1500,4.2,True,18,senior,True
+48c8b56b-afd9-427a-980a-732300b6b74d,Dr. Aadhya Chatterjee,female,Oncology,Harmony Medical Center,"MBBS, MD, DM Oncology",2,English|Tamil|Telugu|Urdu,1300,4.6,True,16,senior,True
+45bc77e3-073e-4975-8392-72bdc5357a39,Dr. Sai Menon,male,Oncology,Harmony Medical Center,"MBBS, DNB Medical Oncology",17,English|Urdu|Bengali|Malayalam,1200,4.6,False,18,adult,True
+3075aaf4-c9b9-4903-bf1c-036d444330d1,Dr. Myra Mishra,female,Oncology,MediGuide Health Center,"MBBS, DNB Medical Oncology",6,English|Marathi|Urdu,1300,4.5,False,12,child,True
+f53c0a3b-0559-4f12-8648-be8258dfd83b,Dr. Trisha Khan,female,Oncology,GreenLife Hospital,"MBBS, DNB Medical Oncology",16,English|Urdu|Kannada,1400,4.2,False,16,senior,True
+ee034c1a-aa1a-425e-bc0d-2e66d0d67aed,Dr. Meera Shetty,female,Oncology,Harmony Medical Center,"MBBS, MD, DM Oncology",20,English|Kannada|Bengali|Hindi,1200,4.5,False,12,child,True
+220756cb-4ac4-485a-ad50-1d51b19dfeb8,Dr. Karan Shetty,male,Oncology,Nova Family Clinic,"MBBS, MD, DM Oncology",2,English|Marathi,1200,4.3,True,16,adult,True
+38eaa08c-bf78-4d26-a470-91927490d1fd,Dr. Aniket Rao,male,Oncology,MediGuide Health Center,"MBBS, MD, DM Oncology",23,English|Bengali|Kannada,1300,4.3,True,16,adult,True
+355c4179-4f0a-493c-8284-6d0376f7a8b7,Dr. Aadhya Bose,female,Oncology,CarePoint Hospital,"MBBS, MD, DM Oncology",14,English|Telugu|Kannada,1200,4.9,False,20,all,True
+e8d0366c-08b8-4927-8695-57700e5a46aa,Dr. Priya Patel,female,Oncology,Sunrise Medical Hub,"MBBS, DNB Medical Oncology",2,English|Urdu,1200,4.7,True,12,senior,True
+978f9757-7064-4099-8f52-ec82dd187a94,Dr. Arjun Singh,male,Oncology,GreenLife Hospital,"MBBS, DNB Medical Oncology",6,English|Hindi|Kannada|Malayalam,1300,4.7,True,20,adult,True
+69ffa320-907f-46ad-a934-e16d761828ad,Dr. Aarohi Das,female,Oncology,PrimeHealth Clinic,"MBBS, MD, DM Oncology",21,English|Bengali|Marathi|Tamil,1400,4.7,True,12,child,True
+3a2788be-a7a4-44e0-8088-8efe9cb483e1,Dr. Anika Iyer,female,Oncology,PrimeHealth Clinic,"MBBS, DNB Medical Oncology",17,English|Kannada,1500,4.8,False,18,adult,True
+2e36f782-8570-49b6-874f-4a3f27628cb2,Dr. Arjun Singh,male,Oncology,MediGuide Health Center,"MBBS, MD, DM Oncology",11,English|Kannada|Bengali|Telugu,1200,4.2,True,16,senior,True
+f1f9a264-1296-4acf-a913-afc7e6690650,Dr. Sai Menon,male,Oncology,PrimeHealth Clinic,"MBBS, DNB Medical Oncology",17,English|Hindi|Malayalam,1500,4.2,False,18,child,True
+5ccdd94b-1de9-4f83-a195-8e0794217c85,Dr. Riya Mehta,female,Oncology,Sunrise Medical Hub,"MBBS, MD, DM Oncology",12,English|Kannada|Bengali,1400,4.7,True,12,adult,True
+c217d041-4c1d-4209-aeaf-2934cb707f4a,Dr. Avni Iyer,female,Physiotherapy,Sunrise Medical Hub,"BPT, MPT",18,English|Marathi,500,4.8,True,12,adult,True
+55f6895a-2a44-4757-bda6-b84b5691442d,Dr. Krishna Reddy,male,Physiotherapy,PrimeHealth Clinic,BPT,15,English|Marathi|Malayalam,700,4.3,False,16,all,True
+3b7851bc-d940-40f8-b6ef-2c4ec6863c97,Dr. Saanvi Banerjee,female,Physiotherapy,CityWell Multispeciality,"BPT, MPT",15,English|Tamil|Bengali,700,4.2,True,12,adult,True
+a92c3ce9-ef2c-4a66-a89d-ad19ce76793f,Dr. Tanvi Nair,female,Physiotherapy,BlueCross Wellness,"BPT, MPT",16,English|Telugu|Bengali,600,4.5,False,18,adult,True
+bc340ecf-6e39-4875-84a8-3aaafff8d54f,Dr. Manav Fernandes,male,Physiotherapy,CarePoint Hospital,BPT,5,English|Telugu|Malayalam,400,4.2,False,18,child,True
+cd587770-450a-413e-bb54-bb73b0f33324,Dr. Manav Mehta,male,Physiotherapy,CityWell Multispeciality,"BPT, MPT",15,English|Urdu|Kannada|Malayalam,600,4.9,False,18,child,True
+dee6b242-bb0d-4f3f-a7a4-031db42bc7e9,Dr. Isha Joshi,female,Physiotherapy,Central Care Clinic,"BPT, MPT",2,English|Marathi|Bengali,500,4.0,True,12,senior,True
+fa2c415d-f98d-4e4b-a0ef-be857410f8ee,Dr. Lavanya Menon,female,Physiotherapy,CityWell Multispeciality,BPT,13,English|Bengali|Urdu|Telugu,500,4.8,True,16,adult,True
+4686fbd7-a651-446f-b80f-1eeb9494c1b0,Dr. Riya Bose,female,Physiotherapy,Harmony Medical Center,"BPT, MPT",12,English|Tamil,400,4.2,True,20,senior,True
+ad92960d-b85d-4aa4-9dfe-894c98f5a4e1,Dr. Ira Mishra,female,Physiotherapy,Nova Family Clinic,"BPT, MPT",16,English|Kannada|Tamil|Urdu,400,4.5,False,16,all,True
+ef390edb-8377-4bfd-b629-18d822a94eaf,Dr. Kavya Kulkarni,female,Physiotherapy,Sunrise Medical Hub,BPT,18,English|Telugu|Urdu|Kannada,700,4.7,False,16,senior,True
+f585f59b-5e8d-4024-b8ea-fde96889497a,Dr. Ira Pillai,female,Physiotherapy,CityWell Multispeciality,BPT,22,English|Bengali|Urdu|Marathi,500,4.2,True,18,child,True
+2cedce3d-d009-49d5-a57c-9e169b31e002,Dr. Rudra Patel,male,Physiotherapy,BlueCross Wellness,BPT,21,English|Hindi|Bengali,700,4.6,True,18,adult,True
+a7516a67-2b0b-4906-9de3-822a0c0afb75,Dr. Rudra Khan,male,Physiotherapy,CityWell Multispeciality,"BPT, MPT",2,English|Tamil|Marathi|Kannada,700,4.3,True,18,child,True
+4d0035e7-84d7-4dc6-a892-c4c3be447ad9,Dr. Reyansh Patel,male,Physiotherapy,PrimeHealth Clinic,BPT,13,English|Telugu,400,4.4,True,20,senior,True
+b6c1cb8d-c147-4bbd-ad7b-056ef0e58ea8,Dr. Pooja Das,female,Physiotherapy,Central Care Clinic,BPT,7,English|Bengali|Marathi|Hindi,500,4.2,True,16,all,True
+923b6e7c-e2cf-4240-8806-944853d10e06,Dr. Zoya Menon,female,Physiotherapy,BlueCross Wellness,BPT,8,English|Tamil|Hindi|Telugu,500,4.8,False,20,child,True
+c1b0c5f4-082c-40a4-95b7-a5904df2bdb6,Dr. Aadhya Mehta,female,Physiotherapy,BlueCross Wellness,BPT,23,English|Kannada,600,4.7,False,14,senior,True
+cb149cf3-7906-4852-8600-8d581eda6641,Dr. Kabir Kulkarni,male,Physiotherapy,CarePoint Hospital,"BPT, MPT",11,English|Marathi|Tamil|Telugu,400,4.2,True,16,adult,True
+c711edd9-49a8-4394-83c6-3ef21253a4a6,Dr. Saanvi Singh,female,Physiotherapy,Harmony Medical Center,"BPT, MPT",17,English|Telugu,500,4.0,True,14,all,True
+b2cafc36-2878-47c9-9bf2-60bec73af11e,Dr. Kavya Thomas,female,Physiotherapy,BlueCross Wellness,BPT,25,English|Malayalam|Kannada|Bengali,600,4.6,True,18,child,True
+9a20b168-cf89-4bb9-835a-41361949ce0b,Dr. Reyansh Mehta,male,Physiotherapy,MediGuide Health Center,BPT,7,English|Bengali,600,4.3,True,16,senior,True
+e3ae6cff-a2c4-4516-b37b-d1ae87eb00eb,Dr. Ira Nair,female,Physiotherapy,CityWell Multispeciality,"BPT, MPT",7,English|Marathi,400,4.2,False,16,child,True
+391a541b-5098-4090-94fe-a48b296495bb,Dr. Ayaan Reddy,male,Physiotherapy,PrimeHealth Clinic,"BPT, MPT",18,English|Tamil|Urdu,400,4.2,True,16,child,True
+671f830d-1352-4147-939e-547ac76f4e98,Dr. Nikhil Joshi,male,Physiotherapy,Sunrise Medical Hub,BPT,25,English|Tamil,600,4.0,True,14,all,True
+2a9852f9-7ef1-476f-a456-93db3050b962,Dr. Nisha Mishra,female,Physiotherapy,CityWell Multispeciality,BPT,13,English|Urdu|Malayalam|Tamil,700,4.8,True,18,senior,True
+b68b9d07-8573-4ef6-9408-8922e50d485d,Dr. Myra Reddy,female,Physiotherapy,CarePoint Hospital,"BPT, MPT",6,English|Telugu|Urdu,600,4.8,True,18,child,True
+6301b25a-aeda-4ad0-aec5-568a0bf30078,Dr. Avni Banerjee,female,Physiotherapy,PrimeHealth Clinic,BPT,14,English|Malayalam|Kannada,500,4.1,False,18,senior,True
+f344c773-4fc0-423a-9828-b4518eb97395,Dr. Ayaan Verma,male,Physiotherapy,BlueCross Wellness,BPT,15,English|Tamil,600,4.2,False,14,child,True
+90b8a860-46d2-41da-9b20-30e1a58aa010,Dr. Sneha Khan,female,Physiotherapy,GreenLife Hospital,BPT,4,English|Malayalam,600,4.5,True,18,senior,True

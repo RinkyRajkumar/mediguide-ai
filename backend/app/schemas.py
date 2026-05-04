@@ -84,6 +84,21 @@ class HealthHistoryOut(HealthHistoryCreate):
     model_config = {"from_attributes": True}
 
 
+class MedicationCatalogOut(BaseModel):
+    id: int
+    med_code: str
+    name: str
+    generic_name: str
+    category: str
+    form: str
+    default_strength: str
+    route: str
+    rx_required: bool
+    common_uses: str
+    patient_note: str
+    active: bool
+
+
 class AppointmentConstraints(BaseModel):
     location: str | None = Field(default=None, max_length=120)
     gender_preference: str | None = Field(default=None, max_length=40)
@@ -133,5 +148,109 @@ class AppointmentOut(BaseModel):
     urgency_level: str
     status: str
     reasoning: str
+
+    model_config = {"from_attributes": True}
+
+
+class PatientPreferenceIn(BaseModel):
+    preferred_time_range: Literal["morning", "afternoon", "evening", "any"] = "morning"
+    preferred_doctor_gender: Literal["male", "female", "any"] = "any"
+    preferred_language: str = Field(default="English", max_length=80)
+    preferred_clinic_location: str = Field(default="", max_length=120)
+    preferred_specialization: str = Field(default="General Medicine", max_length=120)
+    preferred_doctor_id: str = Field(default="", max_length=24)
+    avoided_days: str = Field(default="", max_length=120)
+    avoided_times: str = Field(default="", max_length=120)
+
+
+class PatientPreferenceOut(PatientPreferenceIn):
+    patient_id: int
+    past_booking_behavior: dict = Field(default_factory=dict)
+
+
+class AppointmentRecommendRequest(BaseModel):
+    specialization: str = Field(min_length=2, max_length=120)
+    urgency_level: Literal["low", "medium", "high"]
+    preferred_time_range: Literal["morning", "afternoon", "evening", "any"] = "any"
+    current_datetime: datetime | None = None
+    duration_minutes: int = Field(default=30, ge=15, le=120)
+    location: str = Field(default="", max_length=120)
+    doctor_gender: Literal["male", "female", "any"] = "any"
+    language: str = Field(default="", max_length=80)
+    confirm_booking_after_validation: bool = False
+    patient_note: str = Field(default="", max_length=2000)
+
+
+class RecommendedSlot(BaseModel):
+    date: str
+    time: str
+    starts_at: datetime
+    ends_at: datetime
+    doctor_id: str
+    doctor_name: str
+    specialization: str
+    clinic: str
+    language_match: bool
+    score: int
+    confidence_score: float
+    recommendation_reason: str
+    score_breakdown: dict
+
+
+class AppointmentRecommendationResponse(BaseModel):
+    recommended_slots: list[RecommendedSlot]
+    reasoning: str
+    status: Literal["recommendations", "confirmed", "conflict"]
+    appointment_id: int | None = None
+    ai_understanding: dict = Field(default_factory=dict)
+    warnings: list[str] = Field(default_factory=list)
+
+
+class AppointmentBookRequest(BaseModel):
+    doctor_id: str
+    starts_at: datetime
+    duration_minutes: int = Field(default=30, ge=15, le=120)
+    urgency_level: Literal["low", "medium", "high"]
+    specialization: str = Field(min_length=2, max_length=120)
+    reasoning: str = ""
+
+
+class AppointmentCancelRequest(BaseModel):
+    reason: str = Field(default="", max_length=500)
+
+
+class AppointmentRescheduleBody(AppointmentRecommendRequest):
+    selected_starts_at: datetime | None = None
+    selected_doctor_id: str | None = None
+
+
+class AppointmentHistoryResponse(BaseModel):
+    id: int
+    appointment_id: int
+    action: str
+    details: str
+    created_at: datetime
+
+    model_config = {"from_attributes": True}
+
+
+class ScheduleMemoryCreate(BaseModel):
+    memory_text: str = Field(min_length=5, max_length=1000)
+    memory_type: str = Field(default="preference", max_length=80)
+    confidence_score: float = Field(default=0.75, ge=0, le=1)
+
+
+class ScheduleMemorySearch(BaseModel):
+    query: str = Field(min_length=2, max_length=500)
+    limit: int = Field(default=5, ge=1, le=20)
+
+
+class ScheduleMemoryOut(BaseModel):
+    id: int
+    patient_id: int
+    memory_text: str
+    memory_type: str
+    confidence_score: float
+    created_at: datetime
 
     model_config = {"from_attributes": True}
