@@ -62,6 +62,9 @@ def recommend_appointments(
                 urgency_level=payload.urgency_level,
                 specialization=payload.specialization,
                 reasoning=result["reasoning"],
+                patient_note=payload.patient_note,
+                preferred_time_range=payload.preferred_time_range,
+                recommendation_reason=selected.get("recommendation_reason", result["reasoning"]),
             ),
         )
         result["appointment_id"] = appointment.id

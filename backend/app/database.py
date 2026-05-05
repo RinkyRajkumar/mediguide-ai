@@ -34,6 +34,7 @@ def init_db() -> None:
     ensure_sqlite_columns()
     seed_doctors()
     seed_medication_catalog()
+    seed_doctor_portal()
 
 
 def ensure_sqlite_columns() -> None:
@@ -42,9 +43,16 @@ def ensure_sqlite_columns() -> None:
 
     additions = {
         "doctors": [
+            ("email", "VARCHAR(255) DEFAULT ''"),
+            ("password_hash", "VARCHAR(255) DEFAULT ''"),
             ("department_id", "INTEGER"),
             ("clinic_id", "INTEGER"),
             ("status", "VARCHAR(32) DEFAULT 'active'"),
+            ("phone_number", "VARCHAR(40) DEFAULT ''"),
+            ("license_number", "VARCHAR(80) DEFAULT ''"),
+            ("profile_image", "VARCHAR(500) DEFAULT ''"),
+            ("about_doctor", "TEXT DEFAULT ''"),
+            ("consultation_modes", "VARCHAR(40) DEFAULT 'both'"),
             ("qualification", "VARCHAR(240) DEFAULT ''"),
             ("experience_years", "INTEGER DEFAULT 0"),
             ("consultation_fee", "INTEGER DEFAULT 0"),
@@ -225,6 +233,111 @@ def seed_medication_catalog() -> None:
             medication.common_uses = common_uses or ""
             medication.patient_note = patient_note or ""
             medication.active = str(bool(active))
+        db.commit()
+
+
+def seed_doctor_portal() -> None:
+    from app.models import AISchedulingRecommendation, Appointment, Doctor, DoctorAvailability, Patient, PatientNote, User
+    from app.security import hash_password
+
+    with SessionLocal() as db:
+        shared_doctor_hash = hash_password("Doctor@123")
+        for indexed_doctor in db.query(Doctor).filter(Doctor.status == "active").all():
+            if not indexed_doctor.email:
+                slug = re.sub(r"[^a-z0-9]+", "-", indexed_doctor.name.lower().replace("dr.", "dr")).strip("-")
+                indexed_doctor.email = f"{slug}-{indexed_doctor.id[:6]}@mediguide.ai"
+            if not indexed_doctor.password_hash:
+                indexed_doctor.password_hash = shared_doctor_hash
+            if not indexed_doctor.license_number:
+                indexed_doctor.license_number = f"MED-{indexed_doctor.id[:8].upper()}"
+            if not indexed_doctor.phone_number:
+                indexed_doctor.phone_number = "+91 90000 11111"
+
+        doctor = db.query(Doctor).filter(Doctor.email == "dentist@mediguide.ai").first()
+        if doctor is None:
+            doctor = db.get(Doctor, "aad917ce-0f59-4772-9a47-2eedc5961eec")
+        if doctor is None:
+            doctor = db.query(Doctor).filter(Doctor.specialization == "Dentistry", Doctor.status == "active").order_by(Doctor.rating.desc()).first()
+        if doctor is None:
+            return
+
+        doctor.email = "dentist@mediguide.ai"
+        doctor.password_hash = hash_password("Dentist@123")
+        doctor.phone_number = doctor.phone_number or "+91 90000 22222"
+        doctor.license_number = doctor.license_number or "DENT-MED-2026-001"
+        doctor.about_doctor = doctor.about_doctor or "Dentist using MediGuide AI to manage dental appointments, patient requests, oral health notes, and scheduling workflows."
+        doctor.consultation_modes = doctor.consultation_modes or "both"
+        doctor.consultation_fee = doctor.consultation_fee or 800
+        doctor.experience_years = doctor.experience_years or 23
+        doctor.status = "active"
+
+        demo_user = db.query(User).filter(User.email == "patient.demo@mediguide.ai").first()
+        if demo_user is None:
+            demo_user = User(name="Riya Sharma", email="patient.demo@mediguide.ai", password_hash=hash_password("Patient@123"))
+            db.add(demo_user)
+            db.flush()
+        patient = db.query(Patient).filter(Patient.user_id == demo_user.id).first()
+        if patient is None:
+            patient = Patient(user_id=demo_user.id, full_name=demo_user.name, age=29, phone="+91 98888 77777", blood_group="O+")
+            db.add(patient)
+            db.flush()
+
+        now = __import__("datetime").datetime.now().replace(second=0, microsecond=0)
+        appointment_specs = [
+            ("pending", now.replace(hour=16, minute=30), "medium", "Tooth pain and gum sensitivity"),
+            ("accepted", now.replace(hour=18, minute=0), "low", "Follow-up after dental cleaning"),
+            ("completed", now.replace(hour=10, minute=30), "low", "Routine dental consultation completed"),
+        ]
+        for status, starts_at, urgency, symptoms in appointment_specs:
+            existing = db.query(Appointment).filter(Appointment.doctor_id == doctor.id, Appointment.user_id == demo_user.id, Appointment.starts_at == starts_at).first()
+            if existing is None:
+                existing = Appointment(
+                    user_id=demo_user.id,
+                    doctor_id=doctor.id,
+                    specialization=doctor.specialization,
+                    starts_at=starts_at,
+                    ends_at=starts_at + __import__("datetime").timedelta(minutes=30),
+                    urgency_level=urgency,
+                    status=status,
+                    constraints="{}",
+                    reasoning="AI matched patient preference, urgency, and doctor availability.",
+                )
+                db.add(existing)
+                db.flush()
+            if not db.query(PatientNote).filter(PatientNote.appointment_id == existing.id).first():
+                db.add(PatientNote(
+                    appointment_id=existing.id,
+                    patient_id=demo_user.id,
+                    doctor_id=doctor.id,
+                    note_text="Patient prefers evening appointments and requests a quick consultation near the clinic.",
+                    voice_transcription="I can come after work around 4:30 PM if possible.",
+                    symptoms=symptoms,
+                    urgency_level=urgency,
+                ))
+            if not db.query(AISchedulingRecommendation).filter(AISchedulingRecommendation.appointment_id == existing.id).first():
+                db.add(AISchedulingRecommendation(
+                    appointment_id=existing.id,
+                    doctor_id=doctor.id,
+                    patient_id=demo_user.id,
+                    preferred_time="Evening",
+                    suggested_slot=starts_at.strftime("%I:%M %p"),
+                    recommendation_text=f"AI suggests {starts_at.strftime('%I:%M %p')} because it matches patient preference and the doctor has an open slot.",
+                    reason="Patient prefers evening appointments and doctor availability has no conflict.",
+                    confidence_score=0.86,
+                ))
+
+        if not db.query(DoctorAvailability).filter(DoctorAvailability.doctor_id == doctor.id).first():
+            for weekday in range(0, 6):
+                db.add(DoctorAvailability(
+                    doctor_id=doctor.id,
+                    weekday=weekday,
+                    start_time="09:00",
+                    end_time="18:00",
+                    slot_duration_minutes=30,
+                    max_patients_per_slot=1,
+                    status="active",
+                ))
+
         db.commit()
 
 

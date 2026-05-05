@@ -42,6 +42,77 @@ class AuthResponse(BaseModel):
     user: UserPublic
 
 
+class DoctorLoginRequest(BaseModel):
+    email: str = Field(min_length=5, max_length=255)
+    password: str = Field(min_length=8, max_length=128)
+
+    @field_validator("email")
+    @classmethod
+    def validate_email(cls, value: str) -> str:
+        return value.strip().lower()
+
+
+class DoctorRegisterRequest(DoctorLoginRequest):
+    full_name: str = Field(min_length=2, max_length=120)
+    specialization: str = Field(min_length=2, max_length=120)
+    phone_number: str = Field(default="", max_length=40)
+    license_number: str = Field(min_length=3, max_length=80)
+    hospital_or_clinic_name: str = Field(default="", max_length=120)
+
+
+class DoctorPublic(BaseModel):
+    doctor_id: str
+    full_name: str
+    email: str
+    specialization: str
+    phone_number: str
+    license_number: str
+    hospital_or_clinic_name: str
+    profile_image: str
+    status: str
+    consultation_fee: int
+    languages: str
+    experience_years: int
+    about_doctor: str
+    consultation_modes: str
+
+
+class DoctorAuthResponse(BaseModel):
+    access_token: str
+    token_type: str = "bearer"
+    doctor: DoctorPublic
+
+
+class DoctorProfileUpdate(BaseModel):
+    full_name: str | None = Field(default=None, max_length=120)
+    specialization: str | None = Field(default=None, max_length=120)
+    phone_number: str | None = Field(default=None, max_length=40)
+    hospital_or_clinic_name: str | None = Field(default=None, max_length=120)
+    profile_image: str | None = Field(default=None, max_length=500)
+    consultation_fee: int | None = Field(default=None, ge=0, le=100000)
+    languages: str | None = Field(default=None, max_length=255)
+    experience_years: int | None = Field(default=None, ge=0, le=80)
+    about_doctor: str | None = Field(default=None, max_length=2000)
+    consultation_modes: str | None = Field(default=None, max_length=40)
+
+
+class DoctorAvailabilityIn(BaseModel):
+    day_of_week: int = Field(ge=0, le=6)
+    start_time: str = Field(min_length=4, max_length=5)
+    end_time: str = Field(min_length=4, max_length=5)
+    slot_duration_minutes: int = Field(default=30, ge=5, le=240)
+    is_available: bool = True
+    max_patients_per_slot: int = Field(default=1, ge=1, le=20)
+    emergency_only: bool = False
+
+
+class DoctorAppointmentAction(BaseModel):
+    reason: str = Field(default="", max_length=600)
+    note_text: str = Field(default="", max_length=2000)
+    starts_at: datetime | None = None
+    duration_minutes: int = Field(default=30, ge=15, le=180)
+
+
 class SymptomRequest(BaseModel):
     symptoms: list[str] = Field(min_length=1)
     age: int | None = Field(default=None, ge=0, le=120)
@@ -213,6 +284,10 @@ class AppointmentBookRequest(BaseModel):
     urgency_level: Literal["low", "medium", "high"]
     specialization: str = Field(min_length=2, max_length=120)
     reasoning: str = ""
+    patient_note: str = Field(default="", max_length=2000)
+    voice_transcription: str = Field(default="", max_length=2000)
+    preferred_time_range: str = Field(default="", max_length=80)
+    recommendation_reason: str = Field(default="", max_length=1000)
 
 
 class AppointmentCancelRequest(BaseModel):

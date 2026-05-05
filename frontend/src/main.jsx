@@ -130,6 +130,22 @@ function api(path, options = {}) {
   });
 }
 
+function doctorApi(path, options = {}) {
+  const token = localStorage.getItem("mediguide_doctor_token");
+  return fetch(`${API_URL}${path}`, {
+    ...options,
+    headers: {
+      ...(options.body instanceof FormData ? {} : { "Content-Type": "application/json" }),
+      ...(token ? { Authorization: `Bearer ${token}` } : {}),
+      ...options.headers,
+    },
+  }).then(async (response) => {
+    const data = await response.json().catch(() => ({}));
+    if (!response.ok) throw new Error(data.detail || "Request failed");
+    return data;
+  });
+}
+
 function AuthProvider({ children }) {
   const [user, setUser] = useState(() => {
     const stored = localStorage.getItem("mediguide_user");
@@ -167,6 +183,7 @@ function ProtectedRoute({ children }) {
 }
 
 function Landing() {
+  const [authMode, setAuthMode] = useState(null);
   const features = [
     ["Symptom Checker", "Follow-up questions and AI-guided risk review for MediGuide AI users.", Activity],
     ["Disease Prediction", "ML-style health predictions shown as educational probabilities.", Brain],
@@ -180,8 +197,9 @@ function Landing() {
       <nav className="topbar">
         <Link className="brand" to="/"><span><HeartPulse size={22} /></span>MediGuide AI</Link>
         <div className="nav-actions">
-          <Link className="btn secondary" to="/login">Login</Link>
-          <Link className="btn primary" to="/signup">Sign Up</Link>
+          <button className="btn secondary" onClick={() => setAuthMode("doctor")}><Stethoscope size={16} /> Doctor Login</button>
+          <button className="btn secondary" onClick={() => setAuthMode("login")}>Login</button>
+          <button className="btn primary" onClick={() => setAuthMode("signup")}>Sign Up</button>
         </div>
       </nav>
 
@@ -194,17 +212,13 @@ function Landing() {
             appointment scheduling, risk triage, health history, and doctor escalation guidance.
           </p>
           <div className="hero-actions">
-            <Link className="btn primary large" to="/signup"><UserPlus size={18} /> Start Securely</Link>
-            <Link className="btn secondary large" to="/login">Login</Link>
+            <button className="btn primary large" onClick={() => setAuthMode("signup")}><UserPlus size={18} /> Start Securely</button>
+            <button className="btn secondary large" onClick={() => setAuthMode("login")}>Login</button>
+            <button className="btn secondary large" onClick={() => setAuthMode("doctor")}><Stethoscope size={18} /> Doctor Login</button>
           </div>
           <div className="disclaimer">
             MediGuide AI provides AI-assisted health information only and is not a replacement for a licensed medical professional.
           </div>
-        </div>
-        <div className="hero-panel">
-          <div className="metric-card teal"><span>Risk AI</span><strong>Low - Emergency</strong><small>Color-coded health triage</small></div>
-          <div className="metric-card blue"><span>Architecture</span><strong>Agent + MCP + Skills</strong><small>Modular MediGuide AI tools</small></div>
-          <div className="metric-card navy"><span>Security</span><strong>JWT protected tools</strong><small>Login required for every AI workflow</small></div>
         </div>
       </section>
 
@@ -224,7 +238,72 @@ function Landing() {
           </article>
         ))}
       </section>
+      {authMode && <LandingAuthModal mode={authMode} setMode={setAuthMode} onClose={() => setAuthMode(null)} />}
     </main>
+  );
+}
+
+function LandingAuthModal({ mode, setMode, onClose }) {
+  const navigate = useNavigate();
+  const { saveAuth } = useAuth();
+  const isSignup = mode === "signup";
+  const isDoctor = mode === "doctor";
+  const [form, setForm] = useState(isDoctor ? { email: "dentist@mediguide.ai", password: "Dentist@123", name: "" } : { name: "", email: "", password: "" });
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    setError("");
+    setForm(mode === "doctor" ? { email: "dentist@mediguide.ai", password: "Dentist@123", name: "" } : { name: "", email: "", password: "" });
+  }, [mode]);
+
+  async function submit(event) {
+    event.preventDefault();
+    setError("");
+    setLoading(true);
+    try {
+      if (isDoctor) {
+        const result = await doctorApi("/api/doctor/login", { method: "POST", body: JSON.stringify({ email: form.email, password: form.password }) });
+        localStorage.setItem("mediguide_doctor_token", result.access_token);
+        localStorage.setItem("mediguide_doctor", JSON.stringify(result.doctor));
+        navigate("/doctor/dashboard");
+        return;
+      }
+      const auth = await api(`/api/auth/${isSignup ? "signup" : "login"}`, {
+        method: "POST",
+        body: JSON.stringify(isSignup ? form : { email: form.email, password: form.password }),
+      });
+      saveAuth(auth);
+      navigate("/dashboard");
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  return (
+    <div className="auth-modal-backdrop" role="dialog" aria-modal="true" onMouseDown={(event) => event.target === event.currentTarget && onClose()}>
+      <form className="auth-card auth-modal-card" onSubmit={submit}>
+        <button className="auth-modal-close" type="button" aria-label="Close login box" onClick={onClose}>x</button>
+        <span className="secure-badge">{isDoctor ? <Stethoscope size={16} /> : <ShieldCheck size={16} />} {isDoctor ? "Doctor-only access" : "Secure patient access"}</span>
+        <h1>{isDoctor ? "Doctor Login" : isSignup ? "Create your account" : "Welcome back"}</h1>
+        <p>{isDoctor ? "Access patient requests and appointment workflow." : "Sign in to use MediGuide AI protected health tools."}</p>
+        <div className="auth-mode-tabs">
+          <button type="button" className={mode === "login" ? "active" : ""} onClick={() => setMode("login")}>Patient Login</button>
+          <button type="button" className={mode === "signup" ? "active" : ""} onClick={() => setMode("signup")}>Sign Up</button>
+          <button type="button" className={mode === "doctor" ? "active" : ""} onClick={() => setMode("doctor")}>Doctor</button>
+        </div>
+        {isSignup && (
+          <label>Name<input required minLength="2" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} /></label>
+        )}
+        <label>Email<input required type="email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} /></label>
+        <label>Password<input required minLength="8" type="password" value={form.password} onChange={(e) => setForm({ ...form, password: e.target.value })} /></label>
+        {error && <div className="error">{error}</div>}
+        <button className="btn primary full" disabled={loading}>{loading ? "Please wait..." : isDoctor ? "Login as Doctor" : isSignup ? "Sign Up" : "Login"}</button>
+        {isDoctor && <small>Dentist demo: dentist@mediguide.ai / Dentist@123</small>}
+      </form>
+    </div>
   );
 }
 
@@ -315,16 +394,21 @@ function DashboardLayout() {
     setTheme(nextTheme);
   }
 
+  function logoutToLanding() {
+    logout();
+    window.location.replace("/");
+  }
+
   return (
     <div className={`app-shell ${theme === "dark" ? "dark-theme" : ""}`}>
-      <Sidebar sections={sections} active={active} setActive={setActive} profile={profile} user={user} logout={logout} />
+      <Sidebar sections={sections} active={active} setActive={setActive} profile={profile} user={user} logout={logoutToLanding} />
       <main className="dashboard">
         <DashboardHeader
           user={user}
           profile={profile}
           title={sections.find(([key]) => key === active)?.[1]}
           setActive={setActive}
-          logout={logout}
+          logout={logoutToLanding}
           theme={theme}
           toggleTheme={toggleTheme}
         />
@@ -369,6 +453,33 @@ function ToolPanel({ active, setActive, profile, updateProfile }) {
 
 function DashboardHeader({ user, profile, title, setActive, logout, theme, toggleTheme }) {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [notificationsOpen, setNotificationsOpen] = useState(false);
+  const [appointmentNotifications, setAppointmentNotifications] = useState([]);
+
+  async function loadPatientNotifications() {
+    try {
+      const items = await api("/api/appointments");
+      const updates = items
+        .filter((item) => ["accepted", "rejected", "rescheduled"].includes(item.status))
+        .slice(0, 8)
+        .map((item) => ({
+          id: item.id,
+          title: item.status === "accepted" ? "Appointment accepted" : item.status === "rejected" ? "Appointment rejected" : "Appointment rescheduled",
+          body: `${item.doctor_name} ${item.status} your ${item.specialization} appointment.`,
+          meta: new Date(item.starts_at).toLocaleString(),
+          status: item.status,
+        }));
+      setAppointmentNotifications(updates);
+    } catch {
+      setAppointmentNotifications([]);
+    }
+  }
+
+  useEffect(() => {
+    loadPatientNotifications();
+    const timer = window.setInterval(loadPatientNotifications, 30000);
+    return () => window.clearInterval(timer);
+  }, []);
 
   function goTo(section) {
     setMenuOpen(false);
@@ -386,7 +497,41 @@ function DashboardHeader({ user, profile, title, setActive, logout, theme, toggl
           <Search size={18} />
           <input placeholder="Search reports, doctors, medicines" />
         </label>
-        <button className="icon-button" aria-label="Notifications"><Bell size={18} /><span /></button>
+        <div className="notification-wrap">
+          <button
+            className="icon-button"
+            aria-label="Notifications"
+            aria-expanded={notificationsOpen}
+            onClick={() => {
+              setMenuOpen(false);
+              setNotificationsOpen((open) => !open);
+              loadPatientNotifications();
+            }}
+          >
+            <Bell size={18} />
+            {!!appointmentNotifications.length && <span className="notification-count">{appointmentNotifications.length}</span>}
+          </button>
+          {notificationsOpen && (
+            <div className="notification-dropdown">
+              <div className="profile-dropdown-head">
+                <strong>Appointment updates</strong>
+                <span>{appointmentNotifications.length ? "Latest doctor decisions" : "No appointment decisions yet"}</span>
+              </div>
+              {!appointmentNotifications.length ? (
+                <div className="notification-empty">Accepted or rejected appointments will appear here.</div>
+              ) : appointmentNotifications.map((item) => (
+                <button key={item.id} onClick={() => { setNotificationsOpen(false); setActive("appointments"); }}>
+                  <span className={`status-dot ${item.status}`} />
+                  <div>
+                    <strong>{item.title}</strong>
+                    <span>{item.body}</span>
+                    <small>{item.meta}</small>
+                  </div>
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
         <button className="btn primary" onClick={() => setActive("appointments")}><CalendarClock size={18} /> Book Appointment</button>
         <div className="profile-menu-wrap">
           <button
@@ -758,6 +903,10 @@ function AppointmentTool() {
   const [lastRequest, setLastRequest] = useState(null);
   const [patientNote, setPatientNote] = useState("");
   const [voiceStatus, setVoiceStatus] = useState("Voice note ready");
+  const [doctors, setDoctors] = useState(null);
+  const [doctorFilters, setDoctorFilters] = useState({ search: "", specialization: "" });
+  const [selectedDoctor, setSelectedDoctor] = useState(null);
+  const [doctorAvailability, setDoctorAvailability] = useState(null);
   const recognitionRef = useRef(null);
 
   async function loadAppointments() {
@@ -768,9 +917,18 @@ function AppointmentTool() {
     setHistory(await api("/api/appointments/history"));
   }
 
+  async function loadDoctors(filters = doctorFilters) {
+    const params = new URLSearchParams();
+    if (filters.search) params.set("search", filters.search);
+    if (filters.specialization) params.set("specialization", filters.specialization);
+    params.set("limit", "600");
+    setDoctors(await api(`/api/doctors?${params.toString()}`));
+  }
+
   useEffect(() => {
     loadAppointments().catch(() => setAppointments([]));
     loadHistory().catch(() => setHistory([]));
+    loadDoctors().catch(() => setDoctors([]));
   }, []);
 
   async function submit(event) {
@@ -800,7 +958,7 @@ function AppointmentTool() {
       setLastRequest(payload);
       setRecommendations(result);
       setTab(result.status === "confirmed" ? "appointments" : "book");
-      if (result.status === "confirmed") setSuccess("Appointment confirmed after validation.");
+      if (result.status === "confirmed") setSuccess("Appointment request sent to the doctor after validation.");
       loadAppointments();
       loadHistory();
     } catch (err) {
@@ -824,9 +982,12 @@ function AppointmentTool() {
           urgency_level: lastRequest?.urgency_level || "medium",
           specialization: slot.specialization,
           reasoning: recommendations?.reasoning || "Booked from AI scheduling recommendation.",
+          patient_note: lastRequest?.patient_note || "",
+          preferred_time_range: lastRequest?.preferred_time_range || "",
+          recommendation_reason: slot.recommendation_reason || recommendations?.reasoning || "",
         }),
       });
-      setSuccess(`Appointment confirmed with ${booked.doctor_name}.`);
+      setSuccess(`Appointment request sent to ${booked.doctor_name}. The doctor will accept, reject, or reschedule it.`);
       loadAppointments();
       loadHistory();
       setTab("appointments");
@@ -891,7 +1052,70 @@ function AppointmentTool() {
     }
   }
 
+  async function filterDoctors(event) {
+    event.preventDefault();
+    setError("");
+    try {
+      await loadDoctors(doctorFilters);
+    } catch (err) {
+      setError(err.message);
+      setDoctors([]);
+    }
+  }
+
+  async function viewDoctorAvailability(doctor) {
+    setError("");
+    setSuccess("");
+    setSelectedDoctor(doctor);
+    setDoctorAvailability(null);
+    try {
+      const params = new URLSearchParams({ duration_minutes: String(doctor.appointment_duration_minutes || 30) });
+      setDoctorAvailability(await api(`/api/doctors/${doctor.id}/availability?${params.toString()}`));
+    } catch (err) {
+      setError(err.message);
+      setDoctorAvailability({ availability: [] });
+    }
+  }
+
+  async function bookSpecificDoctorSlot(slot) {
+    if (!selectedDoctor) return;
+    setError("");
+    setSuccess("");
+    setLoading(true);
+    try {
+      const booked = await api("/api/appointments/book", {
+        method: "POST",
+        body: JSON.stringify({
+          doctor_id: slot.doctor_id,
+          starts_at: slot.starts_at,
+          duration_minutes: selectedDoctor.appointment_duration_minutes || 30,
+          urgency_level: "medium",
+          specialization: selectedDoctor.specialization,
+          reasoning: `Patient selected ${selectedDoctor.name} from the doctor directory and requested a validated available slot.`,
+          patient_note: "",
+          preferred_time_range: "",
+          recommendation_reason: "Direct doctor-specific booking from validated doctor availability.",
+        }),
+      });
+      setSuccess(`Appointment request sent to ${booked.doctor_name}. The doctor will accept, reject, or reschedule it.`);
+      loadAppointments();
+      loadHistory();
+      setTab("appointments");
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  }
+
   const aiUnderstanding = recommendations?.ai_understanding;
+  const tabLabels = {
+    book: "Book Appointment",
+    doctors: "Doctors",
+    recommendations: "Recommendations",
+    appointments: "My Appointments",
+    history: "History",
+  };
 
   return (
     <section className="panel wide-panel schedule-page schedule-wide">
@@ -901,9 +1125,9 @@ function AppointmentTool() {
         location, language, gender preference, history, cancellations, and conflict checks.
       </p>
       <div className="schedule-tabs">
-        {["book", "recommendations", "appointments", "history"].map((item) => (
+        {["book", "doctors", "recommendations", "appointments", "history"].map((item) => (
           <button key={item} className={tab === item ? "active" : ""} onClick={() => setTab(item)}>
-            {item === "book" ? "Book Appointment" : item === "appointments" ? "My Appointments" : item[0].toUpperCase() + item.slice(1)}
+            {tabLabels[item]}
           </button>
         ))}
       </div>
@@ -993,6 +1217,114 @@ function AppointmentTool() {
         </form>
       )}
 
+      {tab === "doctors" && (
+        <section className="schedule-section doctors-directory-section">
+          <div className="section-heading-row">
+            <div>
+              <h3>All doctors</h3>
+              <p>Review available MediGuide doctors before sending an appointment request.</p>
+            </div>
+            <span className="status-pill info">{doctors?.length || 0} listed</span>
+          </div>
+          <form className="doctor-directory-filters" onSubmit={filterDoctors}>
+            <label>Search doctors
+              <input
+                value={doctorFilters.search}
+                onChange={(event) => setDoctorFilters((current) => ({ ...current, search: event.target.value }))}
+                placeholder="Search name, clinic, language, city"
+              />
+            </label>
+            <label>Specialization
+              <select
+                value={doctorFilters.specialization}
+                onChange={(event) => setDoctorFilters((current) => ({ ...current, specialization: event.target.value }))}
+              >
+                <option value="">All specializations</option>
+                {medicalDepartments.map((department) => <option key={department}>{department}</option>)}
+              </select>
+            </label>
+            <button className="btn secondary" type="submit"><Search size={16} /> Filter</button>
+          </form>
+          {!doctors ? (
+            <div className="empty">Loading doctors...</div>
+          ) : !doctors.length ? (
+            <EmptyState text="No doctors match the current filters." />
+          ) : (
+            <>
+              {selectedDoctor && (
+                <article className="selected-doctor-booking">
+                  <div className="section-heading-row">
+                    <div>
+                      <h3>Book {selectedDoctor.name}</h3>
+                      <p>{selectedDoctor.specialization} - {selectedDoctor.clinic?.name || selectedDoctor.location}</p>
+                    </div>
+                    <button className="btn secondary" type="button" onClick={() => { setSelectedDoctor(null); setDoctorAvailability(null); }}>Close</button>
+                  </div>
+                  {!doctorAvailability ? (
+                    <div className="empty">Loading available time slots...</div>
+                  ) : !doctorAvailability.availability?.length ? (
+                    <EmptyState text="No open slots found for this doctor right now." />
+                  ) : (
+                    <div className="specific-slot-grid">
+                      {doctorAvailability.availability.map((slot) => (
+                        <article className="specific-slot-card" key={`${slot.doctor_id}-${slot.starts_at}`}>
+                          <span className="status-pill normal">Available</span>
+                          <strong>{slot.date}</strong>
+                          <span>{slot.time}</span>
+                          <small>{selectedDoctor.appointment_duration_minutes || 30} min consultation</small>
+                          <button className="btn primary" type="button" disabled={loading} onClick={() => bookSpecificDoctorSlot(slot)}>
+                            Request this time
+                          </button>
+                        </article>
+                      ))}
+                    </div>
+                  )}
+                </article>
+              )}
+              <div className="patient-doctor-grid">
+                {doctors.map((doctor) => (
+                  <article className="patient-doctor-card" key={doctor.id}>
+                    <div className="doctor-card-top">
+                      <div className="doctor-avatar-mark"><Stethoscope size={20} /></div>
+                      <div>
+                        <strong>{doctor.name}</strong>
+                        <span>{doctor.specialization}</span>
+                      </div>
+                      <span className="status-pill normal">{doctor.rating ? `${doctor.rating} rating` : "Active"}</span>
+                    </div>
+                    <p>{doctor.about_doctor || `${doctor.qualification || "Medical specialist"} with ${doctor.experience_years || 0} years of experience.`}</p>
+                    <div className="doctor-detail-list">
+                      <span><b>Clinic</b>{doctor.clinic?.name || doctor.location}</span>
+                      <span><b>Location</b>{[doctor.clinic?.area, doctor.clinic?.city].filter(Boolean).join(", ") || doctor.location}</span>
+                      <span><b>Experience</b>{doctor.experience_years || 0} years</span>
+                      <span><b>Fee</b>{doctor.consultation_fee ? `Rs ${doctor.consultation_fee}` : "Not listed"}</span>
+                      <span><b>Gender</b>{doctor.gender}</span>
+                      <span><b>Mode</b>{doctor.online_consultation ? "Online / clinic" : doctor.consultation_modes || "Clinic"}</span>
+                    </div>
+                    <div className="doctor-language-list">
+                      {(doctor.languages || []).slice(0, 4).map((language) => <span key={language}>{language}</span>)}
+                    </div>
+                    <div className="doctor-card-actions">
+                      <button className="btn primary" type="button" onClick={() => viewDoctorAvailability(doctor)}>Book this doctor</button>
+                      <button
+                        className="btn secondary"
+                        type="button"
+                        onClick={() => {
+                          setDoctorFilters({ search: doctor.name, specialization: doctor.specialization });
+                          loadDoctors({ search: doctor.name, specialization: doctor.specialization }).catch(() => setDoctors([]));
+                          viewDoctorAvailability(doctor);
+                        }}
+                      >
+                        View availability
+                      </button>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </>
+          )}
+        </section>
+      )}
       {tab === "recommendations" && (
         <section className="schedule-section">
           <h3>Recommended appointment slots</h3>
@@ -1307,6 +1639,505 @@ function FormTool({ title, onSubmit, error, children }) {
   return <section className="panel"><h2>{title}</h2><form className="tool-form" onSubmit={onSubmit}>{children}</form>{error && <div className="error">{error}</div>}</section>;
 }
 
+function DoctorProtectedRoute({ children }) {
+  return localStorage.getItem("mediguide_doctor_token") ? children : <Navigate to="/doctor/login" replace />;
+}
+
+function DoctorLoginPage() {
+  const navigate = useNavigate();
+  const [form, setForm] = useState({ email: "dentist@mediguide.ai", password: "Dentist@123" });
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  async function submit(event) {
+    event.preventDefault();
+    setError("");
+    setLoading(true);
+    try {
+      const result = await doctorApi("/api/doctor/login", { method: "POST", body: JSON.stringify(form) });
+      localStorage.setItem("mediguide_doctor_token", result.access_token);
+      localStorage.setItem("mediguide_doctor", JSON.stringify(result.doctor));
+      navigate("/doctor/dashboard");
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  return (
+    <main className="auth-shell doctor-auth-shell">
+      <Link className="brand" to="/"><span><Stethoscope size={22} /></span>MediGuide AI Doctor</Link>
+      <form className="auth-card doctor-login-card" onSubmit={submit}>
+        <span className="secure-badge"><ShieldCheck size={16} /> Doctor-only access</span>
+        <h1>Doctor Login</h1>
+        <p>Access appointments, patient requests, AI scheduling notes, and availability management.</p>
+        <label>Email<input type="email" required value={form.email} onChange={(event) => setForm({ ...form, email: event.target.value })} /></label>
+        <label>Password<input type="password" required minLength="8" value={form.password} onChange={(event) => setForm({ ...form, password: event.target.value })} /></label>
+        {error && <div className="error">{error}</div>}
+        <button className="btn primary full" disabled={loading}>{loading ? "Signing in..." : "Login"}</button>
+        <a href="#forgot">Forgot password?</a>
+        <small>Dentist demo: dentist@mediguide.ai / Dentist@123</small>
+      </form>
+    </main>
+  );
+}
+
+function DoctorPortal({ page }) {
+  const navigate = useNavigate();
+  const [doctor, setDoctor] = useState(() => {
+    const stored = localStorage.getItem("mediguide_doctor");
+    return stored ? JSON.parse(stored) : null;
+  });
+  const [toast, setToast] = useState("");
+  const [notificationsOpen, setNotificationsOpen] = useState(false);
+  const [requestNotifications, setRequestNotifications] = useState([]);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [theme, setTheme] = useState(() => localStorage.getItem("mediguide_doctor_theme") || "light");
+  const nav = [
+    ["dashboard", "Dashboard", "/doctor/dashboard", Activity],
+    ["appointments", "Appointments", "/doctor/appointments", CalendarClock],
+    ["requests", "Patient Requests", "/doctor/patient-requests", ClipboardList],
+    ["availability", "Availability", "/doctor/availability", CalendarClock],
+    ["ai-notes", "AI Scheduling Notes", "/doctor/dashboard?tab=ai-notes", Bot],
+    ["profile", "Profile", "/doctor/profile", User],
+  ];
+
+  useEffect(() => {
+    doctorApi("/api/doctor/me").then(setDoctor).catch(() => logout());
+  }, []);
+
+  async function loadDoctorNotifications() {
+    try {
+      const items = await doctorApi("/api/doctor/patient-requests");
+      setRequestNotifications(items.slice(0, 8));
+    } catch {
+      setRequestNotifications([]);
+    }
+  }
+
+  useEffect(() => {
+    loadDoctorNotifications();
+    const timer = window.setInterval(loadDoctorNotifications, 30000);
+    return () => window.clearInterval(timer);
+  }, []);
+
+  function logout() {
+    localStorage.removeItem("mediguide_doctor_token");
+    localStorage.removeItem("mediguide_doctor");
+    navigate("/", { replace: true });
+  }
+
+  function toggleTheme() {
+    const nextTheme = theme === "light" ? "dark" : "light";
+    localStorage.setItem("mediguide_doctor_theme", nextTheme);
+    setTheme(nextTheme);
+  }
+
+  function goToDoctor(path) {
+    setMenuOpen(false);
+    setNotificationsOpen(false);
+    navigate(path);
+  }
+
+  function showToast(message) {
+    setToast(message);
+    setTimeout(() => setToast(""), 2600);
+  }
+
+  const active = page === "requests" ? "requests" : page === "availability" ? "availability" : page === "profile" ? "profile" : page === "appointments" ? "appointments" : "dashboard";
+  return (
+    <div className={`doctor-shell ${theme === "dark" ? "dark-theme" : ""}`}>
+      <aside className="doctor-sidebar">
+        <Link className="brand" to="/doctor/dashboard"><span><Stethoscope size={22} /></span>MediGuide Doctor</Link>
+        <div className="doctor-card-mini">
+          <div className="patient-avatar">{doctor?.full_name?.split(" ").map((p) => p[0]).slice(0, 2).join("") || "DR"}</div>
+          <strong>{doctor?.full_name || "Doctor"}</strong>
+          <span>{doctor?.specialization || "Specialist"}</span>
+        </div>
+        <nav className="sidebar-nav">
+          {nav.map(([key, label, href, Icon]) => (
+            <button key={key} className={active === key ? "active" : ""} onClick={() => navigate(href)}>
+              <Icon size={18} /> {label}
+            </button>
+          ))}
+        </nav>
+        <button className="sidebar-logout" onClick={logout}><LogOut size={18} /> Logout</button>
+      </aside>
+      <main className="doctor-main">
+        <header className="doctor-topbar">
+          <div>
+            <p>Doctor workspace</p>
+            <h1>{page === "availability" ? "Availability" : page === "requests" ? "Patient Requests" : page === "profile" ? "Doctor Profile" : page === "appointments" ? "Appointments" : "Doctor Dashboard"}</h1>
+          </div>
+          <div className="header-actions">
+            <div className="notification-wrap">
+              <button
+                className="icon-button"
+                aria-label="Doctor notifications"
+                aria-expanded={notificationsOpen}
+                onClick={() => {
+                  setMenuOpen(false);
+                  setNotificationsOpen((open) => !open);
+                  loadDoctorNotifications();
+                }}
+              >
+                <Bell size={18} />
+                {!!requestNotifications.length && <span className="notification-count">{requestNotifications.length}</span>}
+              </button>
+              {notificationsOpen && (
+                <div className="notification-dropdown doctor-notifications">
+                  <div className="profile-dropdown-head">
+                    <strong>Patient requests</strong>
+                    <span>{requestNotifications.length ? "New appointment requests" : "No pending patient requests"}</span>
+                  </div>
+                  {!requestNotifications.length ? (
+                    <div className="notification-empty">New patient appointment requests will appear here.</div>
+                  ) : requestNotifications.map((item) => (
+                    <button key={item.id} onClick={() => { setNotificationsOpen(false); navigate("/doctor/patient-requests"); }}>
+                      <span className="status-dot pending" />
+                      <div>
+                        <strong>{item.patient_name} requested an appointment</strong>
+                        <span>{item.reason_for_visit} - {item.urgency_level} urgency</span>
+                        <small>{new Date(item.appointment_time).toLocaleString()}</small>
+                      </div>
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+            <div className="profile-menu-wrap">
+              <button
+                className="patient-avatar avatar-button"
+                title="Open doctor account menu"
+                aria-label="Open doctor account menu"
+                aria-expanded={menuOpen}
+                onClick={() => {
+                  setNotificationsOpen(false);
+                  setMenuOpen((open) => !open);
+                }}
+              >
+                {doctor?.full_name?.split(" ").map((p) => p[0]).slice(0, 2).join("") || "DR"}
+              </button>
+              {menuOpen && (
+                <div className="profile-dropdown doctor-profile-dropdown">
+                  <div className="profile-dropdown-head">
+                    <strong>{doctor?.full_name || "Doctor"}</strong>
+                    <span>{doctor?.email || doctor?.specialization || "Doctor account"}</span>
+                  </div>
+                  <button onClick={() => goToDoctor("/doctor/profile")}><User size={16} /> Profile</button>
+                  <button onClick={() => goToDoctor("/doctor/availability")}><Settings size={16} /> Settings</button>
+                  <button onClick={toggleTheme}>
+                    {theme === "light" ? <Moon size={16} /> : <Sun size={16} />}
+                    {theme === "light" ? "Dark theme" : "Light theme"}
+                  </button>
+                  <button className="logout-menu-item" onClick={logout}><LogOut size={16} /> Logout</button>
+                </div>
+              )}
+            </div>
+          </div>
+        </header>
+        {toast && <div className="success doctor-toast">{toast}</div>}
+        {page === "availability" ? <DoctorAvailabilityPage showToast={showToast} /> : page === "requests" ? <DoctorRequestsPage showToast={showToast} /> : page === "profile" ? <DoctorProfilePage doctor={doctor} setDoctor={setDoctor} showToast={showToast} /> : page === "appointments" ? <DoctorAppointmentsPage showToast={showToast} /> : <DoctorDashboardPage showToast={showToast} />}
+      </main>
+    </div>
+  );
+}
+
+function DoctorDashboardPage({ showToast }) {
+  const [data, setData] = useState(null);
+  const [appointments, setAppointments] = useState([]);
+  const [error, setError] = useState("");
+
+  async function load() {
+    try {
+      const [dashboard, appointmentList] = await Promise.all([
+        doctorApi("/api/doctor/dashboard"),
+        doctorApi("/api/doctor/appointments"),
+      ]);
+      setData(dashboard);
+      setAppointments(appointmentList);
+    } catch (err) {
+      setError(err.message);
+    }
+  }
+
+  useEffect(() => { load(); }, []);
+
+  async function action(id, type, body = {}) {
+    await doctorApi(`/api/doctor/appointments/${id}/${type}`, { method: "PATCH", body: JSON.stringify(body) });
+    showToast(`Appointment ${type} updated.`);
+    load();
+  }
+
+  if (error) return <div className="error">{error}</div>;
+  if (!data) return <EmptyState text="Loading doctor dashboard..." />;
+  const cards = data.cards;
+  const archivedStatuses = ["completed", "rejected", "cancelled"];
+  const isArchived = (item) => archivedStatuses.includes(item.status);
+  const activeAppointments = appointments.filter((item) => !isArchived(item));
+  const upcomingAppointments = [...activeAppointments]
+    .filter((item) => new Date(item.appointment_time).getTime() >= Date.now() - 60000)
+    .sort((a, b) => new Date(a.appointment_time) - new Date(b.appointment_time))
+    .slice(0, 6);
+  return (
+    <div className="doctor-page">
+      <section className="doctor-profile-summary">
+        <div>
+          <span className="secure-badge"><ShieldCheck size={16} /> Active doctor account</span>
+          <h2>{data.doctor.full_name}</h2>
+          <p>{data.doctor.specialization} at {data.doctor.hospital_or_clinic_name}</p>
+        </div>
+        <div className="doctor-availability-pill">{data.availability_status}</div>
+      </section>
+      <section className="doctor-stat-grid">
+        {[
+          ["Today", cards.total_appointments_today],
+          ["Pending", cards.pending_requests],
+          ["Completed", cards.completed_consultations],
+          ["Cancelled", cards.cancelled_appointments],
+          ["Avg Duration", cards.average_consultation_duration],
+          ["Next", cards.next_appointment_time ? new Date(cards.next_appointment_time).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }) : "None"],
+        ].map(([label, value]) => <article className="doctor-stat" key={label}><span>{label}</span><strong>{value}</strong></article>)}
+      </section>
+      <section className="doctor-grid-two">
+        <DoctorAppointmentPanel title="Upcoming appointments" items={upcomingAppointments} onAction={action} />
+        <DoctorAINotesPanel notes={data.ai_scheduling_suggestions} patientNotes={data.patient_notes} />
+      </section>
+    </div>
+  );
+}
+
+function DoctorAppointmentsPage({ showToast }) {
+  const [appointments, setAppointments] = useState([]);
+  const [status, setStatus] = useState("");
+  const [search, setSearch] = useState("");
+  const [error, setError] = useState("");
+
+  async function load() {
+    try {
+      const items = await doctorApi(`/api/doctor/appointments?search=${encodeURIComponent(search)}&status_filter=${encodeURIComponent(status)}`);
+      setAppointments(items);
+    } catch (err) {
+      setError(err.message);
+    }
+  }
+
+  useEffect(() => { load(); }, []);
+
+  async function action(id, type, body = {}) {
+    await doctorApi(`/api/doctor/appointments/${id}/${type}`, { method: "PATCH", body: JSON.stringify(body) });
+    showToast(`Appointment ${type} updated.`);
+    load();
+  }
+
+  const archivedStatuses = ["completed", "rejected", "cancelled"];
+  const isArchived = (item) => archivedStatuses.includes(item.status);
+  const activeAppointments = [...appointments]
+    .filter((item) => !isArchived(item))
+    .sort((a, b) => new Date(a.appointment_time) - new Date(b.appointment_time));
+  const archivedAppointments = [...appointments]
+    .filter(isArchived)
+    .sort((a, b) => new Date(b.appointment_time) - new Date(a.appointment_time));
+
+  if (error) return <div className="doctor-page error">{error}</div>;
+
+  return (
+    <div className="doctor-page">
+      <section className="dash-card doctor-appointments-panel">
+        <div className="card-heading doctor-panel-heading">
+          <div>
+            <h2>Active appointments</h2>
+            <p>Pending, accepted, and rescheduled appointments that still need doctor action.</p>
+          </div>
+          <span className="status-pill pending">{activeAppointments.filter((item) => item.status === "pending").length} pending</span>
+        </div>
+        <form className="doctor-filters" onSubmit={(e) => { e.preventDefault(); load(); }}>
+          <input value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Search patient name" />
+          <select value={status} onChange={(e) => setStatus(e.target.value)}>
+            <option value="">All statuses</option>
+            {["pending", "accepted", "rescheduled", "completed", "rejected", "cancelled"].map((item) => <option key={item}>{item}</option>)}
+          </select>
+          <button className="btn primary">Filter</button>
+        </form>
+        <DoctorAppointmentList items={activeAppointments} onAction={action} emptyText="No active appointments. Completed and rejected items are in the archive." />
+      </section>
+      <section className="dash-card doctor-appointments-panel archive-panel">
+        <div className="card-heading doctor-panel-heading">
+          <div>
+            <h2>Archive</h2>
+            <p>Completed, rejected, and cancelled appointments are stored here to keep active work clear.</p>
+          </div>
+          <span className="status-pill">{archivedAppointments.length} archived</span>
+        </div>
+        <DoctorAppointmentList items={archivedAppointments} onAction={action} compact emptyText="No archived appointments yet." />
+      </section>
+    </div>
+  );
+}
+
+function DoctorAppointmentPanel({ title, items, onAction }) {
+  return <section className="dash-card"><div className="card-heading"><h2>{title}</h2></div><DoctorAppointmentList items={items} onAction={onAction} compact emptyText="No upcoming active appointments." /></section>;
+}
+
+function DoctorAppointmentList({ items, onAction, compact = false, emptyText = "No appointments yet" }) {
+  const [notes, setNotes] = useState({});
+  if (!items?.length) return <EmptyState text={emptyText} />;
+  return (
+    <div className={compact ? "doctor-appointment-list compact" : "doctor-appointment-list"}>
+      {items.map((item) => (
+        <article className="doctor-appointment-card clean" key={item.id}>
+          <div className="doctor-appointment-time">
+            <strong>{new Date(item.appointment_time).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}</strong>
+            <span>{new Date(item.appointment_time).toLocaleDateString([], { month: "short", day: "numeric" })}</span>
+          </div>
+          <div className="doctor-appointment-body">
+            <div className="doctor-appointment-title">
+              <div>
+                <strong>{item.patient_name}</strong>
+                <span>{item.patient_email || "Patient"} - Age {item.patient_age || "N/A"}</span>
+              </div>
+              <span className={`status-pill ${item.status === "completed" ? "normal" : item.status === "pending" ? "pending" : item.status === "cancelled" || item.status === "rejected" ? "danger" : ""}`}>{item.status}</span>
+            </div>
+            <div className="doctor-appointment-meta">
+              <span><b>Reason</b>{item.reason_for_visit}</span>
+              <span><b>Urgency</b>{item.urgency_level}</span>
+              <span><b>Best time</b>{item.suggested_best_time_slot}</span>
+            </div>
+            {(item.patient_note || item.symptoms || item.ai_recommendation) && (
+              <div className="doctor-appointment-note">
+                {item.patient_note && <p><b>Patient note:</b> {item.patient_note}</p>}
+                {item.symptoms && <p><b>Symptoms:</b> {item.symptoms}</p>}
+                <p><b>AI scheduling:</b> {item.ai_recommendation || "No AI recommendation yet"}</p>
+              </div>
+            )}
+            {!compact && !["completed", "cancelled", "rejected"].includes(item.status) && (
+              <textarea
+                value={notes[item.id] || ""}
+                onChange={(e) => setNotes((current) => ({ ...current, [item.id]: e.target.value }))}
+                placeholder="Private doctor note before marking complete..."
+              />
+            )}
+            <div className="doctor-actions">
+              {item.status === "pending" && <button className="btn primary" onClick={() => onAction(item.id, "accept")}>Accept</button>}
+              {item.status === "pending" && <button className="btn secondary danger" onClick={() => onAction(item.id, "reject", { reason: "Rejected by doctor from dashboard." })}>Reject</button>}
+              {!["completed", "cancelled", "rejected"].includes(item.status) && <button className="btn secondary" onClick={() => onAction(item.id, "complete", { note_text: notes[item.id] || "" })}>Mark complete</button>}
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  );
+}
+
+function DoctorAINotesPanel({ notes, patientNotes }) {
+  return (
+    <section className="dash-card">
+      <div className="card-heading"><h2>AI Scheduling Notes</h2></div>
+      <div className="doctor-note-list">
+        {!notes?.length ? <EmptyState text="No AI scheduling notes yet" /> : notes.map((note) => (
+          <article key={note.id}>
+            <strong>{note.suggested_slot}</strong>
+            <span>{note.recommendation_text}</span>
+            <small>{note.reason} • Confidence {Math.round(note.confidence_score * 100)}%</small>
+          </article>
+        ))}
+      </div>
+      <div className="card-heading secondary-heading"><h2>Patient Notes</h2></div>
+      <div className="doctor-note-list">
+        {!patientNotes?.length ? <EmptyState text="No patient notes submitted" /> : patientNotes.map((note) => (
+          <article key={note.id}><strong>{note.urgency_level}</strong><span>{note.note_text}</span><small>{note.voice_transcription}</small></article>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function DoctorRequestsPage({ showToast }) {
+  const [items, setItems] = useState([]);
+  async function load() { setItems(await doctorApi("/api/doctor/patient-requests")); }
+  useEffect(() => { load().catch(() => setItems([])); }, []);
+  async function action(id, type) {
+    await doctorApi(`/api/doctor/appointments/${id}/${type}`, { method: "PATCH", body: JSON.stringify({ reason: `${type} from patient requests.` }) });
+    showToast(`Request ${type}.`);
+    load();
+  }
+  return <section className="doctor-page dash-card"><div className="card-heading"><h2>Pending patient requests</h2><span className="status-pill pending">{items.length} pending</span></div><DoctorAppointmentList items={items} onAction={action} /></section>;
+}
+
+function DoctorAvailabilityPage({ showToast }) {
+  const [items, setItems] = useState([]);
+  const [form, setForm] = useState({ day_of_week: 1, start_time: "09:00", end_time: "17:00", slot_duration_minutes: 30, is_available: true, max_patients_per_slot: 1, emergency_only: false });
+  async function load() { setItems(await doctorApi("/api/doctor/availability")); }
+  useEffect(() => { load().catch(() => setItems([])); }, []);
+  async function submit(event) {
+    event.preventDefault();
+    await doctorApi("/api/doctor/availability", { method: "POST", body: JSON.stringify({ ...form, day_of_week: Number(form.day_of_week), slot_duration_minutes: Number(form.slot_duration_minutes), max_patients_per_slot: Number(form.max_patients_per_slot) }) });
+    showToast("Availability added.");
+    load();
+  }
+  async function remove(id) {
+    await doctorApi(`/api/doctor/availability/${id}`, { method: "DELETE" });
+    showToast("Availability removed.");
+    load();
+  }
+  return (
+    <div className="doctor-page doctor-grid-two">
+      <form className="dash-card profile-form" onSubmit={submit}>
+        <h2>Weekly availability</h2>
+        <div className="form-grid">
+          <label>Day<select value={form.day_of_week} onChange={(e) => setForm({ ...form, day_of_week: e.target.value })}>{["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"].map((d, i) => <option key={d} value={i}>{d}</option>)}</select></label>
+          <label>Start time<input type="time" value={form.start_time} onChange={(e) => setForm({ ...form, start_time: e.target.value })} /></label>
+          <label>End time<input type="time" value={form.end_time} onChange={(e) => setForm({ ...form, end_time: e.target.value })} /></label>
+          <label>Duration<input type="number" value={form.slot_duration_minutes} onChange={(e) => setForm({ ...form, slot_duration_minutes: e.target.value })} /></label>
+          <label>Max patients<input type="number" value={form.max_patients_per_slot} onChange={(e) => setForm({ ...form, max_patients_per_slot: e.target.value })} /></label>
+          <label className="checkbox-line"><input type="checkbox" checked={form.emergency_only} onChange={(e) => setForm({ ...form, emergency_only: e.target.checked })} /> Emergency-only slot</label>
+        </div>
+        <button className="btn primary">Add availability</button>
+      </form>
+      <section className="dash-card">
+        <div className="card-heading"><h2>Current slots</h2></div>
+        <div className="doctor-note-list">
+          {!items.length ? <EmptyState text="No availability added" /> : items.map((item) => <article key={item.id}><strong>Day {item.day_of_week}: {item.start_time} - {item.end_time}</strong><span>{item.slot_duration_minutes} min • max {item.max_patients_per_slot}</span><button className="btn danger" onClick={() => remove(item.id)}>Delete</button></article>)}
+        </div>
+      </section>
+    </div>
+  );
+}
+
+function DoctorProfilePage({ doctor, setDoctor, showToast }) {
+  const [form, setForm] = useState(doctor || {});
+  useEffect(() => setForm(doctor || {}), [doctor]);
+  async function submit(event) {
+    event.preventDefault();
+    const updated = await doctorApi("/api/doctor/profile", { method: "PATCH", body: JSON.stringify(form) });
+    setDoctor(updated);
+    localStorage.setItem("mediguide_doctor", JSON.stringify(updated));
+    showToast("Profile updated.");
+  }
+  if (!doctor) return <EmptyState text="Loading profile..." />;
+  return (
+    <form className="doctor-page dash-card profile-form" onSubmit={submit}>
+      <div className="profile-title-row"><div><h2>Doctor profile</h2><p>Email and license number are locked for compliance.</p></div><span className="secure-badge">License {doctor.license_number}</span></div>
+      <div className="form-grid">
+        <label>Full name<input value={form.full_name || ""} onChange={(e) => setForm({ ...form, full_name: e.target.value })} /></label>
+        <label>Email<input value={doctor.email} disabled /></label>
+        <label>License number<input value={doctor.license_number} disabled /></label>
+        <label>Specialization<input value={form.specialization || ""} onChange={(e) => setForm({ ...form, specialization: e.target.value })} /></label>
+        <label>Phone<input value={form.phone_number || ""} onChange={(e) => setForm({ ...form, phone_number: e.target.value })} /></label>
+        <label>Clinic/hospital<input value={form.hospital_or_clinic_name || ""} onChange={(e) => setForm({ ...form, hospital_or_clinic_name: e.target.value })} /></label>
+        <label>Consultation fee<input type="number" value={form.consultation_fee || 0} onChange={(e) => setForm({ ...form, consultation_fee: Number(e.target.value) })} /></label>
+        <label>Languages<input value={form.languages || ""} onChange={(e) => setForm({ ...form, languages: e.target.value })} /></label>
+        <label>Experience years<input type="number" value={form.experience_years || 0} onChange={(e) => setForm({ ...form, experience_years: Number(e.target.value) })} /></label>
+        <label>Mode<select value={form.consultation_modes || "both"} onChange={(e) => setForm({ ...form, consultation_modes: e.target.value })}><option>online</option><option>offline</option><option>both</option></select></label>
+        <label>Profile photo URL<input value={form.profile_image || ""} onChange={(e) => setForm({ ...form, profile_image: e.target.value })} /></label>
+        <label>About doctor<textarea value={form.about_doctor || ""} onChange={(e) => setForm({ ...form, about_doctor: e.target.value })} /></label>
+      </div>
+      <button className="btn primary">Save profile</button>
+    </form>
+  );
+}
+
 function App() {
   return (
     <BrowserRouter>
@@ -1316,6 +2147,12 @@ function App() {
           <Route path="/login" element={<AuthPage mode="login" />} />
           <Route path="/signup" element={<AuthPage mode="signup" />} />
           <Route path="/dashboard" element={<ProtectedRoute><DashboardLayout /></ProtectedRoute>} />
+          <Route path="/doctor/login" element={<DoctorLoginPage />} />
+          <Route path="/doctor/dashboard" element={<DoctorProtectedRoute><DoctorPortal page="dashboard" /></DoctorProtectedRoute>} />
+          <Route path="/doctor/appointments" element={<DoctorProtectedRoute><DoctorPortal page="appointments" /></DoctorProtectedRoute>} />
+          <Route path="/doctor/patient-requests" element={<DoctorProtectedRoute><DoctorPortal page="requests" /></DoctorProtectedRoute>} />
+          <Route path="/doctor/availability" element={<DoctorProtectedRoute><DoctorPortal page="availability" /></DoctorProtectedRoute>} />
+          <Route path="/doctor/profile" element={<DoctorProtectedRoute><DoctorPortal page="profile" /></DoctorProtectedRoute>} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </AuthProvider>

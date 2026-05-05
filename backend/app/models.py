@@ -83,12 +83,19 @@ class Doctor(Base):
 
     id: Mapped[str] = mapped_column(String(64), primary_key=True, index=True)
     name: Mapped[str] = mapped_column(String(120), nullable=False)
+    email: Mapped[str] = mapped_column(String(255), nullable=False, default="", index=True)
+    password_hash: Mapped[str] = mapped_column(String(255), nullable=False, default="")
     department_id: Mapped[int | None] = mapped_column(ForeignKey("departments.id"), nullable=True, index=True)
     clinic_id: Mapped[int | None] = mapped_column(ForeignKey("clinics.id"), nullable=True, index=True)
     specialization: Mapped[str] = mapped_column(String(120), nullable=False, index=True)
     location: Mapped[str] = mapped_column(String(120), nullable=False)
     gender: Mapped[str] = mapped_column(String(40), nullable=False)
     languages: Mapped[str] = mapped_column(String(255), nullable=False)
+    phone_number: Mapped[str] = mapped_column(String(40), nullable=False, default="")
+    license_number: Mapped[str] = mapped_column(String(80), nullable=False, default="")
+    profile_image: Mapped[str] = mapped_column(String(500), nullable=False, default="")
+    about_doctor: Mapped[str] = mapped_column(Text, nullable=False, default="")
+    consultation_modes: Mapped[str] = mapped_column(String(40), nullable=False, default="both")
     working_days: Mapped[str] = mapped_column(String(80), nullable=False, default="0,1,2,3,4")
     working_start: Mapped[str] = mapped_column(String(5), nullable=False, default="09:00")
     working_end: Mapped[str] = mapped_column(String(5), nullable=False, default="17:00")
@@ -108,6 +115,7 @@ class Doctor(Base):
     department: Mapped["Department"] = relationship(back_populates="doctors")
     clinic: Mapped["Clinic"] = relationship(back_populates="doctors")
     availability_slots: Mapped[list["DoctorAvailability"]] = relationship(back_populates="doctor", cascade="all, delete-orphan")
+    private_notes: Mapped[list["DoctorPrivateNote"]] = relationship(back_populates="doctor", cascade="all, delete-orphan")
 
 
 class Department(Base):
@@ -245,3 +253,44 @@ class PatientScheduleMemory(Base):
     confidence_score: Mapped[float] = mapped_column(Float, nullable=False, default=0.75)
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
     updated_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now(), onupdate=func.now())
+
+
+class PatientNote(Base):
+    __tablename__ = "patient_notes"
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, index=True)
+    appointment_id: Mapped[int | None] = mapped_column(ForeignKey("appointments.id"), nullable=True, index=True)
+    patient_id: Mapped[int] = mapped_column(ForeignKey("users.id"), nullable=False, index=True)
+    doctor_id: Mapped[str] = mapped_column(ForeignKey("doctors.id"), nullable=False, index=True)
+    note_text: Mapped[str] = mapped_column(Text, nullable=False, default="")
+    voice_transcription: Mapped[str] = mapped_column(Text, nullable=False, default="")
+    symptoms: Mapped[str] = mapped_column(Text, nullable=False, default="")
+    urgency_level: Mapped[str] = mapped_column(String(24), nullable=False, default="medium")
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
+
+
+class AISchedulingRecommendation(Base):
+    __tablename__ = "ai_scheduling_recommendations"
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, index=True)
+    appointment_id: Mapped[int | None] = mapped_column(ForeignKey("appointments.id"), nullable=True, index=True)
+    doctor_id: Mapped[str] = mapped_column(ForeignKey("doctors.id"), nullable=False, index=True)
+    patient_id: Mapped[int] = mapped_column(ForeignKey("users.id"), nullable=False, index=True)
+    preferred_time: Mapped[str] = mapped_column(String(80), nullable=False, default="")
+    suggested_slot: Mapped[str] = mapped_column(String(120), nullable=False, default="")
+    recommendation_text: Mapped[str] = mapped_column(Text, nullable=False, default="")
+    reason: Mapped[str] = mapped_column(Text, nullable=False, default="")
+    confidence_score: Mapped[float] = mapped_column(Float, nullable=False, default=0.75)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
+
+
+class DoctorPrivateNote(Base):
+    __tablename__ = "doctor_private_notes"
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, index=True)
+    appointment_id: Mapped[int] = mapped_column(ForeignKey("appointments.id"), nullable=False, index=True)
+    doctor_id: Mapped[str] = mapped_column(ForeignKey("doctors.id"), nullable=False, index=True)
+    note_text: Mapped[str] = mapped_column(Text, nullable=False, default="")
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
+
+    doctor: Mapped[Doctor] = relationship(back_populates="private_notes")

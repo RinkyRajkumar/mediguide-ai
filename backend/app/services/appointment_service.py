@@ -12,10 +12,12 @@ from app.models import (
     Appointment,
     AppointmentCancellation,
     AppointmentHistory,
+    AISchedulingRecommendation,
     Clinic,
     Doctor,
     DoctorAvailability,
     Patient,
+    PatientNote,
     PatientPreference,
     PatientScheduleMemory,
     User,
@@ -23,7 +25,7 @@ from app.models import (
 from app.schemas import AppointmentBookRequest, AppointmentRecommendRequest
 from app.skills.appointment_scoring import score_slot, slot_bucket
 
-ACTIVE_STATUSES = {"confirmed", "rescheduled"}
+ACTIVE_STATUSES = {"pending", "accepted", "confirmed", "rescheduled"}
 
 
 def deterministic_embedding(text: str, dimensions: int = 384) -> list[float]:
@@ -333,6 +335,7 @@ def book_appointment(db: Session, user: User, payload: AppointmentBookRequest, r
     doctor = db.get(Doctor, payload.doctor_id)
     if doctor is None:
         raise HTTPException(status_code=404, detail="Doctor not found.")
+    patient = get_or_create_patient(db, user)
 
     if reschedule_id is not None:
         previous = db.query(Appointment).filter(Appointment.id == reschedule_id, Appointment.user_id == user.id).first()
@@ -348,15 +351,35 @@ def book_appointment(db: Session, user: User, payload: AppointmentBookRequest, r
         starts_at=start,
         ends_at=end,
         urgency_level=payload.urgency_level,
-        status="confirmed",
-        constraints=json.dumps({"source": "schedule_agent"}),
+        status="pending",
+        constraints=json.dumps({"source": "schedule_agent", "requires_doctor_approval": True}),
         reasoning=payload.reasoning,
     )
     db.add(appointment)
     db.flush()
-    db.add(AppointmentHistory(appointment_id=appointment.id, user_id=user.id, action="booked", details=payload.reasoning))
+    db.add(AppointmentHistory(appointment_id=appointment.id, user_id=user.id, action="requested", details=payload.reasoning or "Patient requested appointment after AI scheduling validation."))
+    if payload.patient_note or payload.voice_transcription:
+        db.add(PatientNote(
+            appointment_id=appointment.id,
+            patient_id=user.id,
+            doctor_id=doctor.id,
+            note_text=payload.patient_note,
+            voice_transcription=payload.voice_transcription,
+            symptoms=payload.patient_note,
+            urgency_level=payload.urgency_level,
+        ))
+    db.add(AISchedulingRecommendation(
+        appointment_id=appointment.id,
+        doctor_id=doctor.id,
+        patient_id=user.id,
+        preferred_time=payload.preferred_time_range or slot_bucket(start),
+        suggested_slot=start.strftime("%Y-%m-%d %I:%M %p"),
+        recommendation_text=payload.reasoning or f"AI suggested {start.strftime('%I:%M %p')} based on patient preferences and doctor availability.",
+        reason=payload.recommendation_reason or payload.reasoning or "The slot was free in the doctor's availability schedule and did not conflict with patient or doctor bookings.",
+        confidence_score=0.82,
+    ))
     update_preferences_from_booking(db, user.id, doctor, start)
-    save_schedule_memory(db, user.id, f"Patient booked {slot_bucket(start)} appointment with {doctor.languages} speaking {doctor.gender} doctor at {doctor.location} for {doctor.specialization}.", "booking_behavior", 0.82)
+    save_schedule_memory(db, patient.id, f"Patient requested {slot_bucket(start)} appointment with {doctor.languages} speaking {doctor.gender} doctor at {doctor.location} for {doctor.specialization}.", "booking_behavior", 0.82)
     db.commit()
     db.refresh(appointment)
     return appointment

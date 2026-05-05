@@ -29,6 +29,12 @@ def create_access_token(user: User) -> str:
     return jwt.encode(payload, settings.jwt_secret, algorithm=ALGORITHM)
 
 
+def create_doctor_access_token(doctor) -> str:
+    expires = datetime.now(timezone.utc) + timedelta(minutes=settings.jwt_expires_minutes)
+    payload = {"sub": str(doctor.id), "email": doctor.email, "role": "doctor", "exp": expires}
+    return jwt.encode(payload, settings.jwt_secret, algorithm=ALGORITHM)
+
+
 def get_current_user(
     credentials: HTTPAuthorizationCredentials | None = Depends(bearer),
     db: Session = Depends(get_db),
@@ -46,3 +52,26 @@ def get_current_user(
     if user is None:
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="User no longer exists.")
     return user
+
+
+def get_current_doctor(
+    credentials: HTTPAuthorizationCredentials | None = Depends(bearer),
+    db: Session = Depends(get_db),
+):
+    from app.models import Doctor
+
+    if credentials is None:
+        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Doctor authentication required.")
+
+    try:
+        payload = jwt.decode(credentials.credentials, settings.jwt_secret, algorithms=[ALGORITHM])
+        if payload.get("role") != "doctor":
+            raise ValueError("Not a doctor token")
+        doctor_id = str(payload["sub"])
+    except Exception as exc:
+        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Invalid or expired doctor token.") from exc
+
+    doctor = db.get(Doctor, doctor_id)
+    if doctor is None or doctor.status != "active":
+        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Doctor account is inactive or unavailable.")
+    return doctor

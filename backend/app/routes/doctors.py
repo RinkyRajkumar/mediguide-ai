@@ -17,10 +17,26 @@ def get_doctors(
     location: str = "",
     language: str = "",
     gender: str = "any",
+    search: str = "",
+    limit: int = 600,
     _: User = Depends(get_current_user),
     db: Session = Depends(get_db),
 ):
     doctors = doctor_query(db, specialization, location, language, gender).all()
+    if search.strip():
+        term = search.strip().lower()
+        doctors = [
+            doctor
+            for doctor in doctors
+            if term in doctor.name.lower()
+            or term in doctor.specialization.lower()
+            or term in doctor.location.lower()
+            or term in doctor.languages.lower()
+            or term in doctor.qualification.lower()
+            or (doctor.clinic and term in doctor.clinic.name.lower())
+            or (doctor.clinic and term in doctor.clinic.city.lower())
+        ]
+    doctors = doctors[: max(1, min(limit, 1000))]
     return [
         {
             "id": doctor.id,
@@ -28,7 +44,23 @@ def get_doctors(
             "specialization": doctor.specialization,
             "location": doctor.location,
             "gender": doctor.gender,
-            "languages": doctor.languages.split(","),
+            "languages": [item.strip() for item in doctor.languages.split(",") if item.strip()],
+            "qualification": doctor.qualification,
+            "experience_years": doctor.experience_years,
+            "consultation_fee": doctor.consultation_fee,
+            "rating": doctor.rating,
+            "online_consultation": doctor.online_consultation.lower() == "true",
+            "consultation_modes": doctor.consultation_modes,
+            "appointment_duration_minutes": doctor.appointment_duration_minutes,
+            "max_daily_appointments": doctor.max_daily_appointments,
+            "preferred_patient_age_group": doctor.preferred_patient_age_group,
+            "clinic": {
+                "name": doctor.clinic.name if doctor.clinic else doctor.location,
+                "city": doctor.clinic.city if doctor.clinic else "",
+                "area": doctor.clinic.area if doctor.clinic else "",
+                "address": doctor.clinic.address if doctor.clinic else "",
+            },
+            "about_doctor": doctor.about_doctor,
         }
         for doctor in doctors
     ]

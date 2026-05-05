@@ -3,7 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from app.config import settings
 from app.database import init_db
-from app.routes import ai, appointments, auth, doctors, health, medications, patients, schedule_memory
+from app.routes import ai, appointments, auth, doctor, doctors, health, medications, patients, schedule_memory
 
 app = FastAPI(
     title="MediGuide AI API",
@@ -40,6 +40,7 @@ def root():
 
 
 app.include_router(auth.router)
+app.include_router(doctor.router)
 app.include_router(ai.router)
 app.include_router(health.router)
 app.include_router(appointments.router)
